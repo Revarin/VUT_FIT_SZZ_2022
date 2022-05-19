@@ -1,0 +1,3 @@
+# Boolovy algebry
+- Otázky:
+- Předmět:
