@@ -1,6 +1,6 @@
 # Boolovy algebry
 - Otázky:
-- Předmět:
+- Předmět: INC, IDM
 - ToDo: Příklady
 - Zdroje:
     - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINC-IT%2Flectures%2F10-booleova_algebra-minimalizace.pdf (booleova algebra)

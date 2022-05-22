@@ -7,6 +7,7 @@ Sepsaná témata pro státní závěrečnou zkoušku VUT FIT 2022.
 - [Google Table se zkušenostma ze zkouškového *](https://docs.google.com/spreadsheets/d/15RB5caq9spDcjsAp-0Wj332YngLLQH_c-BQnrbvpctY/edit#gid=1634968603)
 - [Google Doc s odkazi na přednášky k jednotlivým tématům](https://docs.google.com/document/d/1yw6gOfm3u5CeUHyTif9AQg_hfXmk5pOolrxq0icljqA/edit)
 - [Archiv se zpracovanými tématy *](https://uloz.to/file/3OnDvKggmlEv/isz-zip?fbclid=IwAR0E6N86sOsoJvxHX3hV914pewqY5BijBoetmqMz_h7pLvlByhc9yb8H6Jk)
+- [Soubor s vypracovanými tématy](https://cdn.discordapp.com/attachments/790596434940133377/976226068975484988/SZZ.pdf)
 
 ## Markdown
 ### Citáty
