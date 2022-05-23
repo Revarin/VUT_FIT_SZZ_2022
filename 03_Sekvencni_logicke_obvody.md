@@ -56,7 +56,7 @@ Stavový automat (FSM) je sekvenční obvod, který se skládá z tří částí
 - __Next-state logic__ - definuje do jakého stavu máme přejít
 - __Paměť__ - ukládá aktuální stav
 - Výstupy
-    - __Moore výstup__ - výstup závysí pouze na vnitřním stavu.
+    - __Moore výstup__ - výstup závisý pouze na vnitřním stavu.
     - __Mealy výstup__ - výstup závisý na vnitřním stavu a vstupu.
 
 Je to šestice \(A=(X,Y,Q,q_0,P,V)\), kde:
@@ -67,7 +67,7 @@ Je to šestice \(A=(X,Y,Q,q_0,P,V)\), kde:
 - \(P\) ... přechodová funkce \(X \times Q \rightarrow Q\)
 - \(V\) ... výstupní funkce \(X \times Q \rightarrow Y\)
 
-Stavobé automaty se mohou dělet na synchronní a asynchronní a dále na úrovňové a hranové:
+Stavové automaty se mohou dělit na synchronní a asynchronní a dále na úrovňové a hranové:
 - __Asynchronní__ - změna vstupní proměnné se promítne ihned do stavu sekvenčního obvodu.
 - __Synchronní__ - používá se synchronizační signál (hodinový signál), změna vstupní proměnné se promítne do stavu sekvenčního obvodu až při příchodu hodinového signálu.
 - __Úrovňové__ - sekvenční obvod sleduje hodnoty vstupních proměnných a tím i jejich změny po celou dobu trvání hodinového signálu a průběžně na ně reaguje.

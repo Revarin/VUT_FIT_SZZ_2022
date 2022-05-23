@@ -58,7 +58,7 @@ RVP je rozdělena do bloků o konstatní velikosti, v hlavní paměti jsou bloky
 Existuje několik způsobů organizace RVP podle typu mapování dat z vyšších vrstev paměti.
 
 ### RVP s přímým mapováním
-RVP má rámce popsané adresami, které jsou menší než adresy v hlavní paměti. Adresy polohy bloku se určí podle nejnižších _x_ bitů. Protože, ale v hlavní paměti je více bloků se stejnou RVP adresou je nutné uchovávat informaci, jaký blok je v RVP přítomem - __adresový příznak__ (tag), což jsou zbývající horní bity adresy. Navíc se používá i __příznak platnosti__ dat (valid bit).
+RVP má rámce popsané adresami, které jsou menší než adresy v hlavní paměti. Adresy polohy bloku se určí podle nejnižších _x_ bitů. Protože, ale v hlavní paměti je více bloků se stejnou RVP adresou je nutné uchovávat informaci, jaký blok je v RVP přítomen - __adresový příznak__ (tag), což jsou zbývající horní bity adresy. Navíc se používá i __příznak platnosti__ dat (valid bit).
 
 ![RVP s přímým mapováním](./Images/04/rvp_s_primym_mapovanim.png)
 
