@@ -33,7 +33,7 @@ Paměti slouží pro uchovávání dat. Existují různé druhy pamětí s různ
     - EEPROM - Electricaly Erasable Programable ROM
 - Poměr cena/bit
 
-Obecně platí, že čím větší kapacita, tíme menší je cena/bit a přenosová rychlost. A protože větší pamětí jsou obvykle mnohem pomalejší než procesor je nutné využívat __paměťovou hierarchii__. Čím blíže je paměť k procesoru, tím menší ale rychlejší je. Obecně můžeme paměť rozdělit na následující úrovně:
+Obecně platí, že čím větší kapacita, tím menší je cena/bit a přenosová rychlost. A protože větší paměti jsou obvykle mnohem pomalejší než procesor je nutné využívat __paměťovou hierarchii__. Čím blíže je paměť k procesoru, tím menší ale rychlejší je. Obecně můžeme paměť rozdělit na následující úrovně:
 - Registry a cache v procesoru
 - Cache (SRAM)
 - Hlavní pamět (DRAM)

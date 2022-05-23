@@ -4,9 +4,9 @@
 - Zdroj: http://szz.g6.cz/doku.php?id=temata:01-polovodice:main
 
 ## Polovodiče
-Polovodiče jsou látky, které se vyznačují negativní tepelnou závislostí odporu. Se zvyšující se teplotou odpor látky klesá a tudíž jí lépe prochází elektrický proud. Chování odporu lze ovlivnit přímesy. Polovodiče mají často také optické vlastnosti.
+Polovodiče jsou látky, které se vyznačují negativní tepelnou závislostí odporu. Se zvyšující se teplotou odpor látky klesá a tudíž jí lépe prochází elektrický proud. Chování odporu lze ovlivnit příměsi. Polovodiče mají často také optické vlastnosti.
 
-Polovodičové součástky jsou nejčastěji postaveny na křemíku (Si). Křemík má 4 valenční elektrony, což mu umožňuje vytvářet až 4 vazby s vedlejšími atomy. Krystalová mrížka z čistého křemíku nemá příliš zajímavé elektrické vlastnosti. Ty jsou zajímavější, když se do mřížky zanese příměs. Tomu se říká _doping_ a využívá se k tomu prvky jako fosfor (\(P_5\), donor), nebo bor (\(B_3\), akceptor). Vznikají tak polovodiče typy N nebo typu P.
+Polovodičové součástky jsou nejčastěji postaveny na křemíku (Si). Křemík má 4 valenční elektrony, což mu umožňuje vytvářet až 4 vazby s vedlejšími atomy. Krystalová mřížka z čistého křemíku nemá příliš zajímavé elektrické vlastnosti. Ty jsou zajímavější, když se do mřížky zanese příměs. Tomu se říká _doping_ a využívají se k tomu prvky jako fosfor (\(P_5\), donor), nebo bor (\(B_3\), akceptor). Vznikají tak polovodiče typy N nebo typu P.
 
 V polovodičích typu P chybí elektrony a tudíž převládá děrová vodivost - jako nositelé elektrického proudu převažují díry. Naproti tomu v polovodičích tupu N přebývají elektrony, které jsou tak majoritní nositelé elektrického proudu - elektronová vodivost.
 
@@ -14,7 +14,7 @@ V polovodičích typu P chybí elektrony a tudíž převládá děrová vodivost
 PN přechod je rozmezí polovodičů typu P a N. Při jejich spojení nastává _difuze_, část elektronů se přesune z N do P a část děr se přesune z P do N. Procesem _rekombinace_ vznikne pásmo, ve kterém nejsou žádné volné nosiče náboje - __potenciálová beriéra__.
 
 ## Dioda
-Dioda je polovodičová součástka tvořena jedním PN přechodem. Dioda umožňuje pouštět proud pouze jedním směrem. Podle způsobu připojení ke zdroji elekterického pole můžeme teda řídit proud:
+Dioda je polovodičová součástka tvořena jedním PN přechodem. Dioda umožňuje pouštět proud pouze jedním směrem. Podle způsobu připojení ke zdroji elektrického pole můžeme teda řídit proud:
 - __Propustný směr__ - dioda je ke zdroji připojena shodnými póly, potenciálová bariéra je překonána, proud protéká.
 - __Závěrný směr__ - dioda je ke zdroji připojena opačnými póly, potenciálová bariéra se zvětší, proud neprotéká.
 
@@ -54,7 +54,7 @@ Tranzistor CMOS typu P funguje obdobně jako CMOS typu N. Využívá pouze polov
 
 ![Schéma tranzistoru CMOS typu N a P](./Images/01/unipolarni_tranzistor.png)
 
-### NAND a NOR v technologii CMOS
+### NAND v technologii CMOS
 
 ![NAND v technologii CMOS](./Images/01/nand_cmos.png)
 

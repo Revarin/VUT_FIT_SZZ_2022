@@ -14,7 +14,7 @@ Multiplexor je kombinační obvod, který přepíná signál z více vstupů na 
 ![Multiplexor komponenta](./Images/02/multiplexor_hradlo.png)
 ![Multiplexor schéma](./Images/02/multiplexor_schema.png)
 
-Multiplexory vyšího poměru lze skládat z multiplexorů nižšího poměru. Nižší multiplexor tak označuje pouze menší počet bitů z celkové adresy. Multiplexor se využívá pro převod paralelního vstupu na sériový (data selector) nebo pro tvorbu vlastních logických funkcí.
+Multiplexory vyššího poměru lze skládat z multiplexorů nižšího poměru. Nižší multiplexor tak označuje pouze menší počet bitů z celkové adresy. Multiplexor se využívá pro převod paralelního vstupu na sériový (data selector) nebo pro tvorbu vlastních logických funkcí.
 
 ## Demultiplexor
 Demultiplexor je kombinační obvod, který jeden vstup mapuje na více výstupů. Podle signálu na vodiči __S__ (Select) se vybere na který výstup se signál namapuje. Demultiplexor se označuje podle poměru, např.: 1-2, 1-4.
@@ -51,7 +51,7 @@ V praxi se využívá CLA sčítačka (Carry-Look-Ahead). Tato sčítačka má n
 - G (generate) - značí případ, kdy __určitě__ nastane přesun do vyššího řádu
 - P (propagate) - značí případ, kdy __může__ nastat přesun do vyššího řádu
 
-Jednotlivé výstupy CLA sčítačky se vypočítavají následovně:
+Jednotlivé výstupy CLA sčítačky se vypočítají následovně:
 - \(C_{i+1} = G_i\,and\,(P_i\,or\,C_i)\)
 - \(S = A\,xor\,B\,xor\,C\)
 - \(G = A\,and\,B\)
