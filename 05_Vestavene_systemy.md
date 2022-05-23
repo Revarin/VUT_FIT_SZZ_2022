@@ -27,7 +27,7 @@ Mikrokontrolér může běžet v různých režimech činnosti, které mají rů
 
 Standardní programová smyčka je následující:
 - Pokud je volán podprogram, je předáno řízení hlavnímu programu až po provedení celého podprogramu.
-- Při přerušení je podprogram volán instrukcí a program obsluhy přerušení je zase vyvolán hardwarove. Přerušení probíhá nesynchronizovaně, nelze určit, kfy se předá řízení.
+- Při přerušení je podprogram volán instrukcí a program obsluhy přerušení je zase vyvolán hardwarově. Přerušení probíhá nesynchronizovaně, nelze určit, kdy se předá řízení.
 - Průběh obsluhy přerušení:
     1. Detekce přerušení - po detekci požadavku na přerušení CPU dokončí vykonávanou instrukci.
     2. Uložení kontextu CPU na zásobník.

@@ -33,7 +33,7 @@ Paměti slouží pro uchovávání dat. Existují různé druhy pamětí s různ
     - EEPROM - Electricaly Erasable Programable ROM
 - Poměr cena/bit
 
-Obecně platí, že čím větší kapacita, tíme menší je cena/bit a přenosová rychlost. A protože větší pamětí jsou obvykle mnohem pomalejší než procesor je nutné využívat __paměťovou hierarchii__. Čím blíže je paměť k procesoru, tím menší ale rychlejší je. Obecně můžeme paměť rozdělit na následující úrovně:
+Obecně platí, že čím větší kapacita, tím menší je cena/bit a přenosová rychlost. A protože větší paměti jsou obvykle mnohem pomalejší než procesor je nutné využívat __paměťovou hierarchii__. Čím blíže je paměť k procesoru, tím menší ale rychlejší je. Obecně můžeme paměť rozdělit na následující úrovně:
 - Registry a cache v procesoru
 - Cache (SRAM)
 - Hlavní pamět (DRAM)
@@ -58,7 +58,7 @@ RVP je rozdělena do bloků o konstatní velikosti, v hlavní paměti jsou bloky
 Existuje několik způsobů organizace RVP podle typu mapování dat z vyšších vrstev paměti.
 
 ### RVP s přímým mapováním
-RVP má rámce popsané adresami, které jsou menší než adresy v hlavní paměti. Adresy polohy bloku se určí podle nejnižších _x_ bitů. Protože, ale v hlavní paměti je více bloků se stejnou RVP adresou je nutné uchovávat informaci, jaký blok je v RVP přítomem - __adresový příznak__ (tag), což jsou zbývající horní bity adresy. Navíc se používá i __příznak platnosti__ dat (valid bit).
+RVP má rámce popsané adresami, které jsou menší než adresy v hlavní paměti. Adresy polohy bloku se určí podle nejnižších _x_ bitů. Protože, ale v hlavní paměti je více bloků se stejnou RVP adresou je nutné uchovávat informaci, jaký blok je v RVP přítomen - __adresový příznak__ (tag), což jsou zbývající horní bity adresy. Navíc se používá i __příznak platnosti__ dat (valid bit).
 
 ![RVP s přímým mapováním](./Images/04/rvp_s_primym_mapovanim.png)
 
