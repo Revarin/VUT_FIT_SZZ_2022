@@ -18,10 +18,10 @@ Logický výraz se skládá z __termů__. Term je uspořádaná skupina _proměn
 
 ### Normální formy
 Logické funkce mohou být zapsány v několika speciálních formách:
-- __Úplná normální disjunktní forma__ (UNDF) - Výraz je zapsán jako suma součinů. V jednotlivých součinech (termech, _implikantech_) se vyskytují všechny proměnné dané funkce. Pro každou funkci existuje jenom jedna UNDS. Disjunktní formy se tvoří tak, že se sepisují jen vrcholy funkce, ve kterých funkce nabývá hodnoty log. 1 (Př.: \(((x_1 \wedge x_2) \vee (\neg x_3 \wedge x_4))\)).
+- __Úplná normální disjunktní forma__ (UNDF) - Výraz je zapsán jako suma součinů. V jednotlivých součinech (termech, _implikantech_) se vyskytují všechny proměnné dané funkce. Pro každou funkci existuje jenom jedna UNDS. Disjunktní formy se tvoří tak, že se sepisují jen vrcholy funkce, ve kterých funkce nabývá hodnoty log. 1 (Př.: \(((x_1 \land x_2) \lor (\neg x_3 \land x_4))\)).
     - __Zkrácená normální disjunktní forma__ - Částečně minimalizovaná UNDF.
     - __Minimální normální disjunktní forma__ (MNDF) - Funkce, u které již nelze eliminovat žádnou proměnnou z termu. Takovýchto forem může existovat více.
-- __Úplná normální konjunktní forma__ (UNKF) - Výraz je sepsán jako součin sum. V jednotlivých součtech (termech, _implicentech_) se vyskytují všechny proměnné dané funkce. Pro každou funkci existuje jenom jedna UNKF. Konjunktní formy se tvoří tak, že se sepisují jen vrcholy funkce, ve kterých funkce nabývá hodnoty log. 0 (Př.: \(((x_1 \vee x_2) \wedge (\neg x_3 \vee x_4))\)).
+- __Úplná normální konjunktní forma__ (UNKF) - Výraz je sepsán jako součin sum. V jednotlivých součtech (termech, _implicentech_) se vyskytují všechny proměnné dané funkce. Pro každou funkci existuje jenom jedna UNKF. Konjunktní formy se tvoří tak, že se sepisují jen vrcholy funkce, ve kterých funkce nabývá hodnoty log. 0 (Př.: \(((x_1 \lor x_2) \land (\neg x_3 \lor x_4))\)).
     - __Zkrácená normální konjunktní forma__ - Částečně minimalizovaná UNKF.
     - __Minimální normální konjunktní forma__ (MNKF) - Funkce, u které již nelze eliminovat žádnou proměnnou z termu. Takovýchto forem může existovat více.
 
@@ -62,7 +62,7 @@ Minimalizační metoda Quine-McCluskey je _tabulární minimalizační_ metoda v
 - __Množina minimálních implikantů__ - Je množina obsahující zkrácené implikanty.
 - __Minimální řešení funkce__ - Je jedna nebo více podmnožin množiny minimálních implikantů. Může zároveň existovat i více ekvivalentních řešení, které mohou mít různé další vlastnosti.
     - __Nesporný implikant__ - Zkrácený implikant, který bude vždy součástí minimálního řešení.
-    - __Volitelný implikant__ - Zkrácený implikant, který můýe, ale nemusí být součástí minimálního řešení pokud lze použít jiný zkrácený implikant.
+    - __Volitelný implikant__ - Zkrácený implikant, který může, ale nemusí být součástí minimálního řešení pokud lze použít jiný zkrácený implikant.
 - __Mřížka implikantů__ - Mřížka implikantů představuje grafické znázornění pokrytí vrcholů funkce, které umožňuje přehledné hledání minimálního pokrytí dané funkce zkrácenými implikanty nalezenými pomocí metody Quine-McCluskey.
 - __Petrickova funkce__ - Algoritmus nalezení minimálního pokrytí aritmeticky. Funkce umožňuje nalezení optimálního řešení, její složitost však narůstá s počtem zkrácených implikantů.
 
@@ -79,7 +79,7 @@ Minimalizační metoda Quine-McCluskey je _tabulární minimalizační_ metoda v
 ### Mřížka implikantů
 Mřížka implikantů představuje grafické znázornění pokrytí vrcholů funkce, které umožňuje přehledné hledání minimálního pokrytí dané funkce zkrácenými implikanty nalezenými pomocí metody Quine-McCluskey. V této mřížce jsou jako řádky zapsané všechny poteciální zkrácené implikanty (_volitelné implikanty_) a sloupce jsou všechny elementární implikanty, které pokrývají.
 
-Při řešení je nejdříve nutné zahrnout _nesporné implikanty_ - elementární implikanty pokryté pouze jedním volitelným implikantem. Následně se hledá co nejmenší množina volitelných implikantů, která pokrývá všechny elementární implikanty. Tato výsledná množina představuje výsledek minimálního pokrytí pomocí zkrávených a nesporných implikantů.
+Při řešení je nejdříve nutné zahrnout _nesporné implikanty_ - elementární implikanty pokryté pouze jedním volitelným implikantem. Následně se hledá co nejmenší množina volitelných implikantů, která pokrývá všechny zbylé elementární implikanty. Tato výsledná množina představuje výsledek minimálního pokrytí pomocí zkrávených a nesporných implikantů.
 
 ![Mřížka implikantů](/Images/08/mrizka_implikantu.png)
 ![Řešení mřížky implikantů](/Images/08/mrizka_implikantu_reseni.png)
@@ -92,6 +92,6 @@ Petrickova funkce je algoritmus nalezení minimálního pokrytí aritmeticky. Fu
     - Pro každý nepokrytý implikant se zapíše výraz jako suma zkrácených implikantů, které jej pokrývají.
     - Výsledné sumy se zapíšou jako součin - vznikne tak konjunktiní forma.
 4. Vzniklý zápis v konjunktní formě se přepíše na disjunktní (prosté roznásobení).
-5. Tento výraz se zjendnodušší pomocí teorémů Boolovy algebry.
+5. Tento výraz se zjednodušší pomocí teorémů Boolovy algebry.
 6. Každý vzniklý term představuje jedno možné pokrytí
 7. Z těchto termů vybereme pokrytí s nejnižší cenou, kde cenou rozumíme počet zkrácených implikantů a počet proměnných v každém zkráceném implikantu.

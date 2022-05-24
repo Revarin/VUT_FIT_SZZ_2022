@@ -7,11 +7,11 @@
     - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINC-IT%2Flectures%2F06-navrh-obvodu-a-jazyk-vhdl.pdf
 
 ## Programovatelný logický obvod
-Obvodová implementace algoritmů je obvykle výrazně rychlejší než jeho programová alternativa spuštěná v procesoru. Je v ní možné využít vyššího stupně __paralelismu__, aplikačně specifických HW komponent a speciálních způsobů kódování. Díky tomu je výsledná obvodová realizace algoritmu rychlejší, zabírá méně místa na čipu než procesor a má obvykle i menší spotřeba. Takovéto specifické obvody jsou ale náročné na návrh a taky jsou dražší než obecně použitelné procesy. Obvodová realizace bývá méně flexibilní (jednoúčelová) a nelze ji jednoduše modifikovat. Jako kompromis mezi obvodovou implementací a programovou implementací lze využí __programovatelné logické obvody__.
+Obvodová implementace algoritmů je obvykle výrazně rychlejší než jeho programová alternativa spuštěná v procesoru. Je v ní možné využít vyššího stupně __paralelismu__, aplikačně specifických HW komponent a speciálních způsobů kódování. Díky tomu je výsledná obvodová realizace algoritmu rychlejší, zabírá méně místa na čipu než procesor a má obvykle i menší spotřebu. Takovéto specifické obvody jsou ale náročné na návrh a taky jsou dražší než obecně použitelné procesy. Obvodová realizace bývá méně flexibilní (jednoúčelová) a nelze ji jednoduše modifikovat. Jako kompromis mezi obvodovou implementací a programovou implementací lze využí __programovatelné logické obvody__.
 
 Programovatelný logický obvod (PLD) mají předdefinovanou strukturu, kterou lze různým způsobem programovat pro realizaci logických obvodů. Mohou též obsahovat klopné obvody, třístavové budiče, paměti a další prvky. Existují různé technologie programovatelných logických obvodů, jako například ROM, PLA, PAL, GAL, CPLD, __FPGA__.
 
-Programování těchto obvodů lte provést různými způsoby podle použité technologie PLD. Programování se provádí pomocí programátoru nebo přímo v zařízení pomocí specializovaného rozhraní.
+Programování těchto obvodů lze provést různými způsoby podle použité technologie PLD. Programování se provádí pomocí programátoru nebo přímo v zařízení pomocí specializovaného rozhraní.
 - Přepálením _pojistky_ (PAL, PLA)
 - Naprogramováním paměťových buněk PROM (GAL, CPLD)
 - Naprogramování paměti SRAM (FPGA)
@@ -87,7 +87,7 @@ Jednotlivé elementy FPGA čipu jsou propojeny skrze rozsáhlou konfigurovatelno
 ### Konfigurace
 Konfigurace je obvykle na FPGA čipu uložena v paměti SRAM a po vypnutí napájení se ztrácí. Některé typy konfigurovatelných obvodů (CPLD) používají paměť typu FLASH s omezeným počtem programování. Konfigurace FPGA specifikuje nastavení výše zmíněných komponent FPGA. Existují různé způsoby konfigurace:
 - Režim __master__ - FPGA čip si po zapnutí sám nahraje konfiguraci z externí paměti.
-- Režim __slavel__ - FPGA čip po zapnutí čeka než mu někdo nahraje konfiguraci z externí paměti.
+- Režim __slave__ - FPGA čip po zapnutí čeka než mu někdo nahraje konfiguraci z externí paměti.
 - Skrze sériové rozhraní (SPI)
 - Skrze paralelní rozhraní (BPI)
 

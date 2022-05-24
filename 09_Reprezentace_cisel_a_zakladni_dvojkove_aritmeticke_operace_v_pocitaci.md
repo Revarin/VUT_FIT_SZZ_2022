@@ -9,7 +9,7 @@
 Čísla lze v počítačích reprezentovat pouze v binární podobě. Existují různé způsoby binární reprezentace čísel, které mají různé vlastnosti a různě pracují s reálnými čísly. Tyto různé zápisy jsou charakterizovány následujícími vlastnostmi:
 - __Rozsah zobrazení__ - Interval ohraničení zleva nejmenším a zprava největším zobrazitelným číslem. Závisí na počtu bitů.
 - __Rozlišitelnost zobrazení__ - Nejmenší (kladné) zobrazitelné číslo.
-- __Přesnot zorbazení__ - Počet platných dekadických číslic, které je možné zobrazit v paměťovém prostoru (hodnota nezávislá na velikosti zobrazovaného čísla).
+- __Přesnost zobrazení__ - Počet platných dekadických číslic, které je možné zobrazit v paměťovém prostoru (hodnota nezávislá na velikosti zobrazovaného čísla).
 
 ## Pevná řádová čárka
 Pevná řádová čárka (FX) je formát zobrazení dvojkových čísel, který přesně definuje počet bitů pro _celou část_ čísla a _desetinou část_ čísla. Dnes se tento způsob reprezentace využívá výhradně pro celá čísla (tudíž čísla bez desetinné části).
@@ -20,7 +20,7 @@ Pevná řádová čárka (FX) je formát zobrazení dvojkových čísel, který 
 Reprezentace čísel se znaménkem má několik verzí:
 - __Přímý kód__ - První bit čísla je rezervován pro znaménko (1 pro záporná čísla, 0 pro kladná čísla), kladné číslo se tak od svého záporného protějšku liší pouze v tomto bitě. Existuje zde však problém dvou nul (kladná nula a záporná nula). Také se zde může vyskytnout problémy u některých aritmetických operací. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
 - __Doplňkový kód__ (dvojkový doplněk) - Kladné číslo je reprezentováno normálně. Záporné číslo se z kladného čísla tvoří jeho inverzí a následně přičtením 1. Vytvoření kladného čísla ze záporného je provedeno stejně. Je zde pouze jedna reprezentace nuly a nevyskytují se žádné problémy aritmetickými operacemi. Je to nejčastěji používaný způsob reprezentace čísel se znaménkem.
-- __Aditivní kód__ (kód s posunutou nulou, kód s transformovanou nulou) - Nejvyšší bit čísla reprezentuje opět znaménko, ale 0 je pro záporné čísla a 1 pro kladné čísla. Celý zápis čísla je tak posunut o nějakou konstantu. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
+- __Aditivní kód__ (kód s posunutou nulou, kód s transformovanou nulou) - Nejvyšší bit čísla reprezentuje opět znaménko, ale 0 je pro záporná čísla a 1 pro kladná čísla. Celý zápis čísla je tak posunut o nějakou konstantu. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
 - __Binary Coded Decimal__ (BCD) - Speciální binární zápis dekadických čísel, kde každá dekadická číslice je zobrazena v jednom _niblu_ (4 bity bytu). Znaménko může být v prvním bytu.
 
 ![Interval pro přímý kód](/Images/09/interval_primy_kod.png)
@@ -40,7 +40,7 @@ __Násobení__ se provádí stejně jako v desítkové soustavě. Výsledek zde 
 
 ![Násobení binárních čísel](/Images/09/nasobeni.png)
 
-__Celočíselné dělení__ je v počítači velmi náročná operace, která se může provádět různými metodami. V případě dělení čísel se znaménkem se nejdříve provede dělení s absolutními hodnotymi čísel a poté je výsledné znaménko doplněno dle znamének čísel. Obecně je postupn následující:
+__Celočíselné dělení__ je v počítači velmi náročná operace, která se může provádět různými metodami. V případě dělení čísel se znaménkem se nejdříve provede dělení s absolutními hodnotymi čísel a poté je výsledné znaménko doplněno dle znamének čísel. Obecně je postup následující:
 1. Vezmeme část dělence, která je větší nebo rovna děliteli, ale menší jak dvojnásobek dělitele.
 2. Provedeme podíl vybrané části (bude vždy 1) a zapíšeme do výsledku.
 3. Zbytek si zapíšeme a připíšeme si další číslo z dělence. Pokud je část menší jak dělitel, do výsledku zapíšeme 0 a připíšeme další část.
@@ -97,6 +97,6 @@ Norma počítá s implicitní jedničkou v mantise. Dále tento standard definuj
 |255|not 0|_not a number_ (NaN)|
 
 ### Aritmetické operace
-__Součina__ čísel s plovoucí řádovou čárkou není asociativní (chyba). Je to vlastně součin vynásobených mantis a základu na součet exponentů (\(X \times Y = (M_X \times M_Y) \times B^{E_X + E_Y}\)).
+__Součin__ čísel s plovoucí řádovou čárkou není asociativní (chyba). Je to vlastně součin vynásobených mantis a základu na součet exponentů (\(X \times Y = (M_X \times M_Y) \times B^{E_X + E_Y}\)).
 
 __Sčítání__ a __odčítání__ čísel s plovoucí rádovou čárkou se provede převodem obou čísel na stejný exponent a následným sečtením/odečtením mantis obou čísel.
