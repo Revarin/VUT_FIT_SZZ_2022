@@ -32,7 +32,7 @@ __Sčítání__ se provádí stejně jako v desítkové soustavě. V případě 
 
 ![Sčítání binárních čísel](/Images/09/scitani.png)
 
-__Odčítání__ se provádí stejně jako v desítkové soustavě. Je zde třeba brát v úvahu přenos. Přo odčítání čísel se znaménkem se kontrolují příznaky výpůjčky do (C) a z (P) nejvyššího bitu. Pokud jsou oba tyto příznaky aktivní nebo neaktivní zároveň, je výsledek správný, jinak se jedná o nesprávný výsledek.
+__Odčítání__ se provádí stejně jako v desítkové soustavě. Je zde třeba brát v úvahu přenos. Pro odčítání čísel se znaménkem se kontrolují příznaky výpůjčky do (C) a z (P) nejvyššího bitu. Pokud jsou oba tyto příznaky aktivní nebo neaktivní zároveň, je výsledek správný, jinak se jedná o nesprávný výsledek.
 
 ![Odčítání binárních čísel](/Images/09/odcitani.png)
 

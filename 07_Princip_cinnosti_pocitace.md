@@ -20,7 +20,7 @@ Zřetězené zpracování instrukcí (_pipelining_) je provádění různých č
 ![Výukový RISC procesor](/Images/07/vyukovy_procesor.png)
 
 ### Rizika zřetězeného zpracování
-Zřetězení zpracování instrukcí obsahuje jisté rizika. _Sekvenční_ model zpracování předpokládá, že se každá instrukce dokončí před vykonáváním další instrukce. Toto však v případě zřetězeného zpracování nemusí platit. Problémy nastávají především při po sobě jdoucím instrukcím pro zápis a čtení z paměti a skokovým instrukcím.
+Zřetězení zpracování instrukcí obsahuje jisté rizika. _Sekvenční_ model zpracování předpokládá, že se každá instrukce dokončí před vykonáváním další instrukce. Toto však v případě zřetězeného zpracování nemusí platit. Problémy nastávají především při několika po sobě jdoucím instrukcím pro zápis a čtení z paměti a skokovým instrukcím.
 
 Existuje několik druhů __konfliktů__ u řetězeného zpracování instrukcí v procesoru, které mohou vést ke zpomalení linky:
 - __Strukturální konfliky__ - Obvodová struktura procesoru neumožňuje současné provedení určitých akcí.

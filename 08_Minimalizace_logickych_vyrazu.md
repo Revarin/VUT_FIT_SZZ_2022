@@ -5,7 +5,7 @@
     - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINC-IT%2Flectures%2F10-booleova_algebra-minimalizace.pdf (p.27)
 
 ## Minimalizace logických obvodů
-Procesor a všechny jeho součásti jsou implementovány pomocí logických obvodů. Logické obvody se skládají z hradel, které něco stojí a zabírají určité místo na čipu. Je tedy žádoucí logické výrazy a obvody co nejvíce __minimalizovat__. Kritéria minimalizace v reálných obvodech je _velikost obvodu_ (počet hradel), _zpoždění obvody_ (rychlost), _počet proměnných_ (počet vodičů) a další. Existuje několik __metod minimalizace:__
+Procesor a všechny jeho součásti jsou implementovány pomocí logických obvodů. Logické obvody se skládají z hradel, které něco stojí a zabírají určité místo na čipu. Je tedy žádoucí logické výrazy a obvody co nejvíce __minimalizovat__. Kritéria minimalizace v reálných obvodech je _velikost obvodu_ (počet hradel), _zpoždění obvodu_ (rychlost), _počet proměnných_ (počet vodičů) a další. Existuje několik __metod minimalizace:__
 - __Algebraické metody__ - Aplikace axiomů _Booleovy algebry_, nicméně jsou náročné pro velké výrazy.
 - __Grafické metody__ - Vennovy diagramy, Karnaughova mapa, jednotková krychle...
 - __Aritmetické metody__ - Quine-McCluskey
@@ -90,7 +90,7 @@ Petrickova funkce je algoritmus nalezení minimálního pokrytí aritmeticky. Fu
 2. Pomocí mřížky implikantů se identifikují všechny _nezbytné implikanty_.
 3. Pro zbývající zkrácené implikanty se napíše normální konjunktivní formou logický výraz, reprezentující všechny možná pokrytí následovně:
     - Pro každý nepokrytý implikant se zapíše výraz jako suma zkrácených implikantů, které jej pokrývají.
-    - Výsledné sumy se zapíšou jako součin - vznikne tak konjunktiní forma.
+    - Výsledné sumy se zapíšou jako součin - vznikne tak konjunktivní forma.
 4. Vzniklý zápis v konjunktní formě se přepíše na disjunktní (prosté roznásobení).
 5. Tento výraz se zjednodušší pomocí teorémů Boolovy algebry.
 6. Každý vzniklý term představuje jedno možné pokrytí

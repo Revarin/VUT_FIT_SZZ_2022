@@ -21,8 +21,8 @@ Programovatelné logické obvody umožňují uživately samostatně realizovat s
 ## Popis obvodů
 Existují dva způsoby popisu logických obvodů: __Strukturní popis__ a __behaviorální popis__. V praxi se tyto dva způsoby popisu často kombinují.
 
-### Strukturní popip
-Strukturní popisu popisuje požadovanou __strukturu__ logického obvodu. Architektura obvodu je sloužena pouze z instancí komponent a jejich vzájemné propojení vodiči. Komponenty se mohou rovněž skládat z podkomponent (hierarchie komponent). Strukturní popis tak vlastně popisuje __z čeho je__ daný obvod __složen__. Je blízký finální obvodové realizaci a návrhář má do jisté míry pod kontrolou proces syntézy a časování.
+### Strukturní popis
+Strukturní popisu popisuje požadovanou __strukturu__ logického obvodu. Architektura obvodu je složena pouze z instancí komponent a jejich vzájemné propojení vodiči. Komponenty se mohou rovněž skládat z podkomponent (hierarchie komponent). Strukturní popis tak vlastně popisuje __z čeho je__ daný obvod __složen__. Je blízký finální obvodové realizaci a návrhář má do jisté míry pod kontrolou proces syntézy a časování.
 
 ### Behaviorální popis
 Behaviorální popis popisuje požadované __chování__ logického obvodu. Architektura obvodu je složena z jednoho nebo více __procesů__. Proces je program (algoritmus), který určuje, jak se mají nastavit výstupní signály komponent v závislosti na změnách vstupních signálů. Používáme konstrukce běžné v _programovacích jazycích_. Při tomto popisu neuvažujeme obvodové detaily, tvorbu zapojení obvodu necháváme na proces syntézy. Syntéza však nemusí být úspěšná, protože pro některé programové konstrukce neexistuje obvodový ekvivalent. Z behaviorálního popisu tak nemusí být zřejmá hardwarová realizace.
@@ -61,7 +61,7 @@ Konfigurovatelný logický blok (CLB) je malá SRAM sloužící pro implementaci
 
 __Vyhledávací tabulka__ (LUT, Look-Up Table) je základní logické hradlo s N-bitovým vstupem a 1-bitovým výstupem. Realizuje libovolnou binární funkci N proměnných.
 
-__Paměťový prvek__ (RAM) je paměť o velikosti \(2^N\) bitů. Umožňuje _asynchronní čtení_ (není  potřeba čekat na hodinový signál) a _synchronní zápis_ (data jsou zapsána při vzestupné hraně hodinového signálu). Je vhodná pro konstrukci menších pamětí. Další alternativy paměťového provku _RAM_ jsou _RAM16_ pro tvorbu větších paměťových celků a RAMD pro dvou-portovou paměť.
+__Paměťový prvek__ (RAM) je paměť o velikosti \(2^N\) bitů. Umožňuje _asynchronní čtení_ (není  potřeba čekat na hodinový signál) a _synchronní zápis_ (data jsou zapsána při vzestupné hraně hodinového signálu). Je vhodná pro konstrukci menších pamětí. Další alternativy paměťového provku _RAM_ jsou _RAM16_ pro tvorbu větších paměťových celků a _RAMD_ pro dvou-portovou paměť.
 
 __Posuvný registr__ (SRL) je malá paměť umožňující synchronní zápis a asynchronní čtení ze zadané pozice. Při zápisu se veškerá data v registru posunou o jednu pozici. Je vhodný pro konstrukci zpožďovacích obvodů, generátorů náhodných čísel a čítačů libovolných sekvencí.
 
@@ -71,7 +71,7 @@ Pro konstrukci složitejších funkcí jsou jednotlivé funkční generátory sp
 Vestavěné bloky realizují v FPGA často používané funkce a šetří tak množství spotřebovaných zdrojů. Mohou to být: paměti, procesory, násobičky, DSP bloky (obsahuje násobičku, sčítačku, multiplexor a interní sběrnice) nebo ethernet bloky (zpracování ethernetu).
 
 ### Zpracování hodinového signálu
-Hodinový signál je do FPGA přiváděn skrze __GCLK piny__ a rozváděn rovnoměrně po celém čipu pomocí speciálních hodinových rozvodů. Kromě _globálních rozvodů_ jsou v čipech umístěny i _regionální rozvody_ pro komunikaci s externími komponentami. Obvody pro úpravu hodinového signálu (redukce zpoždění, frekvenční syntéza, fázový posun...) jsou odděleny od běžných vodiců pro přenos dat.
+Hodinový signál je do FPGA přiváděn skrze __GCLK piny__ a rozváděn rovnoměrně po celém čipu pomocí speciálních hodinových rozvodů. Kromě _globálních rozvodů_ jsou v čipech umístěny i _regionální rozvody_ pro komunikaci s externími komponentami. Obvody pro úpravu hodinového signálu (redukce zpoždění, frekvenční syntéza, fázový posun...) jsou odděleny od běžných vodičů pro přenos dat.
 
 ### Input/Output block (IOB)
 Každý pin FPGA může být konfigurován jako vstup, výstup nebo obojí. Jsou podporovány jednotlivé vodiče i deferenciální páry (pouze u sousedních pinů). Je podporováno velké množství standardů, aby bylo možné k FPGA připojit různé externí součástky.
