@@ -13,13 +13,13 @@ Existují dva způsoby připojení periferních zařízení: __mapovaný vstup/v
 - __Mapovaný V/V__ - Registry řadiče periferie jsou namapovány na určité adresy hlavní paměti. Periferie a paměť tak sdílí stejný adresový prostor. Operace s periferií se provádí stejně jako operace s paměti (instrukce čtení a zápis).
 - __Izolovaný V/V__ - Adresový prostor paměti a periferií je oddělen. Registry periferních zařízení mají svůj vlastní adresový prostor. Operace s periferií s provádí pomocí speciálních instrukcí (`IN` a `OUT`).
 
-Průběr provádění periferních operací je následující: Řadič nejdříve zjistí stav perefiere. Pokud je periferie v pořádku, zahájí na ní danou periferní operaci vložením __parametrů operace do registrů__ řadiče periferie. Po dokončení této operace je potřeba aby periferie oznámila řadiči a ten následně procesoru, že operace byla dokončena. K tomu se používá __přerušení__ nebo __přogramová obsluhy__. Pro zjištění výsledku operace se musí zkontrolovat stav periferie. Jsou dvě fáze zjištění stavu periferie:
-- Nejprve se zkontroluje __stavová slabika__ (status byte), v ní je bit označující výskyt chyby. Pokud je hlášena chyba tak je operace považována za neplatnou a musí se zopakovat.
-- Analýza stavové slabiky procesorem. Pokud vznikla chyba, tak zde se tato chyba analyzuje.
-- Následně se přenesou __slabiky závad__ (sense byte), v níž každý bit značí jeden typ poruchy.
+Průběr provádění periferních operací je následující: Řadič nejdříve zjistí stav perefiere. Pokud je periferie v pořádku, zahájí na ní danou periferní operaci vložením __parametrů operace do registrů__ řadiče periferie. Po dokončení této operace je potřeba aby periferie oznámila řadiči a ten následně procesoru, že operace byla dokončena. K tomu se používá __přerušení__ nebo __programové obsluhy__. Pro zjištění výsledku operace se musí zkontrolovat stav periferie. Jsou dvě fáze zjištění stavu periferie:
+1. Nejprve se zkontroluje __stavová slabika__ (status byte), v ní je bit označující výskyt chyby. Pokud je hlášena chyba tak je operace považována za neplatnou a musí se zopakovat.
+2. Analýza stavové slabiky procesorem. Pokud vznikla chyba, tak zde se tato chyba analyzuje.
+3. Následně se přenesou __slabiky závad__ (sense byte), v níž každý bit značí jeden typ poruchy.
 
 ### Přerušení
-O dokončení vykonávání periferení operace je nutné informovat procesor. K tomu se využívají __přerušení__. Přerušení je hardwarový (nebo taky i softwarový) signál, který signalizuje nějakou událost, která nastala v periferii. Přerušení nejsou z řadiče periferie posílané přímo do procesoru, ale na __řadič přerušení__, který sdružuje přerušení ze všech perifierií. Tento řadič zajišťuje první kroku obsluhy přerušení a komunikuje s procesorem. Řadič posílá do procesoru __vektor přerušení__, který obsahuje informace o tom, které přerušení bude obslouženo (je to ukazatel do tabulky přerušovacích vektorů - odkazů na programy obsluhy přerušení). Procesor ho následně obslouží a dále pokračuje v běhu. Přerušení můžeme dělit do několika druhů:
+O dokončení vykonávání periferení operace je nutné informovat procesor. K tomu se využívají __přerušení__. Přerušení je hardwarový (nebo taky i softwarový) signál, který signalizuje nějakou událost, která nastala v periferii. Přerušení nejsou z řadiče periferie posílané přímo do procesoru, ale na __řadič přerušení__, který sdružuje přerušení ze všech perifierií. Tento řadič zajišťuje první kroky obsluhy přerušení a komunikuje s procesorem. Řadič posílá do procesoru __vektor přerušení__, který obsahuje informace o tom, které přerušení bude obslouženo (je to ukazatel do tabulky přerušovacích vektorů - odkazů na programy obsluhy přerušení). Procesor ho následně obslouží a dále pokračuje v běhu. Přerušení můžeme dělit do několika druhů:
 - __Vnější přerušení__ - Přerušení generované vnějšími periferiemi přes systémovou sběrnici (např.: zmáčknutí klávesy)
 - __Vnitřní přerušení__ - Přerušení vyvolané procesorem nebo periferiemi na čipu procesoru, které slouží jako signalizace pro operační systém (např.: dělení nulou)
 - __Softwarové nebo programové přerušení__ - Přerušení vyvolané v kódu programu (např.: ukončení programu)
@@ -35,13 +35,13 @@ Alternativní způsob práce s periferiemi je takzvaná __programová obsluha__ 
 
 ## Přímý přístup do paměti
 Přestože je paměť taky periferie, jsou data přenášeny z datového registru řadiče určité periferie do operační paměti přímo (__přes sběrnici__) a ne přes procesor. To je využíváno pro přenos dat mezi diskovou a operační pamětí. Existují dva přístupy:
-- __DMA__ (Direct Memory Access) - Řadič DNA řídí přenos dat a umí generovat signály sběrnice, data se ale přez něj __nepřenášejí__.
+- __DMA__ (Direct Memory Access) - Řadič DMA řídí přenos dat a umí generovat signály sběrnice, data se ale přez něj __nepřenášejí__.
 - __PIO__ (Specializované I/O procesory) - Data jsou přenášena z datového registru periferie přes registr procesoru do registru řadiče paměti a do vyrovnávací paměti
 
 ![Přenos dat pomocí DMA](/Images/06/pamet_prenos_dma.png)
 
 ## Sběrnice
-Sběrnice je hardwarová součástka, která má za účel zajistit přenos dat a řídících povelů mezi dvěma a více elektronickými zařízeními (např.: mezi PCI, ISA, IIC, USB, ...). Sběrnice může být _sériová_ nebo _paralelní_ (okruh __[05]__) a _interní_ nebo _externí_. Sběrnice mají obvykle tři komunikační kanály: __adresa__ (registru nebo paměti), __data__ a __řízení__. Zajišťuje komunikaci mezi procesorem a řadiči parefirních zařízení.
+Sběrnice je hardwarová součástka, která má za účel zajistit přenos dat a řídících povelů mezi dvěma a více elektronickými zařízeními (např.: mezi PCI, ISA, IIC, USB, ...). Sběrnice může být _sériová_ nebo _paralelní_ (okruh __[05]__) a _interní_ nebo _externí_. Sběrnice mají obvykle tři komunikační kanály: __adresa__ (registru nebo paměti), __data__ a __řízení__. Zajišťuje komunikaci mezi procesorem a řadiči periferních zařízení.
 
 Dále můžeme periferie rozlišovat na dva druhy podle jejich fyzické konstrukce:
 - __Nesdílená sběrnice__ (dedikovaná sběrnice) - Pro každý signál je samostatný vodič. Slouží pro připojení pouze jednoho zařízení.
@@ -65,6 +65,6 @@ Na sběrnici neexistuje __arbitr__, který by řídil přidělování sběrnice 
 ![Decentralizované přidelování sběrnice](/Images/06/decentralizovana_sbernice.png)
 
 ### Centralizované přidělování sběrnice
-V počítači existuje __rozhodovací jednotka__ (arbitr) , který přijímá požadavky od všech __adeptů__ (řadiče periferií). Adept generuje žádost o přidělení sběrnice, a arbitr na ni odpovídá. Na základě priorit se centrálně rozhodně o konkrotním zařízení, kterému bude přidělena sběrnice. Před samotným přenosem dat musí být zařízení přidělena sběrnice.
+V počítači existuje __rozhodovací jednotka__ (arbitr) , který přijímá požadavky od všech __adeptů__ (řadiče periferií). Adept generuje žádost o přidělení sběrnice, a arbitr na ni odpovídá. Na základě priorit se centrálně rozhodne o konkrétním zařízení, kterému bude přidělena sběrnice. Před samotným přenosem dat musí být zařízení přidělena sběrnice.
 
 ![Centralizované přidělování sběrnice](/Images/06/centalizovana_sbernice.png)

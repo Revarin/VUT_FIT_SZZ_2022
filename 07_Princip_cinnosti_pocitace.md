@@ -6,7 +6,7 @@
     - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINP-IT%2Flectures%2Finp2021_03risc.pdf (zřetězení)
 
 ## Zřetězené zpracování instrukcí
-Zpracování instrukce lze rozdělit na několik po sobě jdoucích fází, které jsou obvodově zajištěny různými částmi procesoru. Při sériovém zpracováním instrukce se vždy zpracovává pouze jedna instrukce, a tak části procesoru, v nichž instrukce není nic nedělají. To je neefektivní.
+Zpracování instrukce lze rozdělit na několik po sobě jdoucích fází, které jsou obvodově zajištěny různými částmi procesoru. Při sériovém zpracováním instrukce se vždy zpracovává pouze jedna instrukce, a tak části procesoru, v nichž instrukce není, nic nedělají. To je neefektivní.
 
 Zřetězené zpracování instrukcí (_pipelining_) je provádění různých částí několika instrukcí v jeden okamžik. V jeden hodinový cyklus není prováděna pouze jedna instrukce, ale více instrukcí, z nichž každá je v jiné fázi provádění. Tímto může procesor pracovat efektivně a současně využívat všechny své části. Zpracování instrukce lze obvykle rozdělit do následujících operací:
 - Načtení instrukce z paměti (__F__ - Fetch)
@@ -20,7 +20,7 @@ Zřetězené zpracování instrukcí (_pipelining_) je provádění různých č
 ![Výukový RISC procesor](/Images/07/vyukovy_procesor.png)
 
 ### Rizika zřetězeného zpracování
-Zřetězení zpracování instrukcí obsahuje jisté rizika. _Sekvenční_ model zpracování předpokládá, že se každá instrukce dokončí před vykonáváním další instrukce. Toto však v případě zřetězeného zpracování nemusí platit. Problémy nastávají především při po sobě jdoucím instrukcím pro zápis a čtení z paměti a skokovým instrukcím.
+Zřetězení zpracování instrukcí obsahuje jisté rizika. _Sekvenční_ model zpracování předpokládá, že se každá instrukce dokončí před vykonáváním další instrukce. Toto však v případě zřetězeného zpracování nemusí platit. Problémy nastávají především při několika po sobě jdoucím instrukcím pro zápis a čtení z paměti a skokovým instrukcím.
 
 Existuje několik druhů __konfliktů__ u řetězeného zpracování instrukcí v procesoru, které mohou vést ke zpomalení linky:
 - __Strukturální konfliky__ - Obvodová struktura procesoru neumožňuje současné provedení určitých akcí.
@@ -68,7 +68,7 @@ U všech skoků se používá pro zrychlení zjištění cílové adresy cache s
 - __Hyperskalární architektura__ - Navýšení počtu sekcí v jedné frontě (hranice deseti sekcí, ale existují architektury i s více sekcemi).
 
 ## RISC
-_Reduced Instruction Set Processors_ (procesory s redukovanou instrukční sadou) jsou procesory, jejichž instrukční sada je __omezená__. Tyto instrukční sady mají mále jednoduchých instrukcí, zato ale mají tyto instrukce __stejnou velikost__ a také stejnou __dobu vykonávání__ (snaha __CPI__ (cycles per instruction) = 1). To je pro procesory velmi výhodné, protože mohou jednoduše využívat zřetězení instrukcí. Procesory tohoto typu mývají více víceúčelových registrů, poněvadž jsou značně omezeny instrukce přístupu do paměti (obvykle pouze instrukce `READ` a `WRITE`).
+_Reduced Instruction Set Processors_ (procesory s redukovanou instrukční sadou) jsou procesory, jejichž instrukční sada je __omezená__. Tyto instrukční sady mají malé množství jednoduchých instrukcí, zato ale mají tyto instrukce __stejnou velikost__ a také stejnou __dobu vykonávání__ (snaha __CPI__ (cycles per instruction) = 1). To je pro procesory velmi výhodné, protože mohou jednoduše využívat zřetězení instrukcí. Procesory tohoto typu mívají více víceúčelových registrů, poněvadž jsou značně omezeny instrukce přístupu do paměti (obvykle pouze instrukce `READ` a `WRITE`).
 
 ## CISC
 _Complex Instruction Set Processors_ (procesory s komplexní instrukční sadou) jsou procesory, jejichž instrukční sada je __rozšířená__. Obsahují velké množství instrukcí, z nichž jsou mnohé specializované na konkrétní použití. Instrukce mají rozdílnou velikost a také různé doby vykonávání. Oproti procesorům RISC je možné ušetřit některé instrukce použitím jedné složitější specializované instrukce. CISC procesory obsahují relativně málo registrů, na druhou stranu ale umí pracovat přímo s pamětí.
