@@ -7,7 +7,7 @@
     - https://www.fit.vutbr.cz/study/courses/IZG/private/lecture/izg_slide_viditelnost_rev2021_169.pdf (viditelnost)
 
 ## Geometrické transformace
-Geometrické transformace můžeme chápat jako změnu pozice vrcholů grafického objektu (2D či 3D) v aktuálním souřadnicovém systému nebo změnu tohoto souřadnicového systému. Základěm geometrické transformace jsou __lineární transformace__. Všechny základní geometrické transformace jsou lineární a jsou popsány lineárními rovnicemi:
+Geometrické transformace můžeme chápat jako změnu pozice vrcholů grafického objektu (2D či 3D) v aktuálním souřadnicovém systému nebo změnu tohoto souřadnicového systému. Základem geometrické transformace jsou __lineární transformace__. Všechny základní geometrické transformace jsou lineární a jsou popsány lineárními rovnicemi:
 - __Posunutí__
 - __Rotace__
 - __Zkosení__
@@ -20,7 +20,7 @@ Geometrické transformace můžeme chápat jako změnu pozice vrcholů grafické
     f(\alpha x_1) = \alpha f(x_1)
   \]
 
-> Afinní transformace je zobrazení \(f\) z jednoho vektorového prostoru do druhého \(f: V \leftarrow W\), které zachovává kolinearitu (bodu ležící na přímce budou ležet na přímce i po zobrazení) a dělící poměr.
+> Afinní transformace je zobrazení \(f\) z jednoho vektorového prostoru do druhého \(f: V \to W\), které zachovává kolinearitu (bodu ležící na přímce budou ležet na přímce i po zobrazení) a dělící poměr.
 >
 > Lze jej vyjádřit jako lineární transformaci následovanou posunem
 
@@ -52,7 +52,7 @@ Stejně jako ve 2D probíhá i ve 3D prostoru rotace okolo počátku souřadnéh
 Při __rotaci kolem obecné osy__ je osa rotace dána směrovým vektorem \(v\) a bodem umístění \(P\). Nelze přímy použít některou z variant základní 3D rotace. Rotaci je nutné rozložit na posloupnost několika transformací:
 1. Posunutí osy do počátku souřadného systému.
 2. Otočení posunuté osy do jedné ze souřadných rovin (např.: XY).
-3. Otočení sklopené osy do jené ze souřadných os (např.: X).
+3. Otočení sklopené osy do jedné ze souřadných os (např.: X).
 4. Provedení požadované rotace od ůhel \(\omega\) kolem příslušené osy.
 5. Vrácení osy do původní polohy.
 
@@ -70,10 +70,11 @@ Jedna z nejdůležitějších vlastností transformací objektů pomocí transfo
 
 ## Projekce
 3D grafické objekty zobrazujeme na 2D výstup (obrazovka). Je nutné transformovat ze 3D prostoru do 2D prostoru. Při transformaci projekční paprsek promítá body na průmětnu, přičemž dochází ke ztrátě informace. Existují dva základní druhy projekce:
-- __Perspektivní projekce__ (středová) - Paprsky vycházejí z jednoho bodu (střed projekce, pozorovatel) a promítají se na průmětnu. Projekce nezachovává rovnoběžnost hran. Vzdálenost průmětny od středu projekce ovlivňuje velikost průmětu. Tato projekce odpovídá promítání v realite.
+- __Perspektivní projekce__ (středová) - Paprsky vycházejí z jednoho bodu (střed projekce, pozorovatel) a promítají se na průmětnu. Projekce nezachovává rovnoběžnost hran. Vzdálenost průmětny od středu projekce ovlivňuje velikost průmětu. Tato projekce odpovídá promítání v realitě.
 - __Paralelní projekce__ (rovnoběžná) - Paprsky vycházejí kolmo ze všech bodů průmětny. Projekce zachovává rovnoběžnost hran. Vzdálenost od průmětny neovlivňuje velikost průmětu. Čím blíže je objekt středu promítání, tím je menší. Tato projekce se využívá pro technická schémata.
 
 Paralelní promítnutí do roviny \(XY\) se provede maticí:
+
 ![Paralelní projekce](/Images/12/paraleln%C3%AD_projekce.png)
 
 ## Reprezentace 3D objektů
@@ -90,7 +91,7 @@ Existují různé způsoby reprezentace 3D grafických objektů v prostoru: kons
 
 Existují dva základní typy 3D objektů:
 - _Manifold_ objekty - Hrany objektu sdílí vždy jen dvě stěny. Tyto objekty jsou vyrobitelné.
-- _Nonmanifolg_ objekty - Nevyrobitelné objekty.
+- _Nonmanifold_ objekty - Nevyrobitelné objekty.
 
 Pro kontrolu topologie objektu (toho, že objekt je manifold) se používají __Eulerovy rovnice__. Ty kontrolují, že hrana spojuje vždy dva vrcholy, ve vrcholu se potkávají maximálně tři hrany a žádný stěny se neprotínají. Pro každý manifold objekt bez otvorů platí: _počet vrcholů - počet hran + počet stěn = 2_.
 
@@ -114,7 +115,7 @@ Objekt je popsán diskrétně pomocí dekompozice na elementární objemové jed
 Hraniční reprezentace je nejčastější reprezentace komplexních 3D objektů. Existuje několik modelů hraniční reprezentace:
 - __B-rep__ (boundary representation) - Objekt je popsán prostřednictvím svého povrchu. Informace o jeho vnitřní struktuře není uložena. Objekty jsou definovány pomocí tří základních prvků: __vrcholů__, __hran__ a __stěn__.
 - __Drátový model__ - Objekt je popsán pouze pomocí vrcholů a hran. Obsahuje málo topologických informací a tudíž je _nejednoznačný_.
-- __Polygonální model__ - Objekt je definován pomocí vrcholů, hran a stěn. Využívá rozdělení objektu na trojúhelníky (polygony). Je to jednoznačný popij objektu, ale má malou přesnost (lineární aproximace povrchu). Pro reprezentaci polygonálního modelu se používá datová struktura __okřídlená hrana__. V počítačích je HW podpora zobrazení polygonálních objektů.
+- __Polygonální model__ - Objekt je definován pomocí vrcholů, hran a stěn. Využívá rozdělení objektu na trojúhelníky (polygony). Je to jednoznačný popis objektu, ale má malou přesnost (lineární aproximace povrchu). Pro reprezentaci polygonálního modelu se používá datová struktura __okřídlená hrana__. V počítačích je HW podpora zobrazení polygonálních objektů.
 - __Hraniční spline model__ - Objekt je definován pomocí vrcholů, hran (křivek) a stěn (spline plochy). Model je vhodný pro přesné geometrické modelování, přesnost modelu je dána přeností aproximace. Nutnost dodržovat a ověřovat uzavřenost.
 
 ## Viditelnost objektů ve 3D
@@ -128,13 +129,13 @@ Jsou dva základní druhy _algoritmů viditelnost_:
 - __Rastrové algoritmy viditelnosti__ - Jejich výsledkem je obraz viditelných ploch, barva, osvětlení, stínování...
 
 ### Robertsův algoritmus
-Robertsův algoritmus je vektorový algoritmus viditelnosti. Dělí potenciálně viditelné hrany na úseky, kde se mění velikost. Těmto hranám se vytvoří průsečíky s obrasovými hranami a následně testujeme viditelnost jejich úseků podle vzdálenosti průsečíků a zakrytí.
+Robertsův algoritmus je vektorový algoritmus viditelnosti. Dělí potenciálně viditelné hrany na úseky, kde se mění velikost. Těmto hranám se vytvoří průsečíky s obrysovými hranami a následně testujeme viditelnost jejich úseků podle vzdálenosti průsečíků a zakrytí.
 
 ### Plovoucí algoritmus
-Plovoucí algoritmsu se používá k vizualizaci grafů.
+Plovoucí algoritmus se používá k vizualizaci grafů.
 
 ### Malířův algoritmus
-Malířův algoritmus je rastrový objektový algoritmus řešení viditelnosti. Objekty jsou seřazeny podle vzdálenosti od kamery a vykreslují se od zadu dopředu. Nastává problém s cyklicky se překrývajícími objektami. Tento problém lze řešit rozdělením objektu na více částí.
+Malířův algoritmus je rastrový objektový algoritmus řešení viditelnosti. Objekty jsou seřazeny podle vzdálenosti od kamery a vykreslují se od zadu dopředu. Nastává problém s cyklicky se překrývajícími objekty. Tento problém lze řešit rozdělením objektu na více částí.
 
 ### Z-buffer
 Z-buffer je rastrový obrazový algoritmus řešení viditelnosti. Udržuje se __paměť hloubky__ (z-buffer), který obsahuje Z-souřadnice nejbližších bodů ploch. Z-buffer má stejné rozměry jako zobrazovací buffer, počítá se pro každý pixel obrazovky. Každá plocha je zpracována pouze jednou - fronta. Je to rychlý algoritmus se snadnou implementací v HW:
@@ -155,7 +156,7 @@ Lambertův osvětlovací model je empirický model, který počítá pouze s dif
 Phongův osvětlovací model je empirický model, který počítá jak s difuzí tak s reflexí. Počítá s ideální reflexí, při níž je odraz světla symetrický podle normály. Intenzita reflexe závisí na směru odrazu a směru k pozorovateli. Využívá ambientní složku světla IA, světelný šum a rozptýlené světelné pozadí.
 
 ### BRDF
-BRDF je fyzikálně založený model. Umožňuje realistické zobrazení pomocí technologie _Ray-tracing_. Specializován na jednotlivé efekty nebo materiálny. Je výpočetně nejnáročnější.
+BRDF je fyzikálně založený model. Umožňuje realistické zobrazení pomocí technologie _Ray-tracing_. Specializován na jednotlivé efekty nebo materiály. Je výpočetně nejnáročnější.
 
 ### Stínování
 Existuje několik modelů stínování polygonálních 3D objektů:

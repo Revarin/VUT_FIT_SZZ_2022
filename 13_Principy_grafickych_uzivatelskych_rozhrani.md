@@ -9,7 +9,7 @@ Komunikační kanály __od stroje k člověku__ jsou následující:
 - __Obraz__ (zrak) - Obraz je nejvýhodnější médium pro přenos informace od stroje k člověku. Důvodem je zejména velmi vysoká informační propustnost a možnost _náhodného přístupu_ pozorovatele k informacím obsaženým v obraze.
 - __Zvuk__ (sluch) - Zvuk je výhodný pro přenos menšího množství informací od stroje k člověku pro doplnění obrazu. Nevýhodou oproti obrazu je nižší propustnost a _sériový_ přístup k informacím.
 - __Hmat__ - Hmat je dosud používaný pouze výjimečně. Je však perspektivní pro budoucí aplikace ve spojení s virtuální realitou a to ve formě hmatové a silové zpětné vazby. V současné době je využíván zejména jako prostředek pro komunikaci nevidomých se stroji.
-- __Čich, chuť__ - Čich a chuť v současnosti nejsou pro komunikaci použitelné. Důvodem je především stav současné chemia a techniky, který neumožňuje uměle syntatizovat chutě a vůně v reálném čase. V budoucnosti by se mohly uplatnit jako doplněk pro virtuální realitu.
+- __Čich, chuť__ - Čich a chuť v současnosti nejsou pro komunikaci použitelné. Důvodem je především stav současné chemie a techniky, který neumožňuje uměle syntatizovat chutě a vůně v reálném čase. V budoucnosti by se mohly uplatnit jako doplněk pro virtuální realitu.
 
 Komunikační kanály __od člověka ke stroji__ jsou následující:
 - __Pohyb__ (hmat) - Nejobvyklejším prostředkem pro předání informací člověkem do strojů jsou klávesnice v nejrůznějších podobách. Ty bývají často doplňovány mechanickými polohovacími zařízeními, jako je například myš. Existují však i další zařízení podobných typů.
@@ -19,7 +19,7 @@ Komunikační kanály __od člověka ke stroji__ jsou následující:
 ## Komunikace
 V praxi se oba směry komunikace kombinují (oboustranná komunikace). Pro komunikaci se používají dva principy:
 - __Drag and drop__ - Manipulace s předměty jako v reálném životě (přesun souboru).
-- __Look and feel__ - Komunikace s rozhraním vyplývá z prvků reálného ži0vota.
+- __Look and feel__ - Komunikace s rozhraním vyplývá z prvků reálného života.
 
 ### Aktivní komunikace
 Aktivní komunikace je taková komunikace, kdy uživatel řídí činnost počítače, tedy kdy činnost počítače závisí na vůli uživatele. Rozhraní používající aktivní komunikaci je například panel nástrojů nebo příkazová řádka. Uživatel sám vybírá nástroj, když se mu chce a pak následně uživatel sám určuje, jak ho bude používat.
@@ -42,7 +42,7 @@ Změnou z pasivní a aktivní komunikace (a naopak) plyne nutnost přecházení 
 - Reakce na chybu.
 
 ## Událostmi řízené systémy
-Událostmi řízené systémy představují základní princip práce s GUI. Tok programu je řízen různými událostmi (kliknutí myši, stisknutí klávesy). V programu existuje nějaky __naslouchač__ (listener), který čeká na prijmutí události. Po jejím přimutí provede odpovídající akci. U HW obdobně funguje systém přerušení. Všechny moderní systémy jsou řízené událostmi. Ve _Windows_ jsou například reprezentovány zprávami, které jsou zasílány specializovanými funkcemi z prvků rozhraní.
+Událostmi řízené systémy představují základní princip práce s GUI. Tok programu je řízen různými událostmi (kliknutí myši, stisknutí klávesy). V programu existuje nějaky __naslouchač__ (listener), který čeká na prijmutí události. Po jejím přijmutí provede odpovídající akci. U HW obdobně funguje systém přerušení. Všechny moderní systémy jsou řízené událostmi. Ve _Windows_ jsou například reprezentovány zprávami, které jsou zasílány specializovanými funkcemi z prvků rozhraní.
 
 V dnešní době se používají systémy GUI postavené na prvním GUI založeném na práci s okny __WIMP__ (Windows, Icon, Menu, Pointer). WIMP systém obsahuje:
 - Okna, která reprezentují spuštěné prograsmy, z nichž je každý izolován od ostatních programů ve vlastních oknách.
@@ -71,4 +71,4 @@ Dialogový box je stavebnice, která se skládá z jiných prvků rozhraní. Prv
 - __Nemodální__ (non-modal) - Neprioritní, uživatel může pokračovat v práci a na dialog odpovědět později.
 - __Systémově modální__ (system-modal) - Mají prioritu nad aplikacemi.
 
-Modalita dialogivého boxu je implementována tím, že při zorbazení modální boxu se zabrání průchodu zpráv od uživatele do níže položených oken v hierarchii oken. Pro přehlednost se většinou zbytek aplikace zašedne. Ve příkazové řádce je ukázkou pasivní modální komunikace například dotaz `Delete file? Y/N`.
+Modalita dialogivého boxu je implementována tím, že při zobrazení modální boxu se zabrání průchodu zpráv od uživatele do níže položených oken v hierarchii oken. Pro přehlednost se většinou zbytek aplikace zašedne. Ve příkazové řádce je ukázkou pasivní modální komunikace například dotaz `Delete file? Y/N`.

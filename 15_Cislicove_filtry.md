@@ -1,12 +1,12 @@
 # Číslicové filtry
 - Otázky: diferenční rovnice, impulsní odezva, přenosová funkce, frekvenční charakteristika
 - Předmět: ISS
-- ToDo: Příklad
+- ToDo: Příklady
 - Zdroje:
     - https://www.fit.vutbr.cz/study/courses/ISS/public/NEW_PRED/01_filtry/filtry.pdf
 
 ## Signál
-Signál je časově či prostorově proměnná fyzikální veličina (viz. okruh [14]). Se signálem je možné provádět různé operace - je možné signál __transformovat__:
+Signál je časově či prostorově proměnná fyzikální veličina (viz. okruh __[14]__). Se signálem je možné provádět různé operace - je možné signál __transformovat__:
 - __Otočení časové osy__ - \(s(-t)\)
 - __Zpoždění signálu__ - \(s(t-x)\)
 - __Předběhnutí signálu__ - \(s(t+x)\)
@@ -31,7 +31,7 @@ Systém je zařízení upravující signál. Má vstupu a výstupu. Je charakter
 
 ![Obecné schéma systému](/Images/15/obecne_schema_systemu.png)
 
-> Konvoluce je operace, která ze dvou funkcí vytvoří třetí funkce, která popisuje, jak je tvar jedné funkce ovlivňován funkcí druhou.
+> Konvoluce je operace, která ze dvou funkcí vytvoří třetí funkci, která popisuje, jak je tvar jedné funkce ovlivňován funkcí druhou.
 
 ### Systémy s diskrétním časem
 V systémech s diskrétním časem je signál \(y[n]\) reakcí na vstupní signál \(x[n]\). Značíme jej \(x[n] \rightarrow y[n]\). Rozklad na jednotkové impulsy musí být časově invariantní a na výstupu se provede konvoluce (proužkem papíru).
@@ -54,7 +54,7 @@ Systémy mohou mít různé vlastnosti:
 - __Linearita systému__ - Systém je lineární, pokud jsou splněny následující podmínky:
     - _Aditivita_ - Součet vstupů výstupu odpovídá součtu výstupů \(x_1(t) + x_2(t) \rightarrow y_1(t) + y_2(t)\)
     - _Scaling_ nebo _homogenita_ - Vynásobení konstantou na vstupu má stejný vliv na výstup \(ax_1(t) \rightarrow ay_1(t)\)
-    - > Pokud při rozložení vstupních signálů na jednotlivé impulsy a poslání jich do systému zvlášť získáme jejich součtem odpovídající výstupní signál, tak potom je systém lineární.
+> Pokud při rozložení vstupních signálů na jednotlivé impulsy a poslání jich do systému zvlášť získáme jejich součtem odpovídající výstupní signál, tak potom je systém lineární.
 
 \[
     a x_1(t) + b x_2(t) \rightarrow a y_1(t) + b y_2(t)    
@@ -65,7 +65,7 @@ Filtr je systém, který upravuje signál ve frekvenční oblasti. Je charakteri
 
 ![Základní bloky filtrů](/Images/15/prvky_filtru.png)
 
-Filtry jsou lineárně a časově _invariantní_ (LTI). Jsou dva základní typy filtrů: 
+Filtry jsou lineárně a časově _invariantní_ (LTI). Existují základní typy filtrů: 
 - __Horní propust__ - Filtr propouští vysoké frekvence signálu.
 - __Dolní propust__ - Filtr propouští nízké frekvence signálu.
 - __Pásmová propust__ - Filtr propouští jen určité frekvence signálu.
@@ -80,12 +80,12 @@ Filtry se dají implementovat pomocí __diferenčních rovnic__.
 ![Obecně rekurzivní filtr](/Images/15/obecny_rekurzivni_filtr.png)
 
 ### Rekurzivní filtr
-Rekurzivní filtr(_Infinite impulse response_, IIR) má _nekonečnou_ impulsní odezvu. __Čistě rekurzivní__ filtr se vstupním signálem neprovádí žádné změny (koeficienty \(b jsou nulové\)). Naproti tomu __obecně rekurzivní__ filtr se vstupním signálem provádí změny (koeficienty \(b\) a \(a\) jsou nenulové).
+Rekurzivní filtr(_Infinite impulse response_, IIR) má _nekonečnou_ impulsní odezvu. __Čistě rekurzivní__ filtr se vstupním signálem neprovádí žádné změny (koeficienty \(b\) jsou nulové). Naproti tomu __obecně rekurzivní__ filtr se vstupním signálem provádí změny (koeficienty \(b\) a \(a\) jsou nenulové).
 
 ![Čistě rekurzivní filtr](/Images/15/cisty_rekurzivni_filtr.png)
 
 ### Nerekurzivní filtr
-Nerekurzivní filtr (_Finite Impulse Response_, FIR) má _konečnou_ impulsní odezvu. Na výstupu filtru je po celém průchodu vstupního signálu nula. Impulsní odezva je přímo dána koeficienty \(b\). 
+Nerekurzivní filtr (_Finite Impulse Response_, FIR) má _konečnou_ impulsní odezvu. Na výstupu filtru je po celém průchodu vstupního signálu nula. Impulsní odezva je přímo dána koeficienty \(b\) (koeficienty \(a\) jsou nulové). 
 
 ![Nerekurzivní filtr](/Images/15/nerekurzivni_filtr.png)
 
@@ -123,14 +123,14 @@ __Přenosová funkce__ je další způsob popsání chování filtru. Z přenoso
 Z-transformace je komplexní funkce nad komplexní rovinou. Pro její provedení lze využít její následující vlastnosti:
 1. Konstanty zůstanou konstanty.
 2. Všechna \(x[n]\) se přepíšou na \(X(z)\) a všechna \(y[n]\) na \(Y(z)\).
-3. Když je někde zpoždění o \(n\), musí se vajádřit pomocí \(z^{-n}\).
+3. Když je někde zpoždění o \(n\), musí se vyjádřit pomocí \(z^{-n}\).
 
 \[
     a x_1[n] + b x_2[n] \rightarrow a X_1(z) + b X_2(z) \\\;\\
     x[n-k] \rightarrow z^{-k} X(z)   
 \]
 
-Ze z-transformace lze vypočítat přenosovou funkce, která je definována jako \(H(z) = Y(z) / X(z)\).
+Ze z-transformace lze vypočítat přenosovou funkci, která je definována jako \(H(z) = Y(z) / X(z)\).
 
 \[
     H(z) = \frac{Y(z)}{X(z)} = \frac{\sum_{k=0}^{Q} b_k z^{-k}}{1 + \sum_{k=1}^{P} a_k z^{-k}} = \frac{B(z)}{A(z)} \\\;\\
@@ -144,4 +144,4 @@ Ze z-transformace lze vypočítat přenosovou funkce, která je definována jako
 \]
 
 ## Příklady
-[TODO]
+Konvoluce, diferenční rovnice, přenosová funkce filtru.
