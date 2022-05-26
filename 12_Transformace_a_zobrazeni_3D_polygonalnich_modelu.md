@@ -49,7 +49,7 @@ Stejně jako ve 2D probíhá i ve 3D prostoru rotace okolo počátku souřadnéh
 
 ![Transformační matice rotace](/Images/12/matice_rotace.png)
 
-Při __rotaci kolem obecné osy__ je osa rotace dána směrovým vektorem \(v\) a bodem umístění \(P\). Nelze přímy použít některou z variant základní 3D rotace. Rotaci je nutné rozložit na posloupnost několika transformací:
+Při __rotaci kolem obecné osy__ je osa rotace dána směrovým vektorem \(v\) a bodem umístění \(P\). Nelze přímo použít některou z variant základní 3D rotace. Rotaci je nutné rozložit na posloupnost několika transformací:
 1. Posunutí osy do počátku souřadného systému.
 2. Otočení posunuté osy do jedné ze souřadných rovin (např.: XY).
 3. Otočení sklopené osy do jedné ze souřadných os (např.: X).
@@ -78,7 +78,7 @@ Paralelní promítnutí do roviny \(XY\) se provede maticí:
 ![Paralelní projekce](/Images/12/paraleln%C3%AD_projekce.png)
 
 ## Reprezentace 3D objektů
-Existují různé způsoby reprezentace 3D grafických objektů v prostoru: konstruktivní geometrie, šablonování, dekompoiční modely, hraniční reprezentace a implicitní plochy. Pro tyto modely existují určité základní požadavky:
+Existují různé způsoby reprezentace 3D grafických objektů v prostoru: konstruktivní geometrie, šablonování, dekompoziční modely, hraniční reprezentace a implicitní plochy. Pro tyto modely existují určité základní požadavky:
 - __Obecnost__ - Model umožňuje popis co nejrozsáhlejší třídy objektů.
 - __Úplnost__ - Model úplně popisuje daný objekt.
 - __Jednoznačnost__ - Objekt lze v daném modelu vyhodnotit pouze jedním způsobem.

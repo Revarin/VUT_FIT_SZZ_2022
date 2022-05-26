@@ -102,7 +102,7 @@ Kružnice je _osminásobně symetrická_. Stečí tedy vypočítat pouze jednu o
 ![Body v kružnici](/Images/11/body_kruznice.png)
 
 ### Vykreslení kružnice po bodech
-Vykreslení kružnice po bodech je nejjednodušší rasterizační algoritmus. Pracuje s floating-point aritmetikou a tudíž výpočetně náročný. Vykresluje kružnici _ve směru hodinových ručiček_ po jednom pixelu od hodnoty 0 až do bodu \(x = y\) (do té doby je přírůstek na ose \(x\) jedna). Pozice v ose \(y\) se vypočte ze vztahu pro rovnici kružnice \(y = \sqrt{R^2 - x^2}\).
+Vykreslení kružnice po bodech je nejjednodušší rasterizační algoritmus. Pracuje s floating-point aritmetikou a je tudíž výpočetně náročný. Vykresluje kružnici _ve směru hodinových ručiček_ po jednom pixelu od hodnoty 0 až do bodu \(x = y\) (do té doby je přírůstek na ose \(x\) jedna). Pozice v ose \(y\) se vypočte ze vztahu pro rovnici kružnice \(y = \sqrt{R^2 - x^2}\).
 
 ```cpp
 CircleByPoints(int s1, int s2, int R) {
@@ -155,7 +155,7 @@ Kružnice se vykresluje z bodu \([0, R]\) postupně po jednotlivých pixelech ve
     F(x, y): x^2 + y^2 - R^2 = 0
 \]
 
-Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinice. Midpoint dosadíme do vztahu pro prediktor a následně při porovnávní s nulou dosáhneme nové hodnoty \(y\).
+Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinice. Midpoint dosadíme do vztahu pro prediktor a následně při porovnání s nulou dosáhneme nové hodnoty \(y\).
 
 \[
     P_i = F(x_i + 1, y_i - 1/2) \\
@@ -200,7 +200,7 @@ Elipsa je geometrická vektorová entita definovaná:
 - Souřadnicemi středu, hodnotami hlavní a vedlejší poloosy a úhlem natočení hlavní poloosy
 - Rovnicí elipsy popisující geometrii: \(F(x, y) = b^2 x^2 + a^2 y^2 - a^2 b^2 = 0\)
 
-Elipsa 4 symetrická a tudíž se algoritmus rasterizace provádí vždy pro jednu čtvrtinu bodů, zbylé body vykreslíme záměnnou souřadnic. Algoritmy jsou odvozeny pro elipsu se středem v počátku \([0, 0]\) a s nulovým natočením.
+Elipsa je 4 symetrická a tudíž se algoritmus rasterizace provádí vždy pro jednu čtvrtinu bodů, zbylé body vykreslíme záměnnou souřadnic. Algoritmy jsou odvozeny pro elipsu se středem v počátku \([0, 0]\) a s nulovým natočením.
 
 ![Body elipsy](/Images/11/body_elipsy.png)
 
@@ -215,7 +215,7 @@ Pro vykreslovanou oblast jdeme po pixelu od bodu \([0, b]\), dokud není \(2b^2x
 Rasterizace polygonů, neboli _vyplňování 2D oblastí_, je proces nalezení a označení všech vnitřních bodů dané oblasti. Vstupem algoritmů je popis hranice oblasti a jejich výstupem je rastrový popis vyplnění oblasti. Pro zjednodušení algoritmů má vektorový popis 2D oblastí určité konvence: vnější hrany a otvory uvnitř obrazce jsou orientovány opačným směrem a seznam hraničních entit vyplňované oblasti musí být orientovaný a spojitý. Orientace hrany lze otestovat vektorovým součinem dvou sousedních hran (konvexní polygony) nebo sumou přes celý polygon (nekonvexní polygony).
 
 Jsou tři způsoby vyplňování složitých (protínajících se) oblastí:
-- __Parití vyplňování__ - Hranice odděluje vyplněný a nevyplněný prostor.
+- __Paritní vyplňování__ - Hranice odděluje vyplněný a nevyplněný prostor.
 - __Vnitřní vyplňování__ - Jsou vyplněny všechny body, které nejsou vně oblasti.
 - __Nenulové vyplňování__ - Nenulové objetí bodu uzavřenou smyčkou při vyřešení sebeprotínání.
 
@@ -244,16 +244,16 @@ Koordináty trojúhelníku (nebo konvexního n-úhelníku), které jsou vztažen
 
 ## Křivky v počítačové grafice
 Křivky v počítačové grafice se využívají pro vykreslování modelů, fontů, pohybu kamery po křivce atd. Od křivek se očekávají určité požadované vlastnosti:
-- __Invariance lineárním transformacím__ - Rotace řídících bodů křivky nemá vliv na tvar křivky (body je možné transformovat a výsledná křivka má stejný tvar).
+- __Invariance k lineárním transformacím__ - Rotace řídících bodů křivky nemá vliv na tvar křivky (body je možné transformovat a výsledná křivka má stejný tvar).
 - __Konvexní obálka__ - Křivka leží v konvexní obálce svých řídících bodů.
-- __Lokalita změn__ - Pohyb řídícím bodem změní křivku pouze lokální (pouze na daném místě).
+- __Lokalita změn__ - Pohyb řídícím bodem změní křivku pouze lokálně (pouze na daném místě).
 - __Interpolace krajních bodů__ - Křivka prochází krajními body.
 
 Existuje několik druhů křivek:
 - __Aproximační křivka__ - Křivka, která neprochází svými řídícími body.
 - __Interpolační křivka__ - Křivka, která prochází svými řídícími body (body jsou proložené křivkou).
 - __Racionální křivka__ - Křivka, která používá váhové koeficienty \(w_i\) řídících bodů. Je invariantní vůči perspektivní projekci.
-- __Neracionální křivka__ - Křivka, která má všechny váhové koeficienty rovná jedné. Je neinvariantní vůči perspektivní projekci, tvar křivky lze ovlivnit pouze změnou polohy řídících bodů.
+- __Neracionální křivka__ - Křivka, která má všechny váhové koeficienty rovné jedné. Je neinvariantní vůči perspektivní projekci, tvar křivky lze ovlivnit pouze změnou polohy řídících bodů.
 
 Křivky lze matematicky zapsaz několika způsoby:
 - __Parametrické vyjádření křivky:__ \(Q(t) = [x(t), y(t)];~t \in \langle 0, 1 \rangle\)
@@ -317,6 +317,6 @@ Vykreslování křivky se tak provádí opakovaným výpočtem pro různé hodno
 ![Algoritmus de Casteljau](/Images/11/de_casteljau.png)
 
 #### Speciální případy beziérových křivek
-__Beziérovy kubiky__ jsou beziérovy křivky, jejichž segment je popsán čtyřmi řídícími body. Posunem těchto řídících bodu nastává _nelokální_ změna křivky. navazování segmentů beziérových kubik vyžaduje spojitost \(C^1\), shodnost tečných vektorů a totožnost koncových bodů. Na vykreslování beziérových kubik lze použít algoritmus de Casteljau metodou "divide and conquer". Celá křivka se rekurzivně dělí na dvě podkřivky. Jakmile se získá dostatečně rovná podkřivka, tak se již dále nedělí a podkřivka je vykreslena.
+__Beziérovy kubiky__ jsou beziérovy křivky, jejichž segment je popsán čtyřmi řídícími body. Posunem těchto řídících bodu nastává _nelokální_ změna křivky. Navazování segmentů beziérových kubik vyžaduje spojitost \(C^1\), shodnost tečných vektorů a totožnost koncových bodů. Na vykreslování beziérových kubik lze použít algoritmus de Casteljau metodou "divide and conquer". Celá křivka se rekurzivně dělí na dvě podkřivky. Jakmile se získá dostatečně rovná podkřivka, tak se již dále nedělí a podkřivka je vykreslena.
 
 __Racionální beziérovy křivky__ jsou beziérovy křivky, které využívají váhování. Místo neracionálních bernsteinových polynomů jsou použity _racionální polynomy_ \(R_{i}^n\). Tyto polynomy nemají rekurentní definici a tak pro vykreslení křivky nelze použít algoritmus de Casteljau. Polynomy mají nezápornou hodnotu a jednotkový součet, křivka tudíž leží v konvexní obálce,

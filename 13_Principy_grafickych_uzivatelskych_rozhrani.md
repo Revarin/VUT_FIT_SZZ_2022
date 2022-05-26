@@ -42,10 +42,10 @@ Změnou z pasivní a aktivní komunikace (a naopak) plyne nutnost přecházení 
 - Reakce na chybu.
 
 ## Událostmi řízené systémy
-Událostmi řízené systémy představují základní princip práce s GUI. Tok programu je řízen různými událostmi (kliknutí myši, stisknutí klávesy). V programu existuje nějaky __naslouchač__ (listener), který čeká na prijmutí události. Po jejím přijmutí provede odpovídající akci. U HW obdobně funguje systém přerušení. Všechny moderní systémy jsou řízené událostmi. Ve _Windows_ jsou například reprezentovány zprávami, které jsou zasílány specializovanými funkcemi z prvků rozhraní.
+Událostmi řízené systémy představují základní princip práce s GUI. Tok programu je řízen různými událostmi (kliknutí myši, stisknutí klávesy). V programu existuje nějaky __naslouchač__ (listener), který čeká na přijmutí události. Po jejím přijmutí provede odpovídající akci. U HW obdobně funguje systém přerušení. Všechny moderní systémy jsou řízené událostmi. Ve _Windows_ jsou například reprezentovány zprávami, které jsou zasílány specializovanými funkcemi z prvků rozhraní.
 
 V dnešní době se používají systémy GUI postavené na prvním GUI založeném na práci s okny __WIMP__ (Windows, Icon, Menu, Pointer). WIMP systém obsahuje:
-- Okna, která reprezentují spuštěné prograsmy, z nichž je každý izolován od ostatních programů ve vlastních oknách.
+- Okna, která reprezentují spuštěné programy, z nichž je každý izolován od ostatních programů ve vlastních oknách.
 - Ikony, které reprezentují zkratky sloužící k provedení určité činnosti.
 - Menu, což jsou textové (nebo ikonové) nabídky, ze kterých je možné jednu vybrat a provést tak určitou akci.
 - Ukazatel, což je pohybující se grafický symbol reprezentující pohyb fyzického zařízení, pomocí něhož uživatel vybírá ikony, položky v menu nebo data.
