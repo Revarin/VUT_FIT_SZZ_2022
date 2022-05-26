@@ -6,7 +6,7 @@
     - https://www.fit.vutbr.cz/study/courses/IZG/private/lecture/izg_slide_vyplnovani_rev2021_169.pdf (vyplňování)
     - https://www.fit.vutbr.cz/study/courses/IZG/private/lecture/izg_slide_krivky_print.pdf (křivky)
 
-## Raszerizace
+## Rasterizace
 Základní grafické objekty jsou v paměti uloženy vektorově. Vektorová reprezentace objektů zabírá méně paměti a také s ní lze jednoduše provádět různé operace jako je posun, zvětšení a rotace. Oproti tomu zobrazovací zařízení se skládají z matice pixelů a tudíž zobrazují grafické objekty rastrově. Je tedy nutné umět převést vektorové objekty na jejich rastrovou reprezentaci. K tomu se využívá proces __rasterizace__.
 
 > __Rasterizace__ je proces převodu vektorové reprezentace dat na jejich rastrovou formu s cílem dosáhnout maximální možné kvality a zároveň rychlosti výsledného zobrazení.
@@ -47,7 +47,7 @@ LineDDA(int x1, int y1, int x2, int y2) {
 Algoritmus vykreslování úsečky s hlídáním chyby je modifikovaný DDA algoritmus. Jeho rozdíl je pouze v tom, že se neprovádí výpočet skutečné souřadnice na ose \(y\). Místo toho se pracuje s hodnotou __relativní odchylky__ (chyby) aktuální celočíselné souřadnice od skutečné souřadnice v ose \(y\). Jestliže tato chyba překročí hodnotu \(0,5\), přesuneme se na další řádek, další celočíselnou souřadnici v ose \(y\). Po každém posunu na nový řádek je hodnota chyby snížena o hodnota \(1,0\).
 
 ### Bresenhamův (midpoint) algoritmus
-Bresenhamův algoritmus je nejpoužívanější a nejefektivnější algoritmus vykreslování úsečky. Používá pouze celočíselnou aritmetiku (sčítání a porovnávání) a tek je rychlý a sandno implementovatelný v HW.
+Bresenhamův algoritmus je nejpoužívanější a nejefektivnější algoritmus vykreslování úsečky. Používá pouze celočíselnou aritmetiku (sčítání a porovnávání) a tak je rychlý a snadno implementovatelný v HW.
 
 Bresenhamův algoritmus vykresluje úsečku pixel po pixel od \(P_1\) k \(P_2\). V ose \(x\) je přírůstek \(dx\) vždy roven jedné a v ose \(y\) záleží přírůstek na znaménku __prediktoru__. Při odvození prediktoru vycházíme ze _směrnicového tvaru_ rovnice úsečky. 
 
@@ -102,7 +102,7 @@ Kružnice je _osminásobně symetrická_. Stečí tedy vypočítat pouze jednu o
 ![Body v kružnici](/Images/11/body_kruznice.png)
 
 ### Vykreslení kružnice po bodech
-Vykreslení kružnice po bodech je nejjednodušší rasterizační algoritmus. Pracuje s floating-point aritmetikou a tudíž výpočetně náročný. Vykresluje kružnici _ve směru hodinových ručiček_ po jednom pixelu od hodnoty 0 až do bodu \(x = y\) (do té doby je přírůstek na ose \(x\) jedna). Pozice v ose \(y\) se vypočte ze vztahu pro rovnici kružnice \(y = \sqrt{R^2 - x^2}\).
+Vykreslení kružnice po bodech je nejjednodušší rasterizační algoritmus. Pracuje s floating-point aritmetikou a je tudíž výpočetně náročný. Vykresluje kružnici _ve směru hodinových ručiček_ po jednom pixelu od hodnoty 0 až do bodu \(x = y\) (do té doby je přírůstek na ose \(x\) jedna). Pozice v ose \(y\) se vypočte ze vztahu pro rovnici kružnice \(y = \sqrt{R^2 - x^2}\).
 
 ```cpp
 CircleByPoints(int s1, int s2, int R) {
@@ -122,8 +122,8 @@ CircleByPoints(int s1, int s2, int R) {
 Vykreslení kružnice jako n-úhelník je alternativa rasterizačního algoritmus DDA pro kružnici. Algoritmus rozdělí _kružnici na úsečky_ a ty postupně vykreslí. Pracuje s desetinnými čísly a tudíž je pomalý a navíc v HW těžko implementovatelný. Využívá rekurentní vztah pro výpočet souřadnic, využívají konstatní úhel \(\alpha\), jehož hodnota bude záviset na počtu úseček do nichž je kružnice rozdělena.
 
 \[
-    x_n + 1 = x_n \cos \alpha - y_n \sin \alpha \\
-    y_n + 1 = x_n \sin \alpha + y_n \cos \alpha
+    x_{n+1} = x_n \cos \alpha - y_n \sin \alpha \\
+    y_{n+1} = x_n \sin \alpha + y_n \cos \alpha
 \]
 
 Algoritmus je citlivý na kumulované numerické chyby výpočtu funkcí \(\sin\) a \(\cos\). Pro odstranění této chyby je možné spočítat pouze osminu kružnice a zbytek vykreslit s využitím symetrie, nebo použít _High precision_ variantu algoritmu.
@@ -149,27 +149,27 @@ CircleDDA(int R, int N) {
 ### Midpoint algoritmus pro kružnici
 Midpoint algoritmus je algoritmus rasterizace kružnice, jehož princip je v podstatě stejný jako u Bresenhamova algoritmus pro úsečku. Je postaven na určování __midpointů__ vůči kružnicici. Rozdíl je ve stanovení kritéria pro určení prediktoru. Algoritmus pracuje pouze s celými čísly a je tak efektivní a snadno implementovatelný v HW.
 
-Kružnice se vykresluje z bodu \([0, R]\) postupně po jednotlivých pixelech ve směru hodinových ručiček pro její osminu. Zbývající body získáme symetrií. Ve směru osy \(x\) se pohybujeme s přírůstkem \(dx = 1\) dokud neplatí \(x = y\). Ve směru osy \(y\) klasáme od hodnoty \(R\). O posunu ve směru osy \(y\) __rozhodujeme__ podle __znaménka prediktoru__ \(P_i\). Prediktor je vypočítá z rovnice kružnice v jejím homogením tvaru.
+Kružnice se vykresluje z bodu \([0, R]\) postupně po jednotlivých pixelech ve směru hodinových ručiček pro její osminu. Zbývající body získáme symetrií. Ve směru osy \(x\) se pohybujeme s přírůstkem \(dx = 1\) dokud neplatí \(x = y\). Ve směru osy \(y\) klesáme od hodnoty \(R\). O posunu ve směru osy \(y\) __rozhodujeme__ podle __znaménka prediktoru__ \(P_i\). Prediktor je vypočítá z rovnice kružnice v jejím homogením tvaru.
 
 \[
     F(x, y): x^2 + y^2 - R^2 = 0
 \]
 
-Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinice. Midpoint dosadíme do vztahu pro prediktor a následně při porovnávní s nulout dosáhneme nové hodnoty \(y\).
+Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinice. Midpoint dosadíme do vztahu pro prediktor a následně při porovnání s nulou dosáhneme nové hodnoty \(y\).
 
 \[
     P_i = F(x_i + 1, y_i - 1/2) \\
-    P_I = (x_i + 1)^2 + (y_i - 1/2)^2 - R^2 \\\;\\
+    P_i = (x_i + 1)^2 + (y_i - 1/2)^2 - R^2 \\\;\\
     P_i < 0 \rightarrow y_{i+1} = y_i \\
     P_i \geq 0 \rightarrow y_{i+1} = y_i - 1
 \]
 
-Pro průběžné výpočty během vykreslování kružnice je opět výhodnější vyjádřit prediktro _rekurentně_ (na základě hodnoty z předchozího kroku). Výsledný rekurentní vztah pro prediktor bude opět záležet jak na hodnotě předchozího prediktoru, tak na jeho _znaménku_. Pro vlstní výpočty během rasterizace kružnice jsou rozhodující __rozhodovací vztahy__ pro výpočet prediktoru vztahy pro rekurnentí výpočet prediktoru.
+Pro průběžné výpočty během vykreslování kružnice je opět výhodnější vyjádřit prediktor _rekurentně_ (na základě hodnoty z předchozího kroku). Výsledný rekurentní vztah pro prediktor bude opět záležet jak na hodnotě předchozího prediktoru, tak na jeho _znaménku_. Pro vlastní výpočty během rasterizace kružnice jsou rozhodující __rozhodovací vztahy__ pro výpočet prediktoru a vztahy pro rekurnentí výpočet prediktoru.
 
 \[
     P_{i+1} = (x_{i+1} + 1 )^2 + (y_{i+1} - 1/2)^2 - R^2 \\\;\\
     P_{i+1} = P_i + 2x_i + 3 \Leftarrow P_i < 0 \\
-    P_{i+1} = P_i + 2x_i - 2y_i + 5 \Leftarrow P_I \geq 0 \\\;\\
+    P_{i+1} = P_i + 2x_i - 2y_i + 5 \Leftarrow P_i \geq 0 \\\;\\
     P_0 = 1 - R
 \]
 
@@ -195,12 +195,12 @@ CircleMid(int s1, int s2, int R) {
 ```
 ![Midpoint algoritmus](/Images/11/midpoint_algoritmus.png)
 
-## Raserizace elipsy
+## Rasterizace elipsy
 Elipsa je geometrická vektorová entita definovaná:
 - Souřadnicemi středu, hodnotami hlavní a vedlejší poloosy a úhlem natočení hlavní poloosy
 - Rovnicí elipsy popisující geometrii: \(F(x, y) = b^2 x^2 + a^2 y^2 - a^2 b^2 = 0\)
 
-Elipsa 4 symetrická a tudíž se algoritmus rasterizace provádí vždy pro jednu čtvrtinu bodů, zbylé body vykreslíme záměnnou souřadnic. Algoritmy jsou odvozeny pro elipsu se středem v počátku \([0, 0]\) a s nulovým natočením.
+Elipsa je 4 symetrická a tudíž se algoritmus rasterizace provádí vždy pro jednu čtvrtinu bodů, zbylé body vykreslíme záměnnou souřadnic. Algoritmy jsou odvozeny pro elipsu se středem v počátku \([0, 0]\) a s nulovým natočením.
 
 ![Body elipsy](/Images/11/body_elipsy.png)
 
@@ -212,10 +212,10 @@ Pro vykreslovanou oblast jdeme po pixelu od bodu \([0, b]\), dokud není \(2b^2x
 ![Midpoint alguritmus pro elipsu](/Images/11/midpoint_elipsa.png)
 
 ## Rasterizace polygonů
-Rasterizace polygonů, neboli _vyplňování 2D oblastí_, je proces nalezení a označení všech vnitřních bodů dané oblasti. Vstupem algoritmů je popis hranice oblasti a jejich výstupem je rastrový popis vyplnění oblasti. Pro zjednodušení algoritmů má vektorový popis 2D oblastí určité konvence: vnější hrany a otvory uvnitř obrazce jsou orientovány opačným směrem a seznam hraničních entit vyplňované oblasti musí být orientovaný a spojitý. Orientace hrany lze otestovat vektorovým součinem dvou sousedních hran (konvexní polygony) nebo sumou přes celý polygon (nekoncexní polygony).
+Rasterizace polygonů, neboli _vyplňování 2D oblastí_, je proces nalezení a označení všech vnitřních bodů dané oblasti. Vstupem algoritmů je popis hranice oblasti a jejich výstupem je rastrový popis vyplnění oblasti. Pro zjednodušení algoritmů má vektorový popis 2D oblastí určité konvence: vnější hrany a otvory uvnitř obrazce jsou orientovány opačným směrem a seznam hraničních entit vyplňované oblasti musí být orientovaný a spojitý. Orientace hrany lze otestovat vektorovým součinem dvou sousedních hran (konvexní polygony) nebo sumou přes celý polygon (nekonvexní polygony).
 
 Jsou tři způsoby vyplňování složitých (protínajících se) oblastí:
-- __Parití vyplňování__ - Hranice odděluje vyplněný a nevyplněný prostor.
+- __Paritní vyplňování__ - Hranice odděluje vyplněný a nevyplněný prostor.
 - __Vnitřní vyplňování__ - Jsou vyplněny všechny body, které nejsou vně oblasti.
 - __Nenulové vyplňování__ - Nenulové objetí bodu uzavřenou smyčkou při vyřešení sebeprotínání.
 
@@ -233,27 +233,27 @@ Když hranová funkce vratí pro daná bod kladnou hodnotu, pak tento bod leží
 
 ![Pinnedův algoritmus: Hranová funkce](/Images/11/pineduv_algoritmus.png)
 
-Není nutné vyhodnocovat hranové funkce \(E_i(x, y)\) pro každý bod. Hodnotu lze určit i na základě sousedního bodu \(P(x +- 1, y)\) nebo \(P(x, y +- 1\).
+Není nutné vyhodnocovat hranové funkce \(E_i(x, y)\) pro každý bod. Hodnotu lze určit i na základě sousedního bodu \(P(x \pm 1, y)\) nebo \(P(x, y \pm 1)\).
 
 ![Pinnedův algoritmus: Výpočet hranové funkce](/Images/11/pineduv_algoritmus_zjednoduseni.png)
 
 ### Barycentrické souřadnice pro trojúhelník
-Koordináty trojúhelníku (nebo konvexního n-úhelníku), které jsou vztaženy k vrcholům primitiva (nejsou _kartézské_, ale naopak _váhové_ na základě vzdálenosti od rohů primitiva). Každá souřadnice musí být větší nebo rovna nule.. Barycentrické souřadnice jsou vhodné pro určení polohy bodu vůči trojúhelníku a využívají se pro optimalizace vyplňování.
+Koordináty trojúhelníku (nebo konvexního n-úhelníku), které jsou vztaženy k vrcholům primitiva (nejsou _kartézské_, ale naopak _váhové_ na základě vzdálenosti od rohů primitiva). Každá souřadnice musí být větší nebo rovna nule. Barycentrické souřadnice jsou vhodné pro určení polohy bodu vůči trojúhelníku a využívají se pro optimalizace vyplňování.
 
 ![Barycentrické souřadnice](/Images/11/barycentricke_souradnice.png)
 
 ## Křivky v počítačové grafice
-Křivky v počítačové grafice se využívají pro vykreslování modelů, fontů, pohub kamery po křivce atd. Od křivek se očekávají určité požadované vlastnosti:
-- __Invariance lineárním transformacím__ - Rotace řídících bodů křivky nemá vliv na tvar křivky (body je možné transformovat a výsledná křivka má stejný tvar).
+Křivky v počítačové grafice se využívají pro vykreslování modelů, fontů, pohybu kamery po křivce atd. Od křivek se očekávají určité požadované vlastnosti:
+- __Invariance k lineárním transformacím__ - Rotace řídících bodů křivky nemá vliv na tvar křivky (body je možné transformovat a výsledná křivka má stejný tvar).
 - __Konvexní obálka__ - Křivka leží v konvexní obálce svých řídících bodů.
-- __Lokalita změn__ - Pohyb řídícím bodem změní křivku pouze lokální (pouze na daném místě).
+- __Lokalita změn__ - Pohyb řídícím bodem změní křivku pouze lokálně (pouze na daném místě).
 - __Interpolace krajních bodů__ - Křivka prochází krajními body.
 
 Existuje několik druhů křivek:
 - __Aproximační křivka__ - Křivka, která neprochází svými řídícími body.
 - __Interpolační křivka__ - Křivka, která prochází svými řídícími body (body jsou proložené křivkou).
 - __Racionální křivka__ - Křivka, která používá váhové koeficienty \(w_i\) řídících bodů. Je invariantní vůči perspektivní projekci.
-- __Neracionální křivka__ - Křivka, která má všechny váhové koeficienty rovná jedné. Je neinvariantní vůči perspektivní projekci, tvar křivky lze ovlivnit pouze změnou polohy řídících bodů.
+- __Neracionální křivka__ - Křivka, která má všechny váhové koeficienty rovné jedné. Je neinvariantní vůči perspektivní projekci, tvar křivky lze ovlivnit pouze změnou polohy řídících bodů.
 
 Křivky lze matematicky zapsaz několika způsoby:
 - __Parametrické vyjádření křivky:__ \(Q(t) = [x(t), y(t)];~t \in \langle 0, 1 \rangle\)
@@ -268,7 +268,7 @@ Křivky lze matematicky zapsaz několika způsoby:
 
 ![Maticový zápis křivky](/Images/11/maticovy_zapis_krivky.png)
 
-- __Vyjádření bodu křivky pomocí řídicích bodů:__
+- __Vyjádření bodů křivky pomocí řídicích bodů:__
 
 \[
     Q(t) = P_0 F_0(t) + P_1 F_1(t) + P_2 F_2(t) + P_3 F_3(t)\\
@@ -317,6 +317,6 @@ Vykreslování křivky se tak provádí opakovaným výpočtem pro různé hodno
 ![Algoritmus de Casteljau](/Images/11/de_casteljau.png)
 
 #### Speciální případy beziérových křivek
-__Beziérovy kubiky__ jsou beziérovy křivky, jejichž segment je popsán čtyřmi řídícími body. Posunem těchto řídících bodu nastává _nelokální_ změna křivky. navazování segmentů beziérových kubik vyžaduje spojitost \(C^1\), shodnost tečných vektorů a totožnost koncových bodů. Na vykreslování beziérových kubik lze použít algoritmus de Casteljau metodou "divide and conquer". Celá křivka se rekurzivně dělí na dvě podkřivky. Jakmile se získá dostatečně rovná podkřivka, tak se již dále nedělí a podkřivka je vykreslena.
+__Beziérovy kubiky__ jsou beziérovy křivky, jejichž segment je popsán čtyřmi řídícími body. Posunem těchto řídících bodu nastává _nelokální_ změna křivky. Navazování segmentů beziérových kubik vyžaduje spojitost \(C^1\), shodnost tečných vektorů a totožnost koncových bodů. Na vykreslování beziérových kubik lze použít algoritmus de Casteljau metodou "divide and conquer". Celá křivka se rekurzivně dělí na dvě podkřivky. Jakmile se získá dostatečně rovná podkřivka, tak se již dále nedělí a podkřivka je vykreslena.
 
 __Racionální beziérovy křivky__ jsou beziérovy křivky, které využívají váhování. Místo neracionálních bernsteinových polynomů jsou použity _racionální polynomy_ \(R_{i}^n\). Tyto polynomy nemají rekurentní definici a tak pro vykreslení křivky nelze použít algoritmus de Casteljau. Polynomy mají nezápornou hodnotu a jednotkový součet, křivka tudíž leží v konvexní obálce,
