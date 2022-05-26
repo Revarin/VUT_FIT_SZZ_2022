@@ -1,6 +1,11 @@
 # Teorie grafů
 - Otázky: pojem grafu, isomorfismus grafů, souvislost, grafové algoritmy
-- Předmět: IDM
+- Předmět: IDM (nový okruh)
+- ToDo: Příklady
+- Zdroje:
+    - https://www.umat.fekt.vut.cz/~hlinena/IDM/Prednasky/grafy1.pdf
+    - https://www.umat.fekt.vut.cz/~hlinena/IDM/Prednasky/grafy2.pdf
+    - https://www.umat.fekt.vut.cz/~hlinena/IDM/Prednasky/grafy3.pdf
 
 ## Graf
 Graf je speciální případ binární relace. Skládá se z vrcholů a hran, které tyto vrcholy propojují.
@@ -54,7 +59,7 @@ V orientovaném grafu má každá hrana určitý směr.
 ### Podgraf
 > Podgrafem grafu \(G\) rozumíme libovolný graf \(H\), pro který platí:
 > - Množina vrcholů grafu \(H\) je podmnožinou vrcholů grafu \(G\): \(V(H) \subseteq V(G)\).
-> - Za hrany má libovolnou podmnožinu hran grafu \(G\, které ale mají oba vrcholy v množině \(V(H)\).
+> - Za hrany má libovolnou podmnožinu hran grafu \(G\), které ale mají oba vrcholy v množině \(V(H)\).
 
 ![Podgraf](/Images/25/podgraf.png)
 
@@ -111,3 +116,38 @@ Strom je jednoduchý souvislý graf \(T\) bez kružnic (acyklický). Graf tvoře
 - Mezi každými dvěma vrcholi vede právě jedna cesta.
 
 ## Grafové algoritmy
+Grafové algoritmy umožňují algoritmycky zpracovat (projít) graf. Typicky využívají nějakou paměť - zásobník, frontu, seřazené pole.
+
+### Prohledávání do šířky
+Prohledávání do šířky (BFS) je grafový algoritmus, který postupně prochází celé úrovně grafu od počátečního vrcholu. Jako paměť využívá _frontu_. Funkce algoritmu BFS je následující:
+1. První vrchol grafu se vloží do fronty.
+2. Pokud není fronta prázdná, zpracuje se vrchol na začátku fronty. Zpracování vrcholu znamená umístění vrcholů, do kterých vede hrana ze zpracovaného vrcholu, do fronty. Tento krok se cyklicky opakuje.
+
+Algoritmus BFS lze použít pro zjištění nejkratší vzdálenosti mezi dvěma vrcholi spojitého _neváženého_ grafu.
+
+### Prohledávání do hloubky
+Prohledávání do hloubky (DFS) je grafový algoritmus, který prochází nejprve do co nejvzdálenější úrovně grafu a poté se postupně vynořuje a zase co nejvíce zanořuje. Jako paměť využívá _zásobník_. Algoritmus DFS pracuje následovně:
+1. První vrchol grafu se vloží na zásobník.
+2. POkud není zásobník prázdný, zpracuje se vrchol na vrcholu zásobníku. Zpracování vrcholu znamená umístění vrcholů, do kterých vede hrana ze zpracovaného vrcholu, na zásobník. Tento krok se cyklicky opakuje.
+
+### Dijkstrův algoritmus
+Dijkstrův algoritmus je algoritmus pro hledání _nejkratší_ cesty mezi dvěma vrcholy \(u\) a \(v\) v __kladně váženém__ grafu. Jako uložiště používá _prioritní frontu_. Může pracovat s časovou komplexitou \(O((h+v) * \log{v})\) nebo \(O(v^2)\) při použití pole. Princip Dijkstrova algoritmu je následující:
+1. Všechny vrcholy grafu až na počáteční jsou ohodnoceny _nekonečnem_ (neznáme do nich cestu) a počáteční vrchol je ohodnocen 0. Všechny vrcholy jsou označeny za nezpracované.
+2. Z nezpracovaných vrcholů vybereme ten s nejmenší hodnotou (leží na začátku prioritní fronty, v první iteraci to bude počáteční vrchol \(u\)). Pokud je tento vrchol hledaným vrcholem \(v\), ukončíme algoritmus. Jinak přepíšeme vzdálenosti všech vrcholů (již zpracované ignorujeme), do kterých se můžeme z vybraného vrcholu dostat hranou, přičtením ohodnocení této hrany k hodnotě zpracovávaného vrcholu, pokud je tato hodnota __menší__ než aktuální ohodnocení. V tomto případě si také zaznamenáme, přes jaký vrchol vede tato nejkratší cesta.
+3. Aktuálně zpracovávaný uzel označíme za zpracovaný a pokud jsou ještě nezpracované vrcholy, pokračujeme 2. bodem.
+4. Zpětně rekonstruujeme _cestu_ z cílového vrcholu \(v\) k startovacímu vrcholu \(u\) na základě zapamatovaných údajů v bodě 2.
+
+### Jarníkův (Primův) algoritmus
+Jarníkův (Primův) algoritmus je grafový algoritmus, který hledá __minimální kostru__ ve _váženém grafu_ (stomový podgraf, který propojuje všechny vrcholy) - __minimum spanning tree__. Jako uložiště může použít např. _prioritní frontu_ pro nenavštívené vrcholy. Princip algoritmus je následující:
+1. Do uložiště se uloží všechny vrcholy s ohodnocení _nekonečno_ (ještě nejsou v kostře).
+2. Z tohoto uložiště se vybere libovolný uzel grafu, změní se jeho ohodnocení na 0 a odstraní se z uložiště.
+3. U dosud nenavštívených vrcholů (jsou v uložišti), do kterých se lze z vybraného vrcholu dostat, se aktualizují jejich ohodnocení hodnotou cesty k tomuto vrcholu, pokud je tato hodnota menší než aktuální. Vrchol, ze kterého tato cesta vede se zapíše.
+4. Z uložiště se vybere vrchol s nejmenším ohodnocení a z uložiště se odstraní.
+5. Pokud uložiště není prázdné pokračuje se bodem 3.
+6. Zpětně rekonstruujeme použité hrany.
+
+### Kruskalův algoritmus
+Kruskalův algoritmus je algoritmus pro hledání minimální kostry ve váženém grafu. Pracuje na principu, že z grafu vybíráme vždy hranu s nejmenším ohodnocením tak, aby se nevytvořila kružnice, dokud nejsou spojeny všechny vrcholy. Časová složitost algoritmu je \(O(|E|* \log{|V|})\).
+
+## Příklady
+Příklady průchodů grafy
