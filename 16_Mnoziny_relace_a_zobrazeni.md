@@ -26,7 +26,7 @@ __Rozklad množiny__ \(A\) je systém množin \(A'=\{A_1, A_2, ...\}\), pro kter
 
 ![Rozklad množiny](/Images/16/rozklad_mnoziny.png)
 
-Pro algebraické operace s množinami platí __uzavřenost množiny__. Když se s prvky množiny procede nějaká operace, tak výsledkem budou zase prvky této množiny.
+Pro algebraické operace s množinami platí __uzavřenost množiny__. Když se s prvky množiny provede nějaká operace, tak výsledkem budou zase prvky této množiny.
 
 ### Operace s množinami
 S dvěma a více množinami lze provádět různé operace:
@@ -78,9 +78,9 @@ Dále pro _binární operace_ platí takzvané __De Morganovy zákony__, které 
 ## Relace
 Relace nebo __n-ární__ relace je libovolný vztah mezi skupinou prvků jedné nebo více množin. 
 
-> N-ární relací mezi množinami \(A_1\), \(A_2\), ..., \(A_n\), kde \(x\) náleží do \(n\) rozumíme libovolnou podmnožinu __kartézského součinu \(n\) množin.
+> N-ární relací mezi množinami \(A_1\), \(A_2\), ..., \(A_n\), kde \(x\) náleží do \(n\) rozumíme libovolnou podmnožinu __kartézského součinu__ \(n\) množin.
 
-> __Kartézským součinem__ množin \(A\) a \(B\) je množina všech uspořádaných dvojic jejich prvků. Kartézský součin komutativní.
+> __Kartézským součinem__ množin \(A\) a \(B\) je množina všech uspořádaných dvojic jejich prvků. Kartézský součin je komutativní.
 >
 > \[X \times Y = \{(x,y) | x \in X \land y \in Y\}\]
 
@@ -88,12 +88,12 @@ Relace nebo __n-ární__ relace je libovolný vztah mezi skupinou prvků jedné 
 
 Pod pojmem relace se většinou myslí __binární relace__. Binární relací z \(X\) do \(Y\) rozumíme jakoukoli podmnožinu jejich kartézského součinu \(R \subset X \times Y\). Pokud platí \(X = Y\), tak hovoříme o binární relaci na \(X\). Binární relace je tak vztah mezi dvěma množinami. Formální definice binární relace je:
 
-> Binární relace je uspořádaná trojice \([A, B, R]\), kde \(A\) a \(B\) jsou libovolné množiny a \(R\) je podmnožina kartézského součinu \(A \times B\). Množině \(A\) se říká __definiční obor__, množině \(B\) __obor hodnot__ a množinu \(R\) nazýváme graf relace.
+> Binární relace je uspořádaná trojice \([A, B, R]\), kde \(A\) a \(B\) jsou libovolné množiny a \(R\) je podmnožina kartézského součinu \(A \times B\). Množině \(A\) se říká __definiční obor__, množině \(B\) __obor hodnot__ a množinu \(R\) nazýváme __graf relace__.
 
 ### Vlastnosti relací
 Relace mohou mít různé vlastnosti:
 - __Symetrická relace__ - Relace je symetrická v případě, že při prohození prvků, které jsou v relaci, zůstanou stále v relaci. Pokud \(a\) je v relaci s \(b\), tak i \(b\) je v relaci s \(a\).
-- __Antisymetrická relace__ - Relace je antisymetrická v případě, že při prohození prvků, které jsou v relaci, tak v relaci nebudou. Je to opak symetrie. Relace může být _slabě_ nebo _silně_ antisymetrická (silně vylučuje relaci prvků sama se sebou).
+- __Antisymetrická relace__ - Relace je antisymetrická v případě, že při prohození prvků, které jsou v relaci, tak v relaci nebudou. Je to opak symetrie. Relace může být _slabě_ nebo _silně_ antisymetrická (silně symetrická relace vylučuje relaci prvků sama se sebou).
 - __Reflexivní relace__ - Relace je reflexivní v případě, že prvky jsou v relaci sami se sebou.
 - __Tranzitivní relace__ - Relace je tranzitivní v případě, když je \(a\) v relaci s \(b\) a \(b\) je v relaci s \(c\), tak i \(a\) je v relaci s \(c\).
 - __Inverzní relace__ - Inverzní relace je relace vzniklá prohozením pořadí prvků v uspořádaných dvojicích, neboli prohození definičního oboru a oboru hodnot.
@@ -123,7 +123,7 @@ Zobrazení je tedy přiřazení prvků jedné množiny k prvkům množiny druhů
 ![Bijektivní zobrazení](/Images/16/bijektivni_zobrazeni.png)
 
 ## Svaz
-Množina \(X\) s relací \(R\) je __svazem__, pokud pro každou dvouprvkovou podmnožinu v relaci \(R\) lze definovat maximim a minimum. Neboli, svaz je _uspořádatelná_ množina. Když jsou dva stejné, tak se stále jedná o svaz (maximum a minimum jsou oba prvky).
+Množina \(X\) s relací \(R\) je __svazem__, pokud pro každou dvouprvkovou podmnožinu v relaci \(R\) lze definovat maximum a minimum. Neboli, svaz je _uspořádatelná_ množina. Když jsou dva prvky stejné, tak se stále jedná o svaz (maximum a minimum jsou oba prvky).
 
 > Nechť \(X\) je množina, \(\land\) a \(\lor\) jsou operace na množině \(X\) s následujícími vlastnostmi pro všechny prvky \(x, y, z \in X\):
 > 1. \(x \lor x = x\), \(x \land x = x\) (idempotence)
@@ -131,7 +131,7 @@ Množina \(X\) s relací \(R\) je __svazem__, pokud pro každou dvouprvkovou pod
 > 3. \((x \lor y) \lor z = x \lor (y \lor z)\), \((x \land y) \land z = x \land (y \land z)\) (asociativita)
 > 4. \(x \land (x \lor y) = y\), \(x \lor (x \land y) = x\) (absorbční zákony)
 >
-> Pak trojici \((X, \lor, \land\) nazýváme _svazem na \(X\)_ O svazu \((X, \lor, \land)\) někdy říkáme, že je algebraicky definovaný, abycho zdůraznili, že jej chápeme jako algebru, na rozdíl od svazově uspořádané množiny.
+> Pak trojici \((X, \lor, \land)\) nazýváme _svazem na \(X\)_. O svazu \((X, \lor, \land)\) někdy říkáme, že je algebraicky definovaný, abychom zdůraznili, že jej chápeme jako algebru, na rozdíl od svazově uspořádané množiny.
 
 ## Grupa
 > Grupa je dvojice \((A, o)\), kde \(A\) je množina a \(o\) je nějaká binární operace, která splňuje následující _tři axiomy_:

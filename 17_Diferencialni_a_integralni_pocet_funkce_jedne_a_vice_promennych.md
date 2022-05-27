@@ -23,7 +23,7 @@ Limita je konstrukce vyjadřující, že se funkční hodnota funkce v bodě \(a
 
 ![Okoli bodu](/Images/17/okoli_bodu.png)
 
-Limita je __vlastní__, pokud platí \(b \neq \pm \infty\), jinak je to limita __nevlastní__. Rozlišujeme limitu __zprava__ \(\lim_{x \to a^+} f(x)\) a limutu zleva \(lim_{x \to a^-} f(x)\).
+Limita je __vlastní__, pokud platí \(b \neq \pm \infty\), jinak je to limita __nevlastní__. Rozlišujeme limitu __zprava__ \(\lim_{x \to a^+} f(x)\) a limitu zleva \(lim_{x \to a^-} f(x)\).
 
 ### Spojitost funkce
 Funkce \(f(x)\) je __spojitá__ v bodě \(a\), pokud platí \(\lim_{x \to a} f(x) = f(a)\), jinak je funkce __nespojitá__. Existuje několik druhů nespojitosti:
@@ -32,19 +32,21 @@ Funkce \(f(x)\) je __spojitá__ v bodě \(a\), pokud platí \(\lim_{x \to a} f(x
 - __Nespojitost druhého druhu__ - Nespojitost druhého druhu vzniká, jestliže alespoň jedna z jednostranných limit je nevlastní nebo neexistuje. Například se jedná o bod nespojitosti v nule.
 
 ## Derivace
-> V bodě \(x_0\) nechť pro funkci definovanou na nějakém okolí \(U(x_0)\) existuje vlastní limita \(f'(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\), potom tuto limitu nazýváme derivací funkce \(f\) v bodě \(x_0\).
+> V bodě \(x_0\) nechť pro funkci definovanou na nějakém okolí \(U(x_0)\) existuje vlastní limita:
 >
-> Derivaci funkce \(f\) v bode \(x_0\) značíme \(f'(x_0)\).
+>\[f'(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\]
+>
+> potom tuto limitu nazýváme derivací funkce \(f\) v bodě \(x_0\). Derivaci funkce \(f\) v bode \(x_0\) značíme \(f'(x_0)\).
 
 ![Graf derivace](/Images/17/graf_derivace.png)
 
-Grafická význam derivace:
+Grafický význam derivace:
 1. K pevně zvolenému bodu \(A[x_0, f(x_0)]\) si v jeho blízkosti zvolíme bod \(B[x, f(x)]\).
 2. Vzniklá _sečna_ \(AB\) ve směrnicovém tvaru \(y = kx + q\) má směrnici \(\tan \alpha = \frac{f(x) - f(x_0)}{x - x_0}\).
 3. Následně limitním přechodem zvolíme pozici bodu \(B\) nekonečně blízko tak, že se sečna funkce \(AB\) změní v _tečnu_. Směrnice tečny bude nyní \(k = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\) -> __derivace__ v bodě \(x_0\).
 4. Jinými slovy: derivace funkce je změna její hodnoty v poměru ke změně jejího argumentu.
 
-V některých bodech funkce nemusí mít definovanou derivace. Derivace neexistuje v bodech nespojitosti nespojitých funkcí a také v některých speciálních bodech spojitých funkcí. Z toho plyne, že pokud je funkce v daném bodě _diferencovatelná_, je v tomto bodě spojitá.
+V některých bodech funkce nemusí mít definovanou derivaci. Derivace neexistuje v bodech nespojitosti nespojitých funkcí a také v některých speciálních bodech spojitých funkcí. Z toho plyne, že pokud je funkce v daném bodě _diferencovatelná_, je v tomto bodě spojitá.
 
 ![Derivace neexistuje a funkce je spojitá](/Images/17/neex_derivace_spojita.png)
 ![Derivace neexistuje a funkce je nespojitá](/Images/17/neex_derivace_nespojita.png)
@@ -153,12 +155,12 @@ Derivaci podle více proměnných se říká __parciální derivace__. Parciáln
 Derivovat je také možné podle vektoru. Tomu se říká __směrová derivace__ - derivuje se ne podle osy, ale podle libovolného směrového vektoru.
 
 ### Gradient
-__Gradient__ je vektor, který udává směr, ve kterém funkce v daném bodě roste nejrychleji. Je kolmý na vrstevnici. Gradient je výsledkem derivace funkce více proměnných (derivace v podobě vektoru). Např.: pokud máme funkci pro dvě proměnné a derivujeme nejprve podle \(x\) a pak podle \(y\) tak složením výsledných derivací do vektoru vznikne gradient.
+__Gradient__ je vektor, který udává směr, ve kterém funkce v daném bodě roste nejrychleji. Je kolmý na vrstevnici. Gradient je výsledkem derivace funkce více proměnných (derivace v podobě vektoru). Např.: pokud máme funkci pro dvě proměnné a parciálně derivujeme nejprve podle \(x\) a pak podle \(y\) tak složením výsledných derivací do vektoru vznikne gradient.
 
 Body, ve kterých je gradient _nulový vektor_ (všechny parciální derivace jsou nulové) se nazývají __stacionárními body__.
 
 ### Taylorova řada
-[TODO:Is_Neccessary]
+[TODO]Je to potřeba?
 
 ### Derivace vyšších řádů
 Derivace vyšších řádů se provádí podobně jako u funkcí jedné proměnné. U funkcí více proměnných mluvíme o __totálním diferenciálu__. Vyjadřuje závislost změny hodnoty funkce na malé změně jejího argumentu. Tuto závislost aproximuje jakou přímou úměrnost v okolí daného bodu.
@@ -181,5 +183,6 @@ Pro výpočet dvojného integrálu na daném intervalu se používá __Fubiniho 
 - __Vnitřní bod__ - Bod uvnitř množiny.
 - __Hraniční bod__ - Bod na hranici množiny.
 - __Hranice množiny__ - Množina všech hraničních bodů.
+
 ## Příklady
-[TODO]
+Limity, derivace, integrály neurčité a určité, parciální derivace, dvojný integrál.

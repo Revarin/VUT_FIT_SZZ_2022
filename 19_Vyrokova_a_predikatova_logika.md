@@ -12,7 +12,7 @@ Syntaxe výrokové logiky určuje jak správně zapsat _formule_ výrokové logi
 - __Abecedy__ - Množiny symbolů, které se ve formulích mohou vyskytovat.
 - __Gramatiky__ - Množina pravidel, pomocí nichž můžeme pomocí symbolů z abecedy stavět formule.
 
-__Abeceda výrokové logiky__ je množina \(X \cup \{0, 1, \neg, \land, \lor, \rightarrow, \leftrightarrow, (, )\}\), kde \(X\) je množina _výrokových proměnných_, symbolům \(\{\neg, \land, \lor, \rightarrow, \leftrightarrow\}\) říkáme _logické spojky_ a symbolům \(\{0, 1\}\) _logické konstanty_. __Formule výrokové logiky__ jsou pak řetězce symbolů, které můžeme nad touto abecedou tvořit pomocí následujících pravidel:
+__Abeceda výrokové logiky__ je množina \(X \cup \{0, 1, \neg, \land, \lor, \rightarrow, \leftrightarrow, (, )\}\), kde \(X\) je množina _výrokových proměnných_. Symbolům \(\{\neg, \land, \lor, \rightarrow, \leftrightarrow\}\) říkáme _logické spojky_ a symbolům \(\{0, 1\}\) _logické konstanty_. __Formule výrokové logiky__ jsou pak řetězce symbolů, které můžeme nad touto abecedou tvořit pomocí následujících pravidel:
 - Je-li \(x\) výroková proměnné, pak řetězce "\(x\)", "\(0\)" a "\(1\)" jsou formule.
 - Jsou-li \(\varphi\) a \(\psi\) formule, pak jsou formule i řetězce "\((\neg \varphi)\)", "\((\varphi \land \psi)\)" a další.
 - Formule výrokové logiky jsou právě všechny konečné řetězce získané pomocí předchozích dvou pravidel.
@@ -24,19 +24,19 @@ Ve výsledných formulí je možné vynechat závorky na těchto místech: kolem
 ### Sémantika
 Sémantika formule určuje její význam. Ve výrokové logice sémantika tedy určuje to, kde platí. Pro definice sémantiky je nutné znát __ohodnocení proměnných__ \(I\), což je zobrazení, které každé proměnné z \(X\) přiřadí hodnotu 0 nebo 1: \(I:\; X \rightarrow \{0, 1\}\).
 
-Sémantika formula pak určuje, jakou pravdivostní hodnotu formule nabude pro jednotlivá ohodnocení proměnných. Tato hodnota se často definuje induktivně pomocí __pravidivostní tabulky__.
+Sémantika formula pak určuje, jakou pravdivostní hodnotu formule nabude pro jednotlivá ohodnocení proměnných. Tato hodnota se často definuje induktivně pomocí __pravdivostní tabulky__.
 
 ![Pravdivostní tabulka](/Images/19/pravdivostni_tabulka.png)
 
 Formálně lze sémantiku výrokové logiky definovat následovně:
-> Nechť \(V\) je množina všech ohodnocení proměnných \(V = (X \rightarrow \{0, 1\}\). Potom sémantika výrokové formule je funkce \([\cdot]:\; V \rightarrow \{0, 1\}\).
+> Nechť \(V\) je množina všech ohodnocení proměnných \(V = (X \rightarrow \{0, 1\})\). Potom sémantika výrokové formule je funkce \([\cdot]:\; V \rightarrow \{0, 1\}\).
 
 > Logické spojky \(\land\), \(\lor\), \(\leftrightarrow\) jsou _asociativní_. Logická spojka \(\rightarrow\) _asociativní_ není.
 
 ### Terminologie
 Ohodnocení proměnných \(I:\; X \rightarrow {0,1}\) __splňuje__ formuli \(\varphi\) tehdy, když platí, že po dosazení hodnot proměnných v ohodnocení \(I\) do formule bude výsledná pravdivostní hodnota formule 1. V takovém případě říkáme, že \(I\) je __modelem__ formule \(\varphi\), což značíme jako \(I \models \varphi\) (\(I\) splňuje \(\varphi\)). Opačnou vlastnost značíme \(I \not\models \varphi\).
 
-Existuje-li nějaké ohodnocení proměnných \(I\) takové, že \(I \models \varphi\), pak říkáme, že formule \(\varphi\) je __splnitelná__. Formule je __nesplnitelná__ (__kontradikce__), pokud není splnitelná, tj. neexistuje žádné ohodnocení, ve kterém by formule byla splnitelná. Formule je __platná__ (__tautologie__) pokud splněna ve všech možných ohodnocení proměnných, tj. její platnost nezávisí na hodnotách proměnných, což zapisujeme \(\models \varphi\). Formule je __neplatná__, pokud existuje ohodnocení proměnných, které ji nesplňuje, což značíme \(\not\models \varphi\).
+Existuje-li nějaké ohodnocení proměnných \(I\) takové, že \(I \models \varphi\), pak říkáme, že formule \(\varphi\) je __splnitelná__. Formule je __nesplnitelná__ (__kontradikce__), pokud není splnitelná, tj. neexistuje žádné ohodnocení, ve kterém by formule byla splnitelná. Formule je __platná__ (__tautologie__) pokud je splněna ve všech možných ohodnocení proměnných, tj. její platnost nezávisí na hodnotách proměnných, což zapisujeme \(\models \varphi\). Formule je __neplatná__, pokud existuje ohodnocení proměnných, které ji nesplňuje, což značíme \(\not\models \varphi\).
 
 > Platí následující:
 > - Formule je platná právě tehdy, když její negace je nesplnitelná.
@@ -85,7 +85,7 @@ Převod formule do DNF nebo CNF je možný pomocí algebraických úprav. Pro p�
 1. Převedeme formuli \(\varphi\) do NNF.
 2. Formuli v NNF převedeme do tvaru, kde jsou všechny konjunkce pod disjunkcemi/disjunkce pod konjunkcemi pomocí distributivních a De Morganových zákonů.
 
-Také je možné dělat převod formula do DNF nebo CNF pomocí _pravdivostní tabulky_. Tento způsob převodu je často jednodušší (především pro formule s malým počtem proměnných). Základní myšlenka převodu do DNF je následující: v pravdivostní tabulce najdeme přávě všechna ohodnocení proměnných \(I\), pro které má formule hodnotu 1. Výsledná formule v DNF se pak sestaví jako disjunkce konjunktivních klauzulí, kde každá klauzule odpovídá právě jednomu ohodnocení \(I\) tak, že se se sestaví konjunkce literálů odpovídající tomu, jakou \(I_j\) přiřazuje proměnným hodnotu. Převod do CNF probíhá duálně, jen se najdou ohodnocení, pro které má formule hodnotu 0 a literály mají negovanou hodnotu jak v ohodnocení.
+Také je možné dělat převod formula do DNF nebo CNF pomocí _pravdivostní tabulky_ (viz. okruh __[08]__). Tento způsob převodu je často jednodušší (především pro formule s malým počtem proměnných). Základní myšlenka převodu do DNF je následující: v pravdivostní tabulce najdeme přávě všechna ohodnocení proměnných \(I\), pro které má formule hodnotu 1. Výsledná formule v DNF se pak sestaví jako disjunkce konjunktivních klauzulí, kde každá klauzule odpovídá právě jednomu ohodnocení \(I\) tak, že se se sestaví konjunkce literálů odpovídající tomu, jakou \(I_j\) přiřazuje proměnným hodnotu. Převod do CNF probíhá duálně, jen se najdou ohodnocení, pro které má formule hodnotu 0 a literály mají negovanou hodnotu jak v ohodnocení.
 
 ## Predikátová logika 1. řádu
 Predikátová logika 1. řádu (FOL) nám oproti výrokové logice umožňuje mluvit o _entitách_ nějakého _univerza_ a jejich _vlastnostech_ a _vztazích_ mezi nimi.
@@ -105,7 +105,7 @@ Abeceda predikátové logiky se skládá z následujících prvků:
 - __Predikátové symboly__: \(p_1, p_2, ... \in P\)
 - __Predikátový symbol rovnosti__: \(=\)
 
-Novými prvky jsou __funkční symboly__ (z množiny \(F\)) a __predikátové symboly__ (z množiny \(P\)). Tyto množiny nejsou pevné, ale lze je chápat jako "parametr" jazyka, který si volíme podle toho, co chceme v logice vyjádřit. Každý funkčí i predikátový symbol má danou __aritu__, která udává kolik parametrů daný symbol běre. Aritu lze chápat jako funkci \((F \cup P) \rightarrow \N\) a je značena jako dolní index symbolu.
+Novými prvky jsou __funkční symboly__ (z množiny \(F\)) a __predikátové symboly__ (z množiny \(P\)). Tyto množiny nejsou pevné, ale lze je chápat jako "parametr" jazyka, který si volíme podle toho, co chceme v logice vyjádřit. Každý funkčí i predikátový symbol má danou __aritu__, která udává kolik parametrů daný symbol bere. Aritu lze chápat jako funkci \((F \cup P) \rightarrow \N\) a je značena jako dolní index symbolu.
 
 __Signatura__ jazyka predkátové logiky je dána jako dvojice \(\langle F,P \rangle\). Signaturu můžeme chápat jako "parametr" jazyka predikátové logiky, až po dodání signatury můžeme začít tvořit samotné formule predikátové logiky.
 
@@ -146,7 +146,7 @@ Sémantika predikátové logiky je složitější. V predikátové logice musím
 
 Místo \(\alpha_I(f)\), \(\alpha_I(p)\) a \(\alpha_I(x)\) píšeme jen \(I(f)\), \(I(p)\) a \(I(x)\). Část, která určuje doménu a interpretaci funkčních a predikátových symbolů se říká _struktura_ a části, která určuje hodnoty proměnných se říká _ohodnocení proměnných_.
 
-#### Sémantika formule v realizace
+#### Sémantika formule v realizaci
 Sémantika formule je dána realizací \(I\), bez ní nelze říci, zda formule platí či neplatí. Když realizaci máme, můžeme pravdivostní hodnotu formule zjistit dosazením realizace do formule (místo proměnných, funkčních symbolů a predikátových symbolů) a formuli vyčíslit.
 
 První věc, co je třeba provést je spočítat hodnotu všech termů ve formuli pro danou realizaci. V pevně dané realizace \(I\) s doménou \(D_I\) má term \(t\) konkrétní hodnotu. Hodnota obecného termu pro n-ární funkční symbol se definuje:
@@ -162,8 +162,8 @@ Jak máme vyčíslené všechny termy, můžeme vyhodnotit pravdivostní hodnoty
 > ![Pravdivostní hodnota pro výrokové spojky](/Images/19/pravdivostni_hodnota_vyrokove_spojky.png)
 >
 > 4. Pravdivostní hodnota existenčně a univerzálně kvantifikovaných formulí v realizaci \(I\) je definována tak, že
->   - \(I \models \exist x \varphi\) pokud existuje realizace \(I'\), která rozšiřuje realizaci \(I\) o ohodnocení proměnné \(x\) na nějakou hondotu z \(D_I\) takové, že \(I' \models \varphi\).
->   - \(I \models \forall x \varphi\) pokud pro libovolnou realizace \(I'\), která rozšiřuje realizaci \(I\) o ohodnocení proměnné \(x\) na nějakou hodnotu z \(D_I\) platí, že \(I' \models \varphi\).
+>       - \(I \models \exist x \varphi\) pokud existuje realizace \(I'\), která rozšiřuje realizaci \(I\) o ohodnocení proměnné \(x\) na nějakou hondotu z \(D_I\) takové, že \(I' \models \varphi\).
+>       - \(I \models \forall x \varphi\) pokud pro libovolnou realizace \(I'\), která rozšiřuje realizaci \(I\) o ohodnocení proměnné \(x\) na nějakou hodnotu z \(D_I\) platí, že \(I' \models \varphi\).
 
 ### Terminologie
 Formule \(\varphi\) v jazyce \(L\) je __splnitelná__, pokud má nějaký model, tedy pokud existuje nějaká realizace \(I\) jazyka \(L\) taková, že \(I \models \varphi\).
@@ -187,4 +187,4 @@ Základní normální forma v predikátové logice je __prenexní normální for
 kde \(Q_n \in \{\exist, \forall\}\) jsou kvantifikátory a \(\psi\) je formule bez kvantifikátorů. Pro převod formule do PNF se používají algebraické úpravy.
 
 ## Příklady
-[TODO]
+Úpravy výrokových a predikátových formulí, vyčíslení výrokových a predikátových formulí.

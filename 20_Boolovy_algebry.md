@@ -7,7 +7,7 @@
     - https://www.umat.fekt.vut.cz/~hlinena/IDM/Prednasky/algebra.pdf (algebra obecně)
 
 ## Boolova algebra
-Algebra definuje množinu prvků, množinu operátorů nad těmito prvky, axiomy a teorémy. __Boolova algebra__ je šestive \(B, +, *, ', 0, 1\), kde:
+Algebra definuje množinu prvků, množinu operátorů nad těmito prvky, axiomy a teorémy. __Boolova algebra__ je šestice \((B, +, *, ', 0, 1)\), kde:
 - \(B\) je neprázdná množina s alespoň dvěma různými prvky.
 - \(+\) je logický součet (binární operace OR, sjednocení).
 - \(*\) je logický součin (binární operace AND, průnik).
@@ -65,7 +65,7 @@ Teorémy jsou další pravidla, která jsou odvozena z axiomů algebry a definuj
     (a * b) * c = a * (b * c) \;\text{ (XIII.b)}
 \]
 
-- __Idempotence__ - Jakákol logická operace proměnné \(a\) se sebe samou má za výsledek tu samou proměnnou \(a\).
+- __Idempotence__ - Jakákoliv logická operace proměnné \(a\) se sebe samou má za výsledek tu samou proměnnou \(a\).
 
 \[
     a + a = a \;\text{ (VIII.a)} \\
@@ -153,4 +153,4 @@ Piercova algebra je Booleova algebra, která využívá pouze logickou funkce __
 ![Hasseův diagram](/Images/20/hasseuv_diagram.png)
 
 ## Příklady
-[TODO]
+Příklady v Boolově algebře
