@@ -2,7 +2,8 @@
 - Otázky: sekvenční logické obvody, klopné obvody (RS, JK, T, D), čítače, registry, stavové automaty (reprezentace a implementace)
 - Předmět: INC
 - Zdroje:
-    -
+    - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINC-IT%2Flectures%2F04+sekvencni_obvody.pdf (sekvenční obvody)
+    - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FINC-IT%2Flectures%2F03-klopne_obvody.pdf (klopné obvody)
 
 ## Sekvenční logické obvody
 Sekvenční logické obvody mají na rozdíl od kombinačních logických obvodů vnitřní stav, který si pamatují. Výstup \(Y\) sekvenčních obvodů je tedy závislý na vstupu \(X\) a aktuálním vnitřním stavu \(Q\). Vnitřní stav se mění na základě vstupu a aktuální vnitřního stavu podle _přechodové funkce_ \(P\). Tyto logické obvody se skládají ze dvou částí - kombinační a paměťové.
