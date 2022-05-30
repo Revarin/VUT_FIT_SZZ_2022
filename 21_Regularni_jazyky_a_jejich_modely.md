@@ -11,9 +11,9 @@ __Abeceda__ je libovolná neprázdná konečná množina symbolů \(\Sigma = \{a
 
 > Nechť \(\Sigma^*\) značí množinu všech možných řetězců nad abecedou \(\Sigma\). Každá podmnožina \(L \subseteq \Sigma^*\) je __jazyk__ \(L\) nad abecedou \(\Sigma\).
 
-Jazyk je tedy soubor nějakých slov, číli je to podmnožina řetězců abecedy. Jazyk je charakterizován svou __kardinalitou__, která značí počet všech možných řetězců (slov) nad abecedou. Podle kardinality může být jazyk:
-- __Konečný jazyk__ - Má konečnou kardinalitu, obsahuje konečný pořet řetězců.
-- __Nekonečný jazyk__ - Má nekonenčou kardinalitu.
+Jazyk je tedy soubor nějakých slov, čili je to podmnožina řetězců abecedy. Jazyk je charakterizován svou __kardinalitou__, která značí počet všech možných řetězců (slov) nad abecedou. Podle kardinality může být jazyk:
+- __Konečný jazyk__ - Má konečnou kardinalitu, obsahuje konečný počet řetězců.
+- __Nekonečný jazyk__ - Má nekonečnou kardinalitu.
 
 Jazyk \(L\) je množina a tudíž nad jazykem můžeme provádět veškeré operace s množinami:
 - Sjednocení \(L_1 \cup L_2\)
@@ -47,11 +47,11 @@ Pro důkaz, že daný jazyk _není_ regulární lze použít __Pumping lemma__. 
 
 ### Regulární gramatika
 Regulární jazyk je definován právě __regulární gramatikou__.
-> Regulární gramatika je uspořádaná čtveřice \(G = (T, N, P, S)\), kde:
+> Regulární gramatika je uspořádaná čtveřice \(G = (T, N, P, s)\), kde:
 > - \(T\) je konečná množina terminálních symbolů (abeceda).
 > - \(N\) je konečná množina neterminálních symbolů.
 > - \(P\) je konečná množina pravidel ve tvaru \(n \to (t \land n)\) nebo \(n \to t\). Použití pravidla se nazývá __odvození__.
-> - \(S \in N\) je počáteční symbol.
+> - \(s \in N\) je počáteční symbol.
 
 ![Příklad regulární gramatiky](/Images/21/regularni_gramatika.png)
 
@@ -74,14 +74,14 @@ Pokud jsme schopni s nějakou vstupní posloupností znaků daného jazyka \(L\)
 __Konfigurace__ je instance popisu KA. Skládá se z aktuálního stavu KA a ještě nezpracovaného vstupního řetězce.
 > Nechť \(M = (Q, \Sigma, R, s, F)\) je KA. _Konfigurace_ KA \(M\) je řetězec \(\chi \in Q \Sigma^*\).
 
-__Přechod__ je jedn výpočetní krok KA.
+__Přechod__ je jeden výpočetní krok KA.
 > Nechť \(pax\) a \(qx\) jsou dvě konfigurace KA \(M\), kde \(p, q \in Q\), \(a \in \Sigma \cup \{\varepsilon\}\) a \(x \in \Sigma^*\). Nechť \(r = pa \to q \in R\) je pravidlo. Potom \(M\) může provést _přechod_ z \(pax\) do \(qx\) za použití pravidla \(r\), zapsáno \(pax \vdash qx [r]\)
 
 __Sekvence přechodů__ je několik výpočetních kroků po sobě. Je to vlastně několik přechodů po sobě.
 
 ### Druhy konečných automatů
 Existuje několik typů konečných automatů:
-- __Základní konečný automat__ (KA) - KA, který obsahuje __epsilon přechody__ (přechod z jendoho stavu do druhého bez vstupního znaku abecedy) a v němž je možné z jedné konfigurace přejít do více dalších konfigurací.
+- __Základní konečný automat__ (KA) - KA, který obsahuje __epsilon přechody__ (přechod z jednoho stavu do druhého bez vstupního znaku abecedy) a v němž je možné z jedné konfigurace přejít do více dalších konfigurací.
 - __Konečný automat bez epsilon přechodů__ - KA, který neobsahuje _epsilon přechody_. Stále je v něm možné z jedné konfigurace přejít do více dalších konfigurací.
 - __Deterministický konečný automat__ (DKA) - KA, který neobsahuje _epsilon přechody_. Z jedné konfigurace (stavu) může pomocí písmena ze vstupní abecedy přejít pouze do _jednoho_ dalšího stavu.
 - __Úplný deterministický konečný automat__ (ÚDKA) - DKA, kde v každém stavu pro každý znak vstupní abecedy existuje právě jeden přechod do dalšího stavu. Přechody, které nejsou potřeba směřují do __false stavu__. Tento KA se nemůže zaseknout, ale končí ve stavu _false_.
@@ -89,7 +89,7 @@ Existuje několik typů konečných automatů:
 - __Minimální konečný automat__ (MKA) - KA, který obsahuje pouze rozlišitelné stavy. Pro každý DSKA existuje právě jeden MKA.
 
 ### Determinizace
-Pokud má nedeterministický konečný automat \(n\) stavů, bude jeho deterministická varianta mít nejvíce \(2^n\) stavů. Každý nedeterministický konečný automat má svoji deterministivkou variantu. Tato deterministická varianta nemusí být minimální.
+Pokud má nedeterministický konečný automat \(n\) stavů, bude jeho deterministická varianta mít nejvíce \(2^n\) stavů. Každý nedeterministický konečný automat má svoji deterministickou variantu. Tato deterministická varianta nemusí být minimální.
 
 Postup převodu obecného konečného automatu na deterministický konečný automat je následující:
 1. Odstranění epsilon přechodů
@@ -120,4 +120,4 @@ Příklad převodu regulárního výrazu \(r= ((ab) + (cd))^*\) na ekvivalentní
 ![Převod RV na KA](/Images/21/prevod_rv_ka_3.png)
 
 ## Příklady
-[TODO] Deteminizace KA, převod RV na KA
+Deteminizace KA, převod RV na KA

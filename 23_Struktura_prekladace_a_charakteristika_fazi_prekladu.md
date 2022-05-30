@@ -1,7 +1,7 @@
 # Struktura překladače a charakteristika fází překladu
 - Otázky: lexikální analýza, deterministická syntaktická analýza a generování kódu
 - Předmět: IFJ (původně okruh 22)
-- ToDo: Vytvoření LL tabulky a precedenční tabulky?
+- ToDo: Vytvoření LL tabulky a precedenční tabulky, obecně kontrola
 - Zdroje:
     - https://www.fit.vutbr.cz/study/courses/IFJ/private/prednesy/Ifj02-cz.pdf (úvod do překladačů)
     - https://www.fit.vutbr.cz/study/courses/IFJ/private/prednesy/Ifj05-cz.pdf (lexikální analýza)
@@ -35,7 +35,7 @@ Lexémy jsou reprezentovány __tokeny__, který v sobě nese:
 Lexikální analyzátor může být implementován __deterministickým konečným automatem__, který je formálně specifikován pomocí __regulárních výrazů__. Lexikální analyzátor může už při identifikaci lexémů komunikovat s _tabulkou symbolů_.
 
 Pro rozlišení identifikátorů od klíčových slov jazyka se používají _tabulky klíčových slov_.
-O identifikátorech je potřeba uchovávat různé informace (názec, druh, datový typ, hodnota). K tomu se využívají __tabulky symbolů__. Tabulky symbolů bývyjí uložené v zásobníkové struktuře, což se používá pro implementaci oboru platnosti daného identifikátoru. Tabulky symbolů se v zásobníků prohledávají od vrcholu směrem ke dnu zásobníku.
+O identifikátorech je potřeba uchovávat různé informace (názec, druh, datový typ, hodnota). K tomu se využívají __tabulky symbolů__. Tabulky symbolů bývají uložené v zásobníkové struktuře, což se používá pro implementaci oboru platnosti daného identifikátoru. Tabulky symbolů se v zásobníků prohledávají od vrcholu směrem ke dnu zásobníku.
 
 ## Syntaktická analýza
 Syntaktický analyzátor (__parser__) je část překladače, která přijímá řetězec tokenů a vytváří z něj platný _derivační strom_ daného jazyka. Takto ověřuje správnou posloupnost po sobě jdoucích tokenů. Syntaktická analýza je rozdělena na dvě metody: __shora dolů__ a __zdola nahoru__.
@@ -43,14 +43,14 @@ Syntaktický analyzátor (__parser__) je část překladače, která přijímá 
 ![Derivační strom a abstraktní syntaktický strom](/Images/23/derivacni_strom.png)
 
 ### Metoda shora dolů
-Syntaktická analýza shora dolů využívá __LL gramatiky__. Začíná největšími (neterminálními) prvky, které postupně dělí, dokud se nedostane k terminálním symbolům, které může porovnat se vstupem. Analýza je prováděna _zleva doprava_ (nejlevější derivace). Tentu druh syntaktického analyzátoru bývá implementován pomocí __zásobníkových automatů__. Samotná implementace je implementována buď jako __rekurzivní sestup__ (každý neterminál je reprezentován procedurou) nebo jako __prediktivní syntaktická analýza__ (syntaktický analyzátor se zásobníkem řízený tabulkou).
+Syntaktická analýza shora dolů využívá __LL gramatiky__. Začíná největšími (neterminálními) prvky, které postupně dělí, dokud se nedostane k terminálním symbolům, které může porovnat se vstupem. Analýza je prováděna _zleva doprava_ (nejlevější derivace). Tento druh syntaktického analyzátoru bývá implementován pomocí __zásobníkových automatů__. Samotná implementace je provedena buď jako __rekurzivní sestup__ (každý neterminál je reprezentován procedurou) nebo jako __prediktivní syntaktická analýza__ (syntaktický analyzátor se zásobníkem řízený tabulkou).
 
 Pro metodu shora dolů je nutné definovat:
 - Bezkontextová gramatika
 - Pravidla bezkontextové gramatiky
 - __LL tabulku__ - Tabulka, která specifikuje _LL gramatiku_, neboli kdy se má použít jaké pravidlo.
 
-__LL gramatika__ je speciální případ bezkontextové gramatiky. Může být bez epsilon pravidel nebo s epsilon pravidly. BKG jsou silnější než LL gramatiky. Některé BKG mohou být převedeyn na ekvivalentní LL gramatiky pomocí následujících transformací:
+__LL gramatika__ je speciální případ bezkontextové gramatiky. Může být bez epsilon pravidel nebo s epsilon pravidly. BKG jsou silnější než LL gramatiky. Některé BKG mohou být převedeny na ekvivalentní LL gramatiky pomocí následujících transformací:
 - __Faktorizace__ - Faktorizace je zaměnění pravidel tvaru \(A \to xy_1,\; A \to xy_2\) na pravidla \(A \to xA',\; A' \to y_1,\; A' \to y_2\), kde \(A'\) je nový neterminál.
 - __Odstanění levé rekurze__ - Odstranění levé rekurze je zaměnění pravidel tvaru \(A \to Ax,\; A \to y\) za pravidla \(A \to yA',\; A' \to xA',\; A' \to \varepsilon\), kde \(A'\) je nový neterminál.
 
@@ -91,12 +91,12 @@ Generátor vnitřního kódu je část překladače, která konvertuje abstraktn
 ![Tříadresny kód](/Images/23/triadresny_kod.png)
 
 ## Optimalizátor
-Optimalizátor je část překladače, která má za cíl optimalizovat vnitřní kód. Tato část překladače je volitelná, ale všechny významné překladaře ji obsahují. Optimalizátor program rozdělí do __základních bloků__, což je sekvence příkazů, které se vždy musí vykonat v daném pořadí. Základní bloky se generují podle následujících pravidel:
+Optimalizátor je část překladače, která má za cíl optimalizovat vnitřní kód. Tato část překladače je volitelná, ale všechny významné překladače ji obsahují. Optimalizátor program rozdělí do __základních bloků__, což je sekvence příkazů, které se vždy musí vykonat v daném pořadí. Základní bloky se generují podle následujících pravidel:
 - Hned první příkaz je _vedoucí_ (úvodní příkaz bloku).
 - Každý příkaz, který je návěští je vedoucí.
-- Každý příkaz ze `goto` je vedoucí.
+- Každý příkaz za `goto` je vedoucí.
 
-Na konec spočítáme počet vedoucích příkazů a rak získáme počet bloků. Z toho můžeme vytvořit graf bloků (podobný konečnému automatu). Z grafu lze zjisti, zde je nějaký blok nedostupný (mrtvý blok) a lze jej odstranit - __globální optimalizace__. V rámci jednoho bloku lze provádět __lokální optimalizace__.
+Na konec spočítáme počet vedoucích příkazů a tak získáme počet bloků. Z toho můžeme vytvořit graf bloků (podobný konečnému automatu). Z grafu lze zjistit, zde je nějaký blok nedostupný (mrtvý blok) a lze jej odstranit - __globální optimalizace__. V rámci jednoho bloku lze provádět __lokální optimalizace__.
 
 Existují základní optimalizační metody:
 - __Zabalení konstanty__
@@ -117,4 +117,4 @@ Při optimalizaci často nastává konflikt mezi optimalizací _rychlosti_ a opt
 ## Generátor cílového kódu
 Generátor cílového kódu je část překladače, která převádí zoptimalizovaný kód do výsledného kódu programu. Výsledný kód může být např.: strojový kód nebo assembler. Jsou dva typy generování cílového kódu:
 - __Slepé generování__ - Pro každou instrukci vnitřního kódu existuje procedura, která generuje příslušný cílový kód. Hlavní nevýhoda tohoto typu je, že každá instrukce je mimo kontext ostatních instrukcí bloku a dochází tedy k přebytečným načítáním a ukládáním proměnných.
-- __Kontextové generování__ - Minimalizace počtu načítání a ukládání mezi registry a pamětí. Používá obecné pravidlo: Jestliže je hodnota proměnné v registru a bude brzy použita, tak je tam ponechána. K tomu používá tabulky: __Tabulka základního bloku__ TZB (které proměnné je potřeba a kde), __Tabulka registrů__ TR (obsah registrů), __Tabulka adres__ TA (kde je ulozena aktuální hodnota proměnné).
+- __Kontextové generování__ - Minimalizace počtu načítání a ukládání mezi registry a pamětí. Používá obecné pravidlo: Jestliže je hodnota proměnné v registru a bude brzy použita, tak je tam ponechána. K tomu používá tabulky: __Tabulka základního bloku__ TZB (které proměnné je potřeba a kde), __Tabulka registrů__ TR (obsah registrů), __Tabulka adres__ TA (kde je uložena aktuální hodnota proměnné).

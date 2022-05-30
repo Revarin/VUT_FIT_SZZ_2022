@@ -25,7 +25,7 @@ Aplikaci pravidla na neterminál označujeme jako __derivační krok__. Sekvenci
     aaBbb \Rightarrow^1 aacbb \; [2: B \to c]
 \]
 
-> Nechť \(G = (N, T, P, S)\) je bezkontextová gramatika. Jazyk generovaný bezkontextovou gramatikou \(G\), \(L(G)\) je definován jako \(L(G) = \{w:\; w \in T^*, s \to^* w\}\)
+> Nechť \(G = (N, T, P, S)\) je bezkontextová gramatika. Jazyk generovaný bezkontextovou gramatikou \(G\), \(L(G)\) je definován jako \(L(G) = \{w:\; w \in T^*, S \to^* w\}\)
 
 ### Bezkontextový jazyk
 Bezkontextový jazyk je jazyk generovaný bezkontextovou gramatikou. Přijímá ho nedeterministický zásobníkový automat.
@@ -48,7 +48,7 @@ Bez újmy na obecnosti můžeme uvažovat používání pouze nejlevějších ne
 ### Gramatická nejednoznačnost bezkontextové gramatiky
 > Nechť \(G = (N, T, P, S)\) je bezkontextová gramatika. Pokud existuje řetězec \(x \in L(G)\) s více jak jedním derivačním stromem, potom je \(G\) __nejednoznačná__. Jinak je \(G\) __jednoznačná__.
 >
-> Bezkontextový jazyk \(L\) je __vnitřně nejednoznačný_ pokud \(L\) není generován žádnou jednoznačnou bezkontextovou gramatikou.
+> Bezkontextový jazyk \(L\) je __vnitřně nejednoznačný__ pokud \(L\) není generován žádnou jednoznačnou bezkontextovou gramatikou.
 
 ## Zásobníkové automaty
 Zásobníkové automaty jsou konečné automaty rozšířené o zásobník.
@@ -66,7 +66,7 @@ Zásobníkové automaty jsou konečné automaty rozšířené o zásobník.
 
 Zásobníkové automaty jsou modely pro bezkontextové gramatiky. Pro každou bezkontextovou gramatiku \(G\) existuje zásobníkový automat \(M\), pro které platí \(L(G) = L(M)_{\varepsilon}\).
 
-__Interpratece pravidel__ \(Apa \to wq\) znamená, že pokud je aktuální stav \(p\), aktuální symbol na vstupní pásce \(a\) a symbol na vrcholi zásobníku \(A\), potom zásobníkový automat \(M\) může přečíst \(a\) a na zásobníku nahradit \(A\) za \(w\) a přejít ze stavu \(p\) do \(q\).
+__Interpratece pravidel__ \(Apa \to wq\) znamená, že pokud je aktuální stav \(p\), aktuální symbol na vstupní pásce \(a\) a symbol na vrcholu zásobníku \(A\), potom zásobníkový automat \(M\) může přečíst \(a\) a na zásobníku nahradit \(A\) za \(w\) a přejít ze stavu \(p\) do \(q\).
 
 __Konfigurace__ zásobníkového automatu je aktuální stav ZA, stav zásobníku a část vstupní pásky, která ještě nebyla přečtená.
 > Nechť \(M = (Q, \Sigma, \Gamma, R, s, S, F)\) je zásobníkový automat. Konfigurace \(M\) je řetězec \(\chi \in \Gamma^* Q \Sigma^*\),
@@ -86,11 +86,11 @@ Existují tři typy jazyků přijímanými zasobníkovým automatem \(M = (Q, \S
 
 ### Druhy zásobníkových automatů
 - __Deterministický zásobníkový automat__ (DZA) - ZA, který může z každé konfigurace provést maximálně jeden přechod. Obecné ZA jsou silnější než deterministické ZA.
-- __Rozšířený zásobníkový automat__ (RZA) - ZA, která může z vrcholu zásobníku číst celý řetězec, více symbolů (obyčejný ZA může ze zásobníku číst jen jeden symbol). Rozšířený ZA a obyčejný ZA jsou ekvivalentní - jejich třídy přijímaných jazyků je stejná.
+- __Rozšířený zásobníkový automat__ (RZA) - ZA, která může z vrcholu zásobníku číst celý řetězec, více symbolů (obyčejný ZA může ze zásobníku číst jen jeden symbol). Rozšířený ZA a obyčejný ZA jsou ekvivalentní - jejich třída přijímaných jazyků je stejná.
 
 RZA a ZA se používají jako modely pro syntaktickou analýzu. Mohou simulovat konstrukci derivačního stromu pro bezkontextovou gramatiku _shora dolů_ a _zdola nahoru_.
 
 ![Syntaktická analýza](/Images/22/syntakticka_analyza.png)
 
 ## Příklady
-[TODO] ZA pro správné uzávorkování, (a^n.b^n),
+ZA pro správné uzávorkování, (a^n.b^n),

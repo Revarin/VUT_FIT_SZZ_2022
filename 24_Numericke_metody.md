@@ -17,16 +17,16 @@
 
 ![Sarrusovo pravidlo](/Images/24/sarrusovo_pravidlo.png)
 
-- Pro matice \(4 \times 4\) a větší se pro vápočet determinantu musí matice __rozdělit__ na menší matice. Musíme se dostat k maticím \(3 \times 3\), jejichž determinant můžeme vypočítat pomocí Sarrusova pravidla. Tomuto postupu se říka __Laplacův rozvoj__. Postup výpočtu determinantu je následující:
+- Pro matice \(4 \times 4\) a větší se pro výpočet determinantu musí matice __rozdělit__ na menší matice. Musíme se dostat k maticím \(3 \times 3\), jejichž determinant můžeme vypočítat pomocí Sarrusova pravidla. Tomuto postupu se říka __Laplacův rozvoj__. Postup výpočtu determinantu je následující:
     1. Vybereme si nějaký sloupec/řádek matice a postupně pro všechny prvky tohoto sloupce/řádku rozsekáme matici na několik menších matic.
-    2. Rozsekané matice neobsahují vybraný sloupec a řádek, ve kterém se nachází prvek, nímž se násobíí matice.
+    2. Rozsekané matice neobsahují vybraný sloupec a řádek, ve kterém se nachází prvek, nímž se násobí matice.
 
 ![Laplacův rozvoj](/Images/24/laplacuv_rozvoj.png)
 
 ## Příloha: Druhy matic
 - Čtvercová matice - Matice se stejným počtem řádků a sloupců.
 - Nulová matice - Matice, v níž jsou všechny prvky rovny nule.
-- Jednotková matice - Čtvercová matice, která ma na hlavní diagonále (úhlopříčka zvleva nahoře napravo dolů) jedničky a všude jinde nuly.
+- Jednotková matice - Čtvercová matice, která ma na hlavní diagonále (úhlopříčka zleva nahoře napravo dolů) jedničky a všude jinde nuly.
 - Schodová matice - Matice, kde každý následující řádek má na začátku více nul než předchozí řádek.
 - Transponované matice - Matice, která má zaměněné řádky a sloupce.
     - Symetrická matice - Matice, která po transponování zůstane stejná.
@@ -35,7 +35,7 @@
 - Regulární matice - Matice, jejíž determinant je nenulový.
 
 ## Numerické řešení soustavy lineárních rovnic
-Numerické řešení soustavy \(n\) lineárních rovnice se zabývá řešením následujícího druhu soustavu rovnice s neznýmými \(x_1, x_2, ..., x_n\):
+Numerické řešení soustavy \(n\) lineárních rovnice se zabývá řešením následujícího druhu soustavu rovnice s neznámými \(x_1, x_2, ..., x_n\):
 
 \[
     a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\
@@ -44,7 +44,7 @@ Numerické řešení soustavy \(n\) lineárních rovnice se zabývá řešením 
     a_{n1}x_1 + a_{n2}x_2 + \dots + a_{nn}x_n = b_n
 \]
 
-Matice \(A = (a_{ij})\), kde \(i,j = 1, ..., n\) se nazývá __matice soustavy__ a sloupcový vektor \(b = (b_1, ..., b_n)^T\) je __vektor pravých stra__. Budeme předpokládat, že matice soustavy je _regulární_, tj. že řešená soustava má právě jedno řešení.
+Matice \(A = (a_{ij})\), kde \(i,j = 1, ..., n\) se nazývá __matice soustavy__ a sloupcový vektor \(b = (b_1, ..., b_n)^T\) je __vektor pravých stran__. Budeme předpokládat, že matice soustavy je _regulární_, tj. že řešená soustava má právě jedno řešení.
 
 ### Přímé metody pro řešení algebraických rovnic
 Přímé metody vedou k řešení soustavy rovnic v konečném počtu kroků. Pokud se v průběhu výpočtu nebudeme dopouštět zaokrouhlovacích chyb, tak takto nalezené řešení bude přesné.
@@ -62,14 +62,14 @@ Pro pouze velmi malé soustavy rovnic je vhodné __Cramerovo pravidlo__. To ří
 Pro obecné matice se používá __Gaussova eliminační metoda__. Základem této metody je úprava soustavy na trojúhelníhový tvar pomocí elementárních úprav matic:
 - Prohození řádků.
 - Násobení a dělení nenulovým číslem.
-- Přičítání/odečítání násobnků jednotlivých řádků k jiným.
+- Přičítání/odečítání násobků jednotlivých řádků k jiným.
 
 Těmito úpravami se snažíme v matici soustavy \(A\) získat nuly po hlavní diagonálou matice a tím ji dostat do trojúhleníkového tvaru. Při dosažení tohoto tvaru potom můžeme z poslední rovnice přímo určit hodnotu poslední neznámé v soustavě a následně vypočítat ostatní neznámé.
 
 ![Gaussova eliminační metoda](/Images/24/gaussova_eliminacni_metoda.png)
 
 ### Iterační metody pro řešení algebraických rovnic
-Iterační metody řešení soustavy rovnic na rozdíl od přímých metod nevedou k přesnému řešení po konečném, předem daném počtu kroků. U iteračních metod zvolíme __počáteční aproximaxi__ řešení a určitým postupem ji v každém kroku metody zlepšíme (zpřesníme). K řešení se přibližujeme _postupně_ a obecně ho dosáhneme až v limitě. Protože výpočet nelže provádět donekonečna, po jisté době jej ukončíme (počet iterací, splnění určité chyby). Výsledek tak bude přibližné řešení soustavy.
+Iterační metody řešení soustavy rovnic na rozdíl od přímých metod nevedou k přesnému řešení po konečném, předem daném počtu kroků. U iteračních metod zvolíme __počáteční aproximaci__ řešení a určitým postupem ji v každém kroku metody zlepšíme (zpřesníme). K řešení se přibližujeme _postupně_ a obecně ho dosáhneme až v limitě. Protože výpočet nelze provádět donekonečna, po jisté době jej ukončíme (počet iterací, splnění určité chyby). Výsledek tak bude přibližné řešení soustavy.
 
 #### Jacobiho metoda
 Jacobiho metoda říká, že pokud máme soustavu rovnic:
@@ -88,7 +88,7 @@ Tak můžeme z nich vyjádřit \(x_1\), \(x_2\) až \(x_n\):
     x_3 = \frac{a_{34} - a_{31}x_2 - a_{32}x_2}{a_{33}}
 \]
 
-Na začátku výpočtu si zvolíme __počátační aproximaci__ \(x^{(0)} = (x_1^{(0)}, x_2^{(0), ... x_n^{(0)}})^T\) a tu dosadíme do pravé strany rovnice. Z toho nám vyjde nová aproximace, kterou můžeme opětovně dosazovat do pravé strany, až nedosáhneme dostatečně přesného výsledku. Dostatečnou přenost výsledku můžeme určit podle absolutní hodnoty rozdílu výsledků dvou po sobě jdoucích iterací - __chyba__.
+Na začátku výpočtu si zvolíme __počátační aproximaci__ \(x^{(0)} = (x_1^{(0)}, x_2^{(0)}, ... x_n^{(0)})^T\) a tu dosadíme do pravé strany rovnice. Z toho nám vyjde nová aproximace, kterou můžeme opětovně dosazovat do pravé strany, až nedosáhneme dostatečně přesného výsledku. Dostatečnou přenost výsledku můžeme určit podle absolutní hodnoty rozdílu výsledků dvou po sobě jdoucích iterací - __chyba__.
 
 Jacobiho metoda __konverguje__ (neustále se přibližuje k výsledku), pokud je matice soustavy rovnice řádkově nebo sloupcově __diagonálně dominantní__. To znamená, pokud je v každém řádku matice absolutní hodnota prvku na diagonále větší jak součet absolutních hodnot všech ostatních prvků v tomto řádku/sloupci.
 
@@ -105,7 +105,7 @@ Gauss-Seidelova metoda konverguje je-li matice soustavy __pozitivně definitní_
 Při řešení jedné nelineární rovnice hledáme kořen \(x \in R\) v nelineární rovnici \(f(x) = 0\). Při hledání kořenů je třeba nejdříve zjistit, kolik má rovnice kořenů. Poté najdeme intervaly obsahující právě jeden kořen rovnice - __separace kořenů rovnice__. Následně se pomocí nějaké metody aproximuje kořen rovnice.
 
 ### Metoda půlení intervalů (metoda bisekce)
-Metoda půlení intervalů je nejjednodusšší metoda hledání kořene rovnice.
+Metoda půlení intervalů je nejjednodušší metoda hledání kořene rovnice.
 
 Mějme interval \(\langle a,b \rangle\) takový, že \(f(a) * f(b) < 0\) (nachází se v něm alespoň jeden kořen rovnice \(f(x) = 0\)). V každém kroku tento interval rozpůlíme \(s = \frac{a + b}{2}\) a vybereme tu polovinu intervalu, ve které je zaručena existence kořene. Platí-li \(f(x_k) = 0\) tak jsme nalezli výpočet rovnice. Jinak iteraci pokračujeme, dokud je polovina velikosti intervalu menší než požadovaná přenost (__podmínka ukončení__): \(b_k - a_k < 2 \varepsilon\). Jako výsledek potom zvolíme střed aktuálního intervalu.
 
@@ -114,7 +114,7 @@ Metoda konverguje, pokud se v počátečním intervalu nachází alespoň jeden 
 ![Metoda půlení intervalů](/Images/24/puleni_intervalu.png)
 
 ### Metoda regula falsi
-Metoda regula falsi je velmi podobná metoda půlení intervalů. Jediný rozdíl je v tom, že interval nedělím v polovině, ale v místě průsečíku úsečky mezi body \([a_k, f(a_k)]\) a \([b_k, f(b_k)]\). Průsečík se tak vypočítá:
+Metoda regula falsi je velmi podobná metodě půlení intervalů. Jediný rozdíl je v tom, že interval nedělíme v polovině, ale v místě průsečíku úsečky mezi body \([a_k, f(a_k)]\) a \([b_k, f(b_k)]\). Průsečík se tak vypočítá:
 
 \[
     x_k = b_k - \frac{b_k - a_k}{f(b_k) - f(a_l)} * f(b_k)    
@@ -125,7 +125,7 @@ Metoda vždy konverguje a je obvykle rychlejší než půlení intervalů. Podm�
 ![Metoda regula falsi](/Images/24/regula_falsi.png)
 
 ### Metoda sečen
-Metoda sečen je velmi podobná metodě regula falsi. Vycházíme v ní z intervalu \(\langle a,b \rangle\) obsahujícího kořen rovnice. Označíme \(x_0 = a\) a \(x_1 = b\). Vedeme sečnu body \([x_0, f(x_0)]\) a \([x_1, f(x_1)]\) a nejdeme její průsečík s osou \(x\). Tento průsečík označíme \(x_2\) a vedeme další sečnu bodu \([x_1, f(x_1)]\) a \([x_2, f(x_2)]\) a tak dále. V \(k\)-tém kroku metody vypočítáme aproximaci kořene podle vzorce:
+Metoda sečen je velmi podobná metodě regula falsi. Vycházíme v ní z intervalu \(\langle a,b \rangle\) obsahujícího kořen rovnice. Označíme \(x_0 = a\) a \(x_1 = b\). Vedeme sečnu body \([x_0, f(x_0)]\) a \([x_1, f(x_1)]\) a najdeme její průsečík s osou \(x\). Tento průsečík označíme \(x_2\) a vedeme další sečnu bodu \([x_1, f(x_1)]\) a \([x_2, f(x_2)]\) a tak dále. V \(k\)-tém kroku metody vypočítáme aproximaci kořene podle vzorce:
 
 \[
     x_{k+1} = x_k - \frac{x_k - x_{k-1}}{f(x_k) - f(x_{k-1})} * f(x_k)
@@ -153,7 +153,7 @@ Newtonova metoda je nejefektivnější metoda pro řešení nelineárních rovni
 ## Numerické řešení obyčejných diferenciáních rovnic
 Diferenciální rovnice většinou popisují fyzikální děje, kde jako proměnné vystupují derivace funkcí. U některých je možné určit přesné analytické řešení. U složitějších analytické řešení buď neexistuje nebo je obtížné ho nalézt. Používají se proto __iterační metody__.
 
-Společným znakem numerických řešení je, že řešení nehledáme jako spojitou funkci, definovanou na celém zkoumaném intervalu \(\langle a,b \rangle\). Hodnoty přibližného řešení počítáme pouze v konečném počtu bodů \(a = x_0 < x_1 < \dots < x_n = b\). Těmto bodům říkáme __uzlové body__ (body sítě) a množině \(\{x_0, x_1, ..., x_n\}\) říkáme __síť__. Rozídíl \(h_i = x_{i+1} - x_i\) se nazývá __krok__ sítě v uzlu \(x_i\). Metody mohou být __jednokrokové__ (vycházejí pouze z aktuálního stavu) nebo __vícekrokové__ (používají historií stavů).
+Společným znakem numerických řešení je, že řešení nehledáme jako spojitou funkci, definovanou na celém zkoumaném intervalu \(\langle a,b \rangle\). Hodnoty přibližného řešení počítáme pouze v konečném počtu bodů \(a = x_0 < x_1 < \dots < x_n = b\). Těmto bodům říkáme __uzlové body__ (body sítě) a množině \(\{x_0, x_1, ..., x_n\}\) říkáme __síť__. Rozdíl \(h_i = x_{i+1} - x_i\) se nazývá __krok__ sítě v uzlu \(x_i\). Metody mohou být __jednokrokové__ (vycházejí pouze z aktuálního stavu) nebo __vícekrokové__ (používají historii stavů).
 
 Metody řeší diferenciální rovnice prvního řádu se zadanou počáteční podmínkou:
 
@@ -207,11 +207,11 @@ Nejčastěji se používá Runge-Kutta metoda 2. řádu nebo 4. řádu:
 ![Runge-Kutta 4. řádu](/Images/24/runge_kutta_4.png)
 
 ### Vícekrokové metody
-U vícekrokových metod počítáme přibližné řešení v dalším uzlovém bodě sítě pomocí několika předchozích bodů. Jsou přesnější a rychlejší, jejich hlavní slabina ale spočívá v pomalém _rozjezdu_ (musí se nějak aproximovat prvních \(n\) uzlovích bodů, používají se jednokrokové metody). Vícekrokové metody přestávají být efektivní ve chvíli, kdy je funkce nespojitá. Při nespojitostech je třeba opětovného hledání prvních \(n\) bodů, což metodu zpomaluje.
+U vícekrokových metod počítáme přibližné řešení v dalším uzlovém bodě sítě pomocí několika předchozích bodů. Jsou přesnější a rychlejší, jejich hlavní slabina ale spočívá v pomalém _rozjezdu_ (musí se nějak aproximovat prvních \(n\) uzlových bodů, používají se jednokrokové metody). Vícekrokové metody přestávají být efektivní ve chvíli, kdy je funkce nespojitá. Při nespojitostech je třeba opětovného hledání prvních \(n\) bodů, což metodu zpomaluje.
 
 ## Chyby numerických metod
 Při každé aproximaci v numerických metodách musíme počítat s faktorem chyby. Existují chyby dvojího typu:
-- __Lokální chyby__ - Chyby, které vznikají v každém kroku. Může jít buď o chybu _zaokrouhlovací_ (round-off error) nebo o chybz _numerické aproximace_ (trancation error).
+- __Lokální chyby__ - Chyby, které vznikají v každém kroku. Může jít buď o chybu _zaokrouhlovací_ (round-off error) nebo o chybu _numerické aproximace_ (truncation error).
 - __Akumulované chyby__ - Chyby, které se sbírají po celou počtu výpočtu.
 
 Přenost výpočtu je tak závislá na velikosti _integračního kroku_. Neplatí, že čím menší krok, tím vyšší přesnost. Při zmenšení kroku dojde k nárůstu chyby numerické aproximace a naopak se zmenší zaokrouhlovací chyba. Při zvětšení naopak. Při překročení určité velikosti kroku začne jeden druh chyby neúnosně narůstat. Proto je třeba nalézt ideální délku kroku.
