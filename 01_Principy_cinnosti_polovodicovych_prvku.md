@@ -7,7 +7,7 @@
     - https://wis.fit.vutbr.cz/FIT/st/cwk.php.cs?title=Main_Page&src=2020iel_10.pdf&ns=IEL&action=download&csid=681121&id=12741 (unipolární tranzistory)
 
 ## Polovodiče
-Polovodiče jsou prvky ze IV. skupiny periodické soustavy. Pro tyto prvky je charakteristické, že jejich atomy obsahují ve valenční vrstvě čtyři elektrony, kterými vytvářejí se sousedními atomy krystalickou vazbu.
+Polovodiče jsou vyrobeny z prvků ze IV. skupiny periodické soustavy. Pro tyto prvky je charakteristické, že jejich atomy obsahují ve valenční vrstvě čtyři elektrony, kterými vytvářejí se sousedními atomy krystalickou vazbu.
 
 Polovodičové součástky jsou nejčastěji postaveny na křemíku (Si). Krystalová mřížka z čistého křemíku nemá příliš významné elektrické vlastnosti. Ty mohou být výrazně pozměněny zanesením příměsy do krystalové mřížky - _doping_. Existují dva druhy dopingu podle použitého prvku:
 - __Pětimocný prvek__ - Do mřížky se přidá prvek s pěti valenčními elektrony (např.: fosfor \(P_5\)). Tomuto prvku se říká __donor__. Přebytečný elektron zůstává volný a umožňuje materiálem vést elektrický proud. Jde o _elektronovou vodivost_ a vznikají tak polovodiče __typu N__.
@@ -58,14 +58,14 @@ Podle toho, zda je na bázi přiveden proud je možné ovládat, zda prochází 
 ![Spínací režim tranzistoru](/Images/01/spinaci_tranzistor.png)
 
 #### Princip tranzistoru NPN
-Těsná vzdálenost obou PN přechodů způsobí při připojení napětí na bází zvláštní stav, který blízce souvisí s majoritními a minoritními nosiči elektrického náboje. Část majoritních nosičů v emitoru při snížení potenciálnové bariéry vytváří __bázový proud__ \(I_B\). Další majoritní nosiče z emitoru pokračuje přes bázi do kolektoru a tím vytvářet __kolektorový proud__ \(I_C\). To je dáno tím, že přechod báze-kolektor je klasicky nepropustný pro majoritní nosiče, je však nepřímo propustný pro mioritní nosiče. Elektrony z emitoru (kde jsou majoritní) se v bázi stávají minoritní nosiči, pro které je přechod báze-kolektor propustný.
+Těsná vzdálenost obou PN přechodů způsobí při připojení napětí na bází zvláštní stav, který blízce souvisí s majoritními a minoritními nosiči elektrického náboje. Část majoritních nosičů v emitoru při snížení potenciálnové bariéry vytváří __bázový proud__ \(I_B\). Další majoritní nosiče z emitoru pokračuje přes bázi do kolektoru a tím vytvářet __kolektorový proud__ \(I_C\). To je dáno tím, že přechod báze-kolektor je klasicky nepropustný pro majoritní nosiče, je však nepřímo propustný pro minoritní nosiče. Elektrony z emitoru (kde jsou majoritní) se v bázi stávají minoritní nosiči, pro které je přechod báze-kolektor propustný.
 
 \[I_E = I_C + I_B\]
 
 ![Princip tranzistoru](/Images/01/princip_tranzistoru.png)
 
 ### Unipolární tranzistory
-Unipolární tranzistory využívají pouze jeden typ nosičů náboje přítomných na polovodičích. Jsou založeny na principu řízení pohybu nosičů náboje _elektrickým polem_ FET (Field Effect Tranzistor). Na rozdíl od bipolárních tranzistorů tak nejsou řízeny proudem (levnější) a mají velký vstupní odpor (výhoda). Výstupní výkon unipolárních trannzistorů lze řídit elektrickým nábojem přivedeným na řídící elektrodu:
+Unipolární tranzistory využívají pouze jeden typ nosičů náboje přítomných na polovodičích. Jsou založeny na principu řízení pohybu nosičů náboje _elektrickým polem_ FET (Field Effect Tranzistor). Na rozdíl od bipolárních tranzistorů tak nejsou řízeny proudem (levnější) a mají velký vstupní odpor (výhoda). Výstupní výkon unipolárních tranzistorů lze řídit elektrickým nábojem přivedeným na řídící elektrodu:
 
 Unipolární tranzistor má 3 elektrody:
 - __Gate__ G - Řídící elektroda.
@@ -87,6 +87,9 @@ Na elektrodu drain je připojeno vyšší napětí než na elektrodu source. Nap
 Funguje podobně jako u tranzistoru CMOS typu N, jen je elektroda source připojená na vyšší napětí než drain. Přivedením _záporného napětí_ na gate dojde k sepnutí tranzistoru. Tranzistory CMOS typu P jsou pomalejší oproti typu N.
 
 ![CMOS typu P](/Images/01/cmos_p.png)
+
+### Logická hradla v CMOS
+[Vytváření logických hradel CMOS tranzistorů](https://www.youtube.com/watch?v=JXxxdRiKAlk&list=PLAlfkFSsPLoVjtryLRPnt0nZJlYkmeudA&index=2&t=1776s)
 
 ### NAND v technologii CMOS
 
