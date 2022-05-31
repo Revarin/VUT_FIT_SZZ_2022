@@ -54,11 +54,11 @@ Principy lokality jsou základní předpoklady, díky nimž může fungovat pam�
 > __Prostorová lokalita__ nám říká, že při využití paměťového bloku je velká šance, že brzo budeme potřebovat i jeho sousedy v paměťovém prostoru.
 
 ## Rychlá vyrovnávací paměť
-Rychlá vyrovnávací paměť (RVP) je paměť typu __SRAM__. SRAM je rychlá, ale drahá paměť, která navíc na čipu zabýrá docela dost místa a tudíž může mít pouze omezenou kapacitu. RVP je rozdělena do bloků o konstatní velikosti, v hlavní paměti jsou bloky stejné velikosti, ale je jich mnohem více. Proto v RVP mohou být uloženy jen některé bloky. Při nalezení požadovaného bloku nastavá _cache hit_, pokud není nalezen nastává _cache miss_. Poměr _cache hit_ a _cache miss_ se nazývá __hit rate__. V praci se snažíme \(\text{hit rate} > 95%\).
+Rychlá vyrovnávací paměť (RVP) je paměť typu __SRAM__. SRAM je rychlá, ale drahá paměť, která navíc na čipu zabýrá docela dost místa a tudíž může mít pouze omezenou kapacitu. RVP je rozdělena do bloků o konstatní velikosti, v hlavní paměti jsou bloky stejné velikosti, ale je jich mnohem více. Proto v RVP mohou být uloženy jen některé bloky. Při nalezení požadovaného bloku nastavá _cache hit_, pokud není nalezen nastává _cache miss_. Poměr _cache hit_ a _cache miss_ se nazývá __hit rate__. V praxi se snažíme \(\text{hit rate} > 95\%\).
 
 Princip RVP je následující: Programy obvykle pracují s malými úseky paměti (prostorová lokalita). Tento úsek se přenese do RVP a je tak rychleji přístupný. Procesor při přístupu k datům hladá paralelně v RVP a hlavní paměti. Protože je RVP rychlejší, tak dříve oznámý procesoru, zda se požadovaná data v paměti nacházejí nebo nenacházejí. Pokud jsou data v RVP požadavek přístupu k hlavní paměti se zruší, pokud nejsou tak se čeká na data z hlavní paměti.
 
-V moderních procesorech se obvykle používá více vrstev RVP, značných L1, L2, L3 cache. Existuje několik způsobů organizace RVP podle typu mapování dat z vyšších vrstev paměti.
+V moderních procesorech se obvykle používá více vrstev RVP, značených L1, L2, L3 cache. Existuje několik způsobů organizace RVP podle typu mapování dat z vyšších vrstev paměti.
 
 ### RVP s přímým mapováním
 RVP má rámce popsané adresami, které jsou menší než adresy v hlavní paměti. Adresy polohy bloku se určí podle nejnižších _x_ bitů. Protože, ale v hlavní paměti je více bloků se stejnou RVP adresou je nutné uchovávat informaci, jaký blok je v RVP přítomen - __adresový příznak__ (tag), což jsou zbývající horní bity adresy. Navíc se používá i __příznak platnosti__ dat (valid bit).
@@ -73,7 +73,7 @@ Představuje kompromis mezi přímým mapováním a plně asociativním mapován
 
 ![RVP se skupinovým asociativním mapováním](./Images/04/rvp_s_skupinovym_mapovanim.png)
 
-Při skupinovám asociativním mapováním se vyskytuje problém výběru oběti. Používají se různé algoritmy:
+Při skupinovém asociativním mapováním se vyskytuje problém výběru oběti. Používají se různé algoritmy:
 - LRU - Least Recently Used
 - MFU - Most Frequently Used
 - FIFO - First-In, First-Out
@@ -85,6 +85,7 @@ Pokud se změní data v RVP, tak bloky na vyšších úrovní ztratí platnost a
 - Zápis s mezipamětí (write buffer) - Opravné zápisy se odloží, dokud nedostaneme přístup k hlavní paměti, nedokončí se aktuální disková operace
 - Zpětný zápis (write back) - Opravný zápis se provede až když je blok vyjmut z RVP. Je možné navíc využít příznak změny (dirty bit), který označuje zda byly data změněny.
 
+# Doplnění navíc
 ## Virtuální paměť
 Diskové jednotky mají podobné problémy jako hlavní paměť. Jsou příliš pomalé na to, aby s nimi pracoval přímo procesor. Proto se jako jejich vyrovnávací paměť využívá __virtuální paměť__. Virtuální paměť používáme protože:
 - Chceme udělat efektivní sdílení paměti M pro mnoho programů.
