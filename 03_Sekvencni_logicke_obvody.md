@@ -11,20 +11,20 @@ Sekvenční logické obvody mají na rozdíl od kombinačních logických obvod�
 Sekvenční logické obvody mohou být asynchronní a synchronní:
 - __Asynchronní (Latch)__ - Vstupní signály přímo ovlivňují stav sekvenčního obvodu. Mají dva režimi činnosti:
     - _Fundamentální režim činnosti_ - Vstupní proměnné musí být po jistou dobu stabilní (bez pulsů), aby na ně sekvenční obvod mohl reagovat. Paměťové prvky jsou realizovány pomocí zpožďovacích linek. V jednom okamžiku se může měnit hodnota pouze na jednom vstupu a musí se počkat na ustálení zpětných vazeb.
-    - _Pulsní režim činnosti_ - Vstupní proměnné jsou aktivní jen po jistou dobu - puls. Je jeden puls může být na vstupu aktivován v daný okamžik. Paměťové prvky jsou řízeny pouze vstupními pulsy.
+    - _Pulsní režim činnosti_ - Vstupní proměnné jsou aktivní jen po jistou dobu - puls. Jen jeden puls může být na vstupu aktivován v daný okamžik. Paměťové prvky jsou řízeny pouze vstupními pulsy.
 - __Synchronní (Flip-Flop)__ - Vstupní signály ovlivňují stav sekvenčního obvodu pouze při aktivním stavu _hodinového signálu_. Činnost obvodu je tak synchronizována. Obvod může na hodinový signál reagovat dvěma způsoby:
-- __Úrovňový__ sekvenční obvod - Sekvenční obvod sleduje vstupy po celou dobu hodinového signálu a průběžně na ně reaguje. Hodinový signál je tak aktivní jako _puls_ - __dvooufázový sekvenční obvod__.
-- __Hranový__ sekvenční obvod - Sekvenční obvod reaguje na vstupy jen při přechodu hrany (náběžné nebo sestupné) hodinového signálu. Hodinový signál je tak aktivní jako _hrana_ - __derivační klopný obvod__.
+    - __Úrovňový__ - Sekvenční obvod sleduje vstupy po celou dobu hodinového signálu a průběžně na ně reaguje. Hodinový signál je tak aktivní jako _puls_ - __dvoufázový sekvenční obvod__.
+    - __Hranový__ - Sekvenční obvod reaguje na vstupy jen při přechodu hrany (náběžné nebo sestupné) hodinového signálu. Hodinový signál je tak aktivní jako _hrana_ - __derivační sekvenční obvod__.
 
 ### Konečný automat
 Sekvenční logické obvody lze modelovat pomocí __sekvečního automatu/konečného automatu__ (Finite State Machine). Sekvenční automat je sekvenční obvod, který se skládá z tří částí:
-- __Next-state__ logika - Kombinační síť, která na základě současného vstupu a hodnoty vstupů generuje následující stav automatu.
+- __Next-state__ logika - Kombinační síť, která na základě současného stavu a hodnoty vstupů generuje následující stav automatu.
 - __Paměť__ - Registr sestavený z klopných obvodů s dynamickým řízením hodinovým signálem. Pamatuje si současný stav automatu. Paměť musí být před zahájením práce s automatem inicializována.
 - __Výstupy__ - Mealyho a Moorovy výstupy.
     - __Mooreovy výstupy__ - Výstup závisý pouze na vnitřním stavu.
     - __Mealyho výstupy__ - Výstup závisý na vnitřním stavu a vstupu.
 
-Příkal __Mooreův automatu__ a __Mealyho automatu__.
+Příklad __Mooreův automatu__ a __Mealyho automatu__.
 
 ![Mooreův automat](/Images/03/mooreuv_automat.png)
 ![Mealyho automat](/Images/03/mealyho_automat.png)
@@ -47,7 +47,7 @@ Chování konečného automatu je možné zapsat pomocí grafu přechodů nebo t
 ### Zpoždění signálů
 Zpoždění signálů v sekvenčním logickém obvodu může být tří druhů:
 - __Inerční__ zpoždění signálu - Zpoždění způsobeno setrvačností prvků (parazitní kapacity). Puls musí mít alespoň délku inerčního zpoždění, jinak obvodem neprojde.
-- __Transportní__ zpoždění signálu - Zpoždění dáno rychlostí šíření signálu daném médiu.
+- __Transportní__ zpoždění signálu - Zpoždění dáno rychlostí šíření signálu v daném médiu.
 - __Zpožďovací linka__ - Informace poslaná na vstup nějakého prvku se na výstupu projeví až po určitém čase. Každý prvek tak přidává další zpoždění.
 
 ## Klopný obvod
@@ -58,12 +58,12 @@ Základní princip činnost klopných obvodů je zavedení __zpětné vazby__ do
 ![Zpětná vazba](/Images/03/zpetna_vazba.png)
 
 Klopné obvody mohou být asynchronní nebo synchronní:
-- __Asynchronní__ klopný obvod (Latch) - Obvod zachytí impuls a zapamatuje si jeho hodnotu (záchytný obvod). Neobsahuje hodinový signál, vstupní signál přímo řídí stav klopného obvodu. Může navíc obsahovat i pomolovací vstup.
-- __Synchronní__ klopný obvod (Flip-Flop) - Obvod má vstup pro hodinový signál, který synchronizuje jeho chování. Obvod mění svůj stav a výstupy pouze pokudj e aktivní hodinový signál (hrana hodinového signálu).
+- __Asynchronní__ klopný obvod (Latch) - Obvod zachytí impuls a zapamatuje si jeho hodnotu (záchytný obvod). Neobsahuje hodinový signál, vstupní signál přímo řídí stav klopného obvodu. Může navíc obsahovat i povolovací vstup.
+- __Synchronní__ klopný obvod (Flip-Flop) - Obvod má vstup pro hodinový signál, který synchronizuje jeho chování. Obvod mění svůj stav a výstupy pouze pokud je aktivní hodinový signál (hrana hodinového signálu).
 
 Podle způsobu paměťové funkce se klopné obvody dělí na:
 - __Monostabilní__ klopný obvody - Klopný obvod má jeden stabilní stav, ze kterého se obvod překlopí pouze se spouštěcím impulsem. Používají se jako tvarovače impulsů, časovače, atd.
-- __Bistabilní__ klopný obvod - Klopný obvod má dva ustálené stavy, ve který lze zůstav libovolnou dobu. Lze je využívat jako paměť.
+- __Bistabilní__ klopný obvod - Klopný obvod má dva ustálené stavy, ve který lze zůstat libovolnou dobu. Lze je využívat jako paměť.
 - __Astabilní__ klopný obvod - Klopný obvod nemá ustálený stav. Jejich výstup se přepíná mezi 0 a 1. Lze je použít jako generátory obdélníkového signálu.
 
 ### RS Klopný obvod
@@ -76,7 +76,7 @@ RS klopný obvod lze rozšířit o _povolovací vstup_ C. Tento vstup povolí fu
 ![RS klopný obvod s povolovacím vstupem](/Images/03/rs_klopny_obvod_povolovaci.png)
 
 ### JK Klopný obvod
-JK klopný obvod je rozšíření RS klopného obvodu, které podporuje původně zakázaný stav, kdy jsou R a S vstupy aktivovány zároveň. Vstupy nazýváme J (místo S) a K (místo R). Aktivace J a K zároveň překlápí vnitřní stav obvodu. JK klopný obvod jinka funguje stejně jako RS.
+JK klopný obvod je rozšíření RS klopného obvodu, které podporuje původně zakázaný stav, kdy jsou R a S vstupy aktivovány zároveň. Vstupy nazýváme J (místo S) a K (místo R). Aktivace J a K zároveň překlápí vnitřní stav obvodu. JK klopný obvod jinak funguje stejně jako RS.
 
 ![JK klopný obvod](/Images/03/jk_klopny_obvod.png)
 
@@ -96,6 +96,7 @@ D klopný obvod lze použít jako jednobitový registr.
 Posuvný registr je sekvenční logický obvod, který ukládá a posouvá vstupní hodnotu. Posuvný registr je možné sestavit z několika sériově napojených D klopných obvodů. Posuvný registr mění stav při nástupné hraně hodinového signálu.
 
 ![Posuvný registr](/Images/03/posuvny_registr.png)
+![Různé druhy registrů](/Images/03/registry.png)
 
 Posuvný registr je možné implementovat i pomocí multiplexorů - _barrel shifter_. 
 
@@ -104,4 +105,5 @@ Posuvný registr je možné implementovat i pomocí multiplexorů - _barrel shif
 - _Asynchronní čítač_ - Neobsahuje synchronizační hodiny.
 - _Synchronní čítač_ - Obsahuje synchronizační hodiny.
 
+Čítač shora dolů (od nejvyššího čísla k nejnižšímu)
 ![Čítač](/Images/03/citac.png)
