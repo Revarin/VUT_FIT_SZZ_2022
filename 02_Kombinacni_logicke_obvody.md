@@ -51,7 +51,7 @@ Při rozšíření o přenos vzniká __Full-adder__ (FA). Tato sčítačka bere 
 ![Full-adder](./Images/02/full-adder.png)
 
 ### Sériová sčítačka
-Plná sčítačka se v praci pro vícebitové sčítání nepoužívá, poněvadž je příliš pomalá a složitá. Pro zjednodušení lze využít sériovovou sčítačku, která má vstupy a výstupy v posuvných registrech a carry v jednoduchém registru. Nicméně tato sčítačka je stále velmi pomalá.
+Plná sčítačka se v praxi pro vícebitové sčítání nepoužívá, poněvadž je příliš pomalá a složitá. Pro zjednodušení lze využít sériovovou sčítačku, která má vstupy a výstupy v posuvných registrech a carry v jednoduchém registru. Nicméně tato sčítačka je stále velmi pomalá.
 
 ![Seriová sčítačka](./Images/02/seriova_scitacka.png)
 
@@ -61,10 +61,10 @@ V praxi se využívá CLA sčítačka (Carry-Look-Ahead). Tato sčítačka má n
 - __P__ (propagate) - značí případ, kdy __může__ nastat přesun do vyššího řádu
 
 Jednotlivé výstupy CLA sčítačky se vypočítají následovně:
-- \(C_{i+1} = G_i\,and\,(P_i\,or\,C_i)\)
 - \(S_i = A\,xor\,B\,xor\,C_i\)
 - \(G_i = A\,and\,B\)
 - \(P_i = A\,xor\,B\)
+- \(C_{i+1} = G_i\,and\,(P_i\,or\,C_i)\)
 
 ![CLA sčítačka](./Images/02/cla_scitacka.png)
 ![Vícebitová sčítačka](./Images/02/cla_scitacka_vicebitova.png)
