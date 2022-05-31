@@ -55,11 +55,11 @@ Mikrokontrolér má obvykle řadu periferií jako například:
 ## Sériová komunikační rozhraní
 Sériová komunikační rozhraní slouží pro komunikaci s MCU. Komunikace probíhá po jednotlivých bitech po jednom vodiči __sekvenčně__. Je třeba jednoznačně určit, v kterém okamžiku je na datovém vodiči hodnota kterého bitu. Existují dva způsoby sériového přenosu:
 - __Synchronní přenos__ - Spolu s daty je přenášen i hodinový signál, který určuje kdy lze číst další bit. Vyžaduje vodič navíc pro hodinový signál.
-- __Asynchronní přenos__ - Hodinový signál není přenášen. Přijímač i vysílač si sami musí generovat hodinový signál (musí mít smluvený __baud rate__). Je nutné zajistit dostatečnouo přesnost hodinového signálu a jeho synchronizaci.
+- __Asynchronní přenos__ - Hodinový signál není přenášen. Přijímač i vysílač si sami musí generovat hodinový signál (musí mít smluvený __baud rate__). Je nutné zajistit dostatečnou přesnost hodinového signálu a jeho synchronizaci.
 
 ### UART
 _Asynchronní_ komunikační rozhraní (nepřenáší se hodinoví signál). Komunikace probíhá následovně:
-1. Vysílač vysílá klidovou hodnotu (log. 1).
+1. Vysílač vysílá klidovou hodnotu log. 1.
 2. Pro začátek komunikace slouží přechod do log. 0 - __start bit__.
 3. Dále se posílají datové bity.
 4. Za poslední datovým bitem (případně _paritním bitem_) se vyšle alespoň jeden (nebo dva) __stop bit__, který má hodnotu klidového stavu.
@@ -104,7 +104,7 @@ Převodníky umožňují komunikaci digitálního počítače s vnějším svět
 AD převodník (Analog-to-Digital converter) převádí __analogový__ (spojitý) signál na __digitální__ (diskrétní) hodnotu. Naměřené hodnoty MCU dostává v rozsahu \(0 - 2^{N-1}\) a musí je převést na odpovídající hodnotu napětí. Existuje více druhů AD převodníků, dva základní jsou následující:
 
 #### Flash ADC
-Flash ADC je __kombinační obvod__, který převádí napětí paralelně s konstatní rychlostí. \(N\) bitový převodník je tvořen \(2^{N} - 1\) komparátory, které jsou připojeny k _napěťovému žebříku_, který dělí __referenční napětí__, a k měřenému napětí. Výsledky komparátorů jsou připojeny k prioritnímu kodéru, na jehož výstupe je výsledek převodu.
+Flash ADC je __kombinační obvod__, který převádí napětí paralelně s konstatní rychlostí. \(N\) bitový převodník je tvořen \(2^{N} - 1\) komparátory, které jsou připojeny k _napěťovému žebříku_, který dělí __referenční napětí__, a k měřenému napětí. Výsledky komparátorů jsou připojeny k prioritnímu kodéru, na jehož výstupu je výsledek převodu.
 
 Výhodou Flash ADC je jeho rychlost (převod probíhá v \(\pm\) reálném čase). Nevýhodou je vyšší cena a poměrně složitá realizace (vyžaduje přesné odpory).
 
@@ -117,7 +117,7 @@ Aproximační ADC je __sekvenční obvod__. Měřené napětí musí být nejdř
 - _Komparátor napětí_ - Porovnává odhad napětí naměřeného napětí s měřeným napětím.
 - _SAR_ - Registr, který obsahuje aktuální odhad naměřeného napětí v binární podobě. Na začátku je tato hodnota rovna polovině rozsahu.
 
-Převod probíhá tak, že MSB v SAR je nastaven na jedna a zbylé bity jsou vynulovány. Tato binární hodnota je převedena na napětí pomocí DAC a komparátorem porovnána s měřeným napětím. Pokud je odhad menší než měřené napětí, zůstane MSB v SAR v log. 1, jinak je změněn na log. 0. V obou případech je nastaven další MSB na log. 1 a proces se opakuje. Při porovnání se mění tento bit a na log. 1 se nastavuje bit další.
+Převod probíhá tak, že MSB v SAR je nastaven na jedna a zbylé bity jsou vynulovány. Tato binární hodnota je převedena na napětí pomocí DAC a komparátorem porovnána s měřeným napětím. Pokud je odhad menší než měřené napětí, zůstane MSB v SAR v log. 1 (odhad je příliš malý a tak musí mít větší hodnotu), jinak je změněn na log. 0. V obou případech je nastaven další MSB na log. 1 a proces se opakuje. Při porovnání se mění tento bit a na log. 1 se nastavuje bit další.
 
 ![Aproximační ADC](/Images/05/aproximacni_dac.png)
 ![AD převodník](/Images/05/ad_prevod.png)
@@ -126,3 +126,11 @@ Převod probíhá tak, že MSB v SAR je nastaven na jedna a zbylé bity jsou vyn
 DA převodník (Digital-to-Analog converter) převádí __digitální__ signál na __analogový__ signál. Většina DAC je tvořena __odporovým žebříkem__.
 
 ![DA převodník](/Images/05/da_prevodnik.png)
+
+#### Dělič napětí
+![Dělič napětí](/Images/05/delic_napeti.png)
+
+\[
+    U_1 = U \frac{R_1}{R_1 + R_2} \\
+    U_2 = U \frac{R_2}{R_1 + R_2}    
+\]
