@@ -7,11 +7,11 @@
 ## Řadič periferních zařízení a autonomní provádění periferní operace
 Pro práci se všemi periferiemi zařízení se používá součástka zvaná __řadič__. Tato součástka slouží pro komunikaci zařízení s periferií. Údaje putující z periferie nebo do ní překládá do formátu, kterému rozumí sběrnice a periferie. Řídí činnost periferie pomocí _řídících signálů_ a _přerušení_ nebo _programové obsluhy_.
 
-Procesor komunikuje pouze s _registry řadiče_ periferního zařízení. K tomu používá buď instrukce pro práci s paměti nebo speciální instrukce pro ovládání I/O periferie. Řadič periferie většinou mívá tři druhu registrů: _datový registr_ (přes něj se přenášejí data), _řídící registr_ (určuje operaci periferie a její způsob provedení) a _stavový registr_ (stav řadiče a periferie).
+Procesor komunikuje pouze s _registry řadiče_ periferního zařízení. K tomu používá buď instrukce pro práci s paměti nebo speciální instrukce pro ovládání I/O periferie. Řadič periferie většinou mívá tři druhy registrů: _datový registr_ (přes něj se přenášejí data), _řídící registr_ (určuje operaci periferie a její způsob provedení) a _stavový registr_ (stav řadiče a periferie).
 
 Existují dva způsoby připojení periferních zařízení: __mapovaný vstup/výstup__ a __izolovaný vstup/výstup__.
 - __Mapovaný V/V__ - Registry řadiče periferie jsou namapovány na určité adresy hlavní paměti. Periferie a paměť tak sdílí stejný adresový prostor. Operace s periferií se provádí stejně jako operace s paměti (instrukce čtení a zápis).
-- __Izolovaný V/V__ - Adresový prostor paměti a periferií je oddělen. Registry periferních zařízení mají svůj vlastní adresový prostor. Operace s periferií s provádí pomocí speciálních instrukcí (`IN` a `OUT`).
+- __Izolovaný V/V__ - Adresový prostor paměti a periferií je oddělen. Registry periferních zařízení mají svůj vlastní adresový prostor. Operace s periferií se provádí pomocí speciálních instrukcí (`IN` a `OUT`).
 
 Průběr provádění periferních operací je následující: Řadič nejdříve zjistí stav perefiere. Pokud je periferie v pořádku, zahájí na ní danou periferní operaci vložením __parametrů operace do registrů__ řadiče periferie. Po dokončení této operace je potřeba aby periferie oznámila řadiči a ten následně procesoru, že operace byla dokončena. K tomu se používá __přerušení__ nebo __programové obsluhy__. Pro zjištění výsledku operace se musí zkontrolovat stav periferie. Jsou dvě fáze zjištění stavu periferie:
 1. Nejprve se zkontroluje __stavová slabika__ (status byte), v ní je bit označující výskyt chyby. Pokud je hlášena chyba tak je operace považována za neplatnou a musí se zopakovat.
