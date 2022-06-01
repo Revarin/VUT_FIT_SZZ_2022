@@ -27,17 +27,17 @@ Existuje několik druhů __konfliktů__ u řetězeného zpracování instrukcí 
     - Čtení dvou hodnot z paměti, _řešení:_ rozdělení paměti na paměť programu a paměť dat.
     - Současné provedení dvou sčítání (procesor s jedním ALU), _řešení:_ přidání dalších výpočetních jednotek.
 - __Datové konfiliky__ - Jsou zapotřebí data z předcházející instrukce, která ale ještě není dokončena. Lze rozdělit na několik podkategorií.
-    - _RAW_ (Read After Write) - Přečtení hodnoty v kroku 2 dříve, než je do ní uložena hodnota z předchozího kroku 1.
+    - _RAW_ (Read After Write) - Přečtení hodnoty v kroku 2 dříve, než je do ní uložena hodnota z předchozího kroku 1. (2. instrukce používá hodnotu registru R2, kterou upravuje 1. instrukce. Hodnota registru R2 tak nemusí být aktualizovaná v moment, kdy ji využívá 2. instrukce)
 ```bsh
 ADD R2, R1, R3      // 1. R2 <- R1 + R3
 SUB R4, R2, R3      // 2. R4 <- R2 + R3
 ```
--   - _WAW_ (Write After Write) - Data jsou do R2 zapsána v kroku 2 dříve, než se do R2 uloží hodnota v kroku 1.
+-   - _WAW_ (Write After Write) - Data jsou do R2 zapsána v kroku 2 dříve, než se do R2 uloží hodnota v kroku 1.(1. instrukce zapíše výsledek do registru R2, kterou chce například uložit do paměti. 2. instrukce přepíše hodnotu registru R2 dříve, než se stihne hodnota uložit do paměti)
 ```bsh
 ADD R2, R4, R7      // 1. R2 <- R4 + R7
 SUB R2, R1, R3      // 2. R2 <- R1 + R3
 ```
--   - _WAR_ (Write After Read) - Hodnota je přepsána v kroku 2 dříve, než je načtena v kroku 1.
+-   - _WAR_ (Write After Read) - Hodnota je přepsána v kroku 2 dříve, než je načtena v kroku 1.(1. instrukce chce pracovat s hodnotou registru R5. 2. instrukce může tento registr přepsat dříve, než se stihne 1. instrukce vykonat -> přepíše původní hodnotu registu R5)
 ```bsh
 ADD R4, R1, R5      // 1. R4 <- R1 + R5
 SUB R5, R1, R2      // 2. R5 <- R1 + R2
@@ -52,7 +52,7 @@ SUB R5, R1, R2      // 2. R5 <- R1 + R2
 ![Bypassing](/Images/07/bypassing.png)
 
 ### Predikce skoků
-Skokové instrukce dynamicky mění pořadí instrukcí, které se mají vykonávat. Protože pipelining vykonává již dopředu následující instrukce, v případě skoku je potřeba tyto instrukce číst z jiné části. V nepodmíněných skocích toto nezpůsobuje zásadní problém, ale v případě podmíněných skocích musí procesor provádět _predikci_ (jednotka predikce skoku), zda bude skok proveden nebo ne. Existuje několik způsobý predikce skoku:
+Skokové instrukce dynamicky mění pořadí instrukcí, které se mají vykonávat. Protože pipelining vykonává již dopředu následující instrukce, v případě skoku je potřeba tyto instrukce číst z jiné části. V nepodmíněných skocích toto nezpůsobuje zásadní problém, ale v případě podmíněných skoků musí procesor provádět _predikci_ (jednotka predikce skoku), zda bude skok proveden nebo ne. Existuje několik způsobů predikce skoku:
 - __Statická predikce__ - Kompilátor nastaví bit predikce.
 - __Dynamická predicke__ - Predikce pomocí specializovaného hardwaru.
 - __Predikce podle předchozího skoku__ - Historie skoků lze popsat binárním řetězcem několika bitů. V nejjednodušším případě se používá __jednobitový prediktor__, který ukládá pouze jeden bit historie. Tento prediktor předpovídá stejné chování skoku i v příštím průchodu (stav 0 - skok minule neproveden a tak se neskočí, stav 1 - skok minule proveden a tak se skočí). Pokud je předpověď chybná tak se přejde do druhého stavu. Ukončí se špatná rozpracovaná větev programu a aktualizuje se BTB, což stojí několik taktů procesoru.
