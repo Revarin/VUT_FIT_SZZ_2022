@@ -34,9 +34,12 @@ Protože v jednom momentě může nastat více různých přerušení je ke kaž
 Alternativní způsob práce s periferiemi je takzvaná __programová obsluha__ periferií. Procesor musí neustále testovat bit řadiče periferie označující _konec operace_ aby zjistil, zda daná operace proběhla úspěšně. Tento přístup obsluhy periferií je nenáročný ale poměrně neefektivní.
 
 ## Přímý přístup do paměti
-Přestože je paměť taky periferie, jsou data přenášeny z datového registru řadiče určité periferie do operační paměti přímo (__přes sběrnici__) a ne přes procesor. To je využíváno pro přenos dat mezi diskovou a operační pamětí. Existují dva přístupy:
-- __DMA__ (Direct Memory Access) - Řadič DMA řídí přenos dat a umí generovat signály sběrnice, data se ale přez něj __nepřenášejí__.
-- __PIO__ (Specializované I/O procesory) - Data jsou přenášena z datového registru periferie přes registr procesoru do registru řadiče paměti a do vyrovnávací paměti
+Koncept přerušení je nevýhodný, pokud je třeba přenášet větší objemy dat. Při obsluze přerušení se procesor podílí na datových přenosech, což ho zatěžuje. Přímý přístup do paměti umožňuje přenášet data z periferních zařízení do paměti nebo z paměti do paměti bez zatížení procesoru. Proces přímého přístupu do paměti probíhá následovně:
+1. CPU předá řadiči __DMA__ (Direct Memory Access) - specializovaný obvod obstarávající přímý přístup do paměti - adresu v paměti, adresu periferního zařízení, druh přenosu a počet přenášených slov.
+2. Řadič DMA provede přesun bez zásahu CPU. Procesor je omezen na využití sběrnice.
+3. Po dokončení přenosu dat (případně i při chybě) řadič DMA zašle do procesoru přerušení, címž ho informuje.
+
+Rozšířením řadiče DMA je koncept __IO precosoru__, což je co-procesor, řídící IO periferních zařízení.
 
 ![Přenos dat pomocí DMA](/Images/06/pamet_prenos_dma.png)
 
