@@ -79,7 +79,7 @@ Minimalizační metoda Quine-McCluskey je _tabulární minimalizační_ metoda v
 ### Mřížka implikantů
 Mřížka implikantů představuje grafické znázornění pokrytí vrcholů funkce, které umožňuje přehledné hledání minimálního pokrytí dané funkce zkrácenými implikanty nalezenými pomocí metody Quine-McCluskey. V této mřížce jsou jako řádky zapsané všechny poteciální zkrácené implikanty (_volitelné implikanty_) a sloupce jsou všechny elementární implikanty, které pokrývají.
 
-Při řešení je nejdříve nutné zahrnout _nesporné implikanty_ - elementární implikanty pokryté pouze jedním volitelným implikantem. Následně se hledá co nejmenší množina volitelných implikantů, která pokrývá všechny zbylé elementární implikanty. Tato výsledná množina představuje výsledek minimálního pokrytí pomocí zkrávených a nesporných implikantů.
+Při řešení je nejdříve nutné zahrnout _nesporné implikanty_ - elementární implikanty pokryté pouze jedním volitelným implikantem. Následně se hledá co nejmenší množina volitelných implikantů, která pokrývá všechny zbylé elementární implikanty. Tato výsledná množina představuje výsledek minimálního pokrytí pomocí zkrácených a nesporných implikantů.
 
 ![Mřížka implikantů](/Images/08/mrizka_implikantu.png)
 ![Řešení mřížky implikantů](/Images/08/mrizka_implikantu_reseni.png)
@@ -95,3 +95,6 @@ Petrickova funkce je algoritmus nalezení minimálního pokrytí aritmeticky. Fu
 5. Tento výraz se zjednodušší pomocí teorémů Boolovy algebry.
 6. Každý vzniklý term představuje jedno možné pokrytí
 7. Z těchto termů vybereme pokrytí s nejnižší cenou, kde cenou rozumíme počet zkrácených implikantů a počet proměnných v každém zkráceném implikantu.
+
+## Příklady
+UNDF, UNKF, Karnaughova mapa, Quine-McCluskey, Mřížka implikantů
