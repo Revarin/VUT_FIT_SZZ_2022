@@ -18,23 +18,35 @@ Pevná řádová čárka (FX) je formát zobrazení dvojkových čísel, který 
 
 ### Reprezentace čísel se znaménkem
 Reprezentace čísel se znaménkem má několik verzí:
-- __Přímý kód__ - První bit čísla je rezervován pro znaménko (1 pro záporná čísla, 0 pro kladná čísla), kladné číslo se tak od svého záporného protějšku liší pouze v tomto bitě. Existuje zde však problém dvou nul (kladná nula a záporná nula). Také se zde může vyskytnout problémy u některých aritmetických operací. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
-- __Doplňkový kód__ (dvojkový doplněk) - Kladné číslo je reprezentováno normálně. Záporné číslo se z kladného čísla tvoří jeho inverzí a následně přičtením 1. Vytvoření kladného čísla ze záporného je provedeno stejně. Je zde pouze jedna reprezentace nuly a nevyskytují se žádné problémy aritmetickými operacemi. Je to nejčastěji používaný způsob reprezentace čísel se znaménkem.
-- __Aditivní kód__ (kód s posunutou nulou, kód s transformovanou nulou) - Nejvyšší bit čísla reprezentuje opět znaménko, ale 0 je pro záporná čísla a 1 pro kladná čísla. Celý zápis čísla je tak posunut o nějakou konstantu. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
-- __Binary Coded Decimal__ (BCD) - Speciální binární zápis dekadických čísel, kde každá dekadická číslice je zobrazena v jednom _niblu_ (4 bity bytu). Znaménko může být v prvním bytu.
+- __Přímý kód__ - První bit čísla je rezervován pro znaménko (1 pro záporná čísla, 0 pro kladná čísla), kladné číslo se tak od svého záporného protějšku liší pouze v tomto bitě. Existuje zde však problém dvou nul (kladná nula a záporná nula). Také se zde můžou vyskytnout problémy u některých aritmetických operací. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
 
 ![Interval pro přímý kód](/Images/09/interval_primy_kod.png)
+
+- __Doplňkový kód__ (dvojkový doplněk) - Kladné číslo je reprezentováno normálně. Záporné číslo se z kladného čísla tvoří jeho inverzí a následně přičtením 1. Vytvoření kladného čísla ze záporného je provedeno stejně. Je zde pouze jedna reprezentace nuly a nevyskytují se žádné problémy s aritmetickými operacemi. Je to nejčastěji používaný způsob reprezentace čísel se znaménkem.
+
 ![Interval pro doplňkový kód](/Images/09/interval_doplnkovy_kod.png)
+
+- __Aditivní kód__ (kód s posunutou nulou, kód s transformovanou nulou) - Nejvyšší bit čísla reprezentuje opět znaménko, ale 0 je pro záporná čísla a 1 pro kladná čísla. Celý zápis čísla je tak posunut o nějakou konstantu. Používá se pro zobrazení reálných čísel v plovoucí řádové čárce.
+
 ![Interval pro aditivní kód](/Images/09/interval_transformovany_kod.png)
+
+- __Binary Coded Decimal__ (BCD) - Speciální binární zápis dekadických čísel, kde každá dekadická číslice je zobrazena v jednom _niblu_ (4 bity bytu). Znaménko může být v prvním bytu.
+
+
+
 
 ### Aritmetické operace
 __Sčítání__ se provádí stejně jako v desítkové soustavě. V případě sčítání v procesoru může pro čísla v doplňkovém kódu a kladná čísla v přímém kódu dojít k přetečení. Při sčítání čísel se znaménkem se kontrolují příznaky přenosu z (C) a do (P) nejvyššího bitu. Pokud jsou oba tyto příznaky aktivní nebo neaktivní zároveň, je výsledek správný, jinak se jedná o nesprávný výsledek.
 
 ![Sčítání binárních čísel](/Images/09/scitani.png)
+![Sčítání binárních čísel](/Images/09/scitani2.png)
 
 __Odčítání__ se provádí stejně jako v desítkové soustavě. Je zde třeba brát v úvahu přenos. Pro odčítání čísel se znaménkem se kontrolují příznaky výpůjčky do (C) a z (P) nejvyššího bitu. Pokud jsou oba tyto příznaky aktivní nebo neaktivní zároveň, je výsledek správný, jinak se jedná o nesprávný výsledek.
 
 ![Odčítání binárních čísel](/Images/09/odcitani.png)
+![Odčítání binárních čísel](/Images/09/odcitani2.png)
+![Odčítání binárních čísel](/Images/09/odcitani3.png)
+![Odčítání binárních čísel](/Images/09/odcitani_priklad.png)
 
 __Násobení__ se provádí stejně jako v desítkové soustavě. Výsledek zde může zabírat až dvojnásobný počet bitů, tudíž se musí ukládat do většího registru. V případě násobení čísel se znaménkem se nejdříve provede vynásobení s absolutními hodnotami čísel a poté je výsledné znaménko doplněno dle znamének čísel.
 
@@ -80,6 +92,9 @@ Při tomto zápisu nastává problém, že zobrazení čísel není unikátní. 
 
 ![Číslo v plovoucí řádové čárce](/Images/09/floating_point.png)
 
+![Převod reálného čísla na číslo v plovoucí řádové čárce](./Images/09/prevod_real_float.png)
+![Převod čísla v plovoucí řádové čárce na reálné číslo](./Images/09/prevod_float_real.png)
+
 ### Standard IEEE754
 IEEE754 je standard pro reprezentaci čísel v plovoucí řádové čárce. Tento standard definuje několik způsobů zápisu:
 - __Float__ (jednoduchá přesnot) - 32 bitů, kde E = 8b, M = 23b
@@ -100,3 +115,6 @@ Norma počítá s implicitní jedničkou v mantise. Dále tento standard definuj
 __Součin__ čísel s plovoucí řádovou čárkou není asociativní (chyba). Je to vlastně součin vynásobených mantis a základu na součet exponentů (\(X \times Y = (M_X \times M_Y) \times B^{E_X + E_Y}\)).
 
 __Sčítání__ a __odčítání__ čísel s plovoucí rádovou čárkou se provede převodem obou čísel na stejný exponent a následným sečtením/odečtením mantis obou čísel.
+
+## Příklady
+binární operace (vypočítat na papíře), převod na float a zpět, float operace (sčítání, odčítání, násobení)
