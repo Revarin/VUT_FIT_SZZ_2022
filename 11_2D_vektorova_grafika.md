@@ -15,11 +15,11 @@ Základní grafické objekty jsou v paměti uloženy vektorově. Vektorová repr
 Úsečka je geometrická vektorová entita definovaná:
 - Souřadnicemi dvou koncových bodů.
 - Rovnicí přímky popisující geometrii:
-    - _Obecná rovnice_: \(A_x + B_y + C = 0; \; A = (y_2 - y_1), \; B = (x_2 - x_1)\)
-    - _Parametrická rovnice_: \(x = x_1 + t \times (x_2 - x_1); \; y = y_1 + t \times (y_2 - y_1), \; t \in \langle 0, 1 \rangle\)
-    - _Směrnicový tvar_: \(y = k \times x + q; \; k = \Delta y / \Delta x = (y_2 - y_1) / (x_2 - x_1)\)
+    - _Obecná rovnice_: \(ax + by + c = 0; \; a = (y_2 - y_1), \; b = (x_2 - x_1)\)
+    - _Parametrická rovnice_: \(x = x_1 + t (x_2 - x_1); \; y = y_1 + t (y_2 - y_1), \; t \in \langle 0, 1 \rangle\)
+    - _Směrnicový tvar_: \(y = k x + q; \; k = \Delta y / \Delta x = (y_2 - y_1) / (x_2 - x_1)\)
 
-Algoritmy pro vykreslování úsečky jsou odvozeny pro případ, kdy úsečka leží v 1. kvadrantu, je rostoucí od počátečního bodu \(P_1\) ke koncovému bodu \(P_2\) a roste nejrychleji ve směru osy \(x\). Ostatní případ je nutné převést na tento například výměnnou souřadných os.
+Algoritmy pro vykreslování úsečky jsou odvozeny pro případ, kdy úsečka leží v 1. kvadrantu, je rostoucí od počátečního bodu \(P_1\) ke koncovému bodu \(P_2\) a roste nejrychleji ve směru osy \(x\). Ostatní případ je nutné převést na tento - například výměnnou souřadných os.
 
 ### Digital Differential Analyser
 Digital Differential Analyser (DDA) je algoritmus rasterizace úsečky využívající _floating-point_ aritmetiku. Je to jeden z prvních a nejjednodušších algoritmů. Kvůli floating-point aritmetice není příliš efektivní a snadno implementovatelný v HW.
@@ -53,7 +53,7 @@ Bresenhamův algoritmus vykresluje úsečku pixel po pixel od \(P_1\) k \(P_2\).
 
 ![Graf Bresenhamova algoritmu](/Images/11/bresenham_graf.png)
 
-Vykreslování musíme rozhodovat, zda v ose \(y\) provedeme krok a vypočítávat chybu vykreslování \(E\). K předchozí hodnotě \(E\) přičteme v každém kroku poměrný krok. Pokud dojde k posunutí v ose \(y\), tak se hodnota následujícího \(E\) sníží o jedna.
+Při vykreslování musíme rozhodovat, zda v ose \(y\) provedeme krok a vypočítávat chybu vykreslování \(E\). K předchozí hodnotě \(E\) přičteme v každém kroku poměrný krok. Pokud dojde k posunutí v ose \(y\), tak se hodnota následujícího \(E\) sníží o jedna.
 
 \[
     E_i + \frac{\Delta y}{ \Delta x} < 0,5 \;\; krok(x_i + 1, y_i) \; E_{i+1} = E_i + \frac{\Delta y}{ \Delta x} \\
@@ -149,13 +149,13 @@ CircleDDA(int R, int N) {
 ### Midpoint algoritmus pro kružnici
 Midpoint algoritmus je algoritmus rasterizace kružnice, jehož princip je v podstatě stejný jako u Bresenhamova algoritmus pro úsečku. Je postaven na určování __midpointů__ vůči kružnicici. Rozdíl je ve stanovení kritéria pro určení prediktoru. Algoritmus pracuje pouze s celými čísly a je tak efektivní a snadno implementovatelný v HW.
 
-Kružnice se vykresluje z bodu \([0, R]\) postupně po jednotlivých pixelech ve směru hodinových ručiček pro její osminu. Zbývající body získáme symetrií. Ve směru osy \(x\) se pohybujeme s přírůstkem \(dx = 1\) dokud neplatí \(x = y\). Ve směru osy \(y\) klesáme od hodnoty \(R\). O posunu ve směru osy \(y\) __rozhodujeme__ podle __znaménka prediktoru__ \(P_i\). Prediktor je vypočítá z rovnice kružnice v jejím homogením tvaru.
+Kružnice se vykresluje z bodu \([0, R]\) postupně po jednotlivých pixelech ve směru hodinových ručiček pro její osminu. Zbývající body získáme symetrií. Ve směru osy \(x\) se pohybujeme s přírůstkem \(dx = 1\) dokud neplatí \(x = y\). Ve směru osy \(y\) klesáme od hodnoty \(R\). O posunu ve směru osy \(y\) __rozhodujeme__ podle __znaménka prediktoru__ \(P_i\). Prediktor se vypočítá z rovnice kružnice v jejím homogením tvaru.
 
 \[
     F(x, y): x^2 + y^2 - R^2 = 0
 \]
 
-Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinice. Midpoint dosadíme do vztahu pro prediktor a následně při porovnání s nulou dosáhneme nové hodnoty \(y\).
+Rozhodnutí, zda se posuneme v ose \(y\) provedeme podle polohy __středního bodu__ (midpointu) \([x_i + 1, y_i - 1/2]\) vůči kružinici. Midpoint dosadíme do vztahu pro prediktor a následně při porovnání s nulou dosáhneme nové hodnoty \(y\).
 
 \[
     P_i = F(x_i + 1, y_i - 1/2) \\
@@ -177,19 +177,18 @@ Pro průběžné výpočty během vykreslování kružnice je opět výhodnějš
 CircleMid(int s1, int s2, int R) {
     int x = 0, y = R;
     int P = 1 - R;
-    int X2 = 3, Y2 = 2*R - 2;
 
     while (x < y) {
-        drawPixel(x, y);
+        drawPixel(s1 + x, s2 + y);
         if (P >= 0) {
-            P += - Y2;
-            Y2 -= 2;
+            P = P + 2*x - 2*y + 5;
             y--;
+            x++;
         }
-
-        P += X2;
-        X2 += 2;
-        x++;
+        else {
+            P = P + 2*x + 3;
+            x++;
+        }
     }
 }
 ```
