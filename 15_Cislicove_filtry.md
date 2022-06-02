@@ -46,7 +46,7 @@ Systémy mohou mít různé vlastnosti:
 - __Paměť__
     - _Systémy s pamětí_ - Systém je schopen si pamatovat svoji předešlou hodnotu.
     - _Systémy bez paměti_ - Systém reaguje pouze na okamžitou hodnotu vstupu.
-- __Kauzaliza__
+- __Kauzalita__
     - _Kauzální systémy_ - Systém reaguje pouze na současný nebo minulý vstup (nevidí do budoucnosti). Např.: \(y[n] = x[n] - x[n-1]\)
     - _Nekauzální systémy_ - Systém může reagovat i na budoucí vstupy (vidí do budoucnosti). Např.: \(y(t) = x(-t)\)
 - __Stabilita systému__ - Systém pro omezený vstup produkuje omezený výstup (má horní a dolní hranici).
@@ -145,3 +145,5 @@ Ze z-transformace lze vypočítat přenosovou funkci, která je definována jako
 
 ## Příklady
 Konvoluce, diferenční rovnice, přenosová funkce filtru.
+
+![Otázky z dokumentu(asi ze státnic)](./Images/15/otazky_ze_statnic.png)
