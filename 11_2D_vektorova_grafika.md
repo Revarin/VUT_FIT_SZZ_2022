@@ -212,12 +212,15 @@ Pro vykreslovanou oblast jdeme po pixelu od bodu \([0, b]\), dokud není \(2b^2x
 ![Midpoint alguritmus pro elipsu](/Images/11/midpoint_elipsa.png)
 
 ## Rasterizace polygonů
-Rasterizace polygonů, neboli _vyplňování 2D oblastí_, je proces nalezení a označení všech vnitřních bodů dané oblasti. Vstupem algoritmů je popis hranice oblasti a jejich výstupem je rastrový popis vyplnění oblasti. Pro zjednodušení algoritmů má vektorový popis 2D oblastí určité konvence: vnější hrany a otvory uvnitř obrazce jsou orientovány opačným směrem a seznam hraničních entit vyplňované oblasti musí být orientovaný a spojitý. Orientace hrany lze otestovat vektorovým součinem dvou sousedních hran (konvexní polygony) nebo sumou přes celý polygon (nekonvexní polygony).
+Rasterizace polygonů, neboli _vyplňování 2D oblastí_, je proces nalezení a označení všech vnitřních bodů dané oblasti. Vstupem algoritmů je popis hranice oblasti a jejich výstupem je rastrový popis vyplnění oblasti. Pro zjednodušení algoritmů má vektorový popis 2D oblastí určité konvence: seznam hraničních entit vyplňované oblasti musí být orientovaný a spojitý a vnější hrany a otvory uvnitř obrazce jsou orientovány opačným směrem. Orientace hrany lze otestovat vektorovým součinem dvou sousedních hran (konvexní polygony) nebo sumou přes celý polygon (nekonvexní polygony).
 
 Jsou tři způsoby vyplňování složitých (protínajících se) oblastí:
 - __Paritní vyplňování__ - Hranice odděluje vyplněný a nevyplněný prostor.
 - __Vnitřní vyplňování__ - Jsou vyplněny všechny body, které nejsou vně oblasti.
 - __Nenulové vyplňování__ - Nenulové objetí bodu uzavřenou smyčkou při vyřešení sebeprotínání.
+
+![Vyplňování paritní a vnitřní](/Images/11/vyplnovani1.png)
+![Vyplňování nenulové](/Images/11/vyplnovani2.png)
 
 Rasterizace polygonů funguje na principu __řádkového vyplňování__. Prochází se po řádcích celý obraz a při začátku oblasti se začne vyplňovat dokud se nenarazí na další hranu oblasti. Z toho vyplývá __paritní řádkové vyplňování__, kde se pro každý řádek vytvoří seznam průsečíků, který se seřadí. Úseky mezi sudými a lichými oblastmi jsou pak vykresleny. Ve vrcholech a hranách rovnoběžnými s řádky je nutné testovat extrémy a navíc se po rasterizaci musí vykreslit i __obrys oblasti__.
 
@@ -237,11 +240,6 @@ Není nutné vyhodnocovat hranové funkce \(E_i(x, y)\) pro každý bod. Hodnotu
 
 ![Pinnedův algoritmus: Výpočet hranové funkce](/Images/11/pineduv_algoritmus_zjednoduseni.png)
 
-### Barycentrické souřadnice pro trojúhelník
-Koordináty trojúhelníku (nebo konvexního n-úhelníku), které jsou vztaženy k vrcholům primitiva (nejsou _kartézské_, ale naopak _váhové_ na základě vzdálenosti od rohů primitiva). Každá souřadnice musí být větší nebo rovna nule. Barycentrické souřadnice jsou vhodné pro určení polohy bodu vůči trojúhelníku a využívají se pro optimalizace vyplňování.
-
-![Barycentrické souřadnice](/Images/11/barycentricke_souradnice.png)
-
 ## Křivky v počítačové grafice
 Křivky v počítačové grafice se využívají pro vykreslování modelů, fontů, pohybu kamery po křivce atd. Od křivek se očekávají určité požadované vlastnosti:
 - __Invariance k lineárním transformacím__ - Rotace řídících bodů křivky nemá vliv na tvar křivky (body je možné transformovat a výsledná křivka má stejný tvar).
@@ -255,7 +253,7 @@ Existuje několik druhů křivek:
 - __Racionální křivka__ - Křivka, která používá váhové koeficienty \(w_i\) řídících bodů. Je invariantní vůči perspektivní projekci.
 - __Neracionální křivka__ - Křivka, která má všechny váhové koeficienty rovné jedné. Je neinvariantní vůči perspektivní projekci, tvar křivky lze ovlivnit pouze změnou polohy řídících bodů.
 
-Křivky lze matematicky zapsaz několika způsoby:
+Křivky lze matematicky zapsat několika způsoby:
 - __Parametrické vyjádření křivky:__ \(Q(t) = [x(t), y(t)];~t \in \langle 0, 1 \rangle\)
 - __Polynomiální křivka__ - _kubické polynomy:_
 
@@ -291,7 +289,7 @@ Křivky mohou být spojované ze segmentů po částech polynomiální křivky. 
 Spline křivka je křivka spojovaná ze segmentů po částech polynomiální křivky (pružné křivítko, kovový pásek proložený body). Spline křivka, která interpoluje své řídící body (prochází řídícími body) se nazývá __přirozený spline__. Cíle spline křivek je minimalizace křivosti křivy (délka, energie), efektivní řízení tvaru křivky (modelování) a snaha snížit počet řídících bodů.
 
 ### Fergusonova kubika
-Fergusonova kubika je nejčastěji používaná _interpolační_ křivka. Je určena dvěma koncovými body \(P_2\) a \(P_1\) (určují polohu) a dvěma tečnými vektory \(p_0\) a \(p_1\) (určují vyklenutí). Je to poměrně neinteraktivní a neintuitivní křivka. Mezi dvěma body je jeden segment, jehož změna tvaru je nelokální.
+Fergusonova kubika je nejčastěji používaná _interpolační_ křivka. Je určena dvěma koncovými body \(P_0\) a \(P_1\) (určují polohu) a dvěma tečnými vektory \(p_0\) a \(p_1\) (určují vyklenutí). Je to poměrně neinteraktivní a neintuitivní křivka. Mezi dvěma body je jeden segment, jehož změna tvaru je nelokální.
 
 ![Fergusonova kubika](/Images/11/fergusonova_kubika.png)
 
@@ -312,7 +310,12 @@ Bernsteinovy polynomy mají nezápornou hodnotu a jejich součet je roven jedné
 #### Algoritmus de Casteljau
 Algoritmus de Casteljau je rasterizační algoritmus pro vykreslování beziérových křivek. Je to rekurzivní algoritmus využívající vlastnosti bernsteinových polynomů. Plyne z rekurentní definice pro _bernsteinovy polynomy_. Úseky řídícího polynomu jsou děleny v poměru hodnot \(t\) a \(1-t\).
 
-Vykreslování křivky se tak provádí opakovaným výpočtem pro různé hodnoty \(t\) se zvoleným krokem. Vypočtené body se pak spojí úsečkami.
+Vykreslování křivky se tak provádí opakovaným výpočtem pro různé hodnoty \(t\) se zvoleným krokem. Vypočtené body se pak spojí úsečkami. Postup je následující:
+1. Zvolí se dostatečně jemný krok, se kterým se mění hodnota \(t\) (\(t \in \langle 0,1 \rangle\)).
+2. Úseky polynomů se dělí v poměru \(t\) a \(t-1\), v místě dělení vznikne nový bod pro další dělení. Snižuje se tak s každým krokem stupeň polynomu, až na konci zbyde pouze jeden bod.
+3. Vzniklé body se spojí úsečkami.
+
+[Příklad Algoritmu de Casteljau](https://www.youtube.com/watch?v=YATikPP2q70)
 
 ![Algoritmus de Casteljau](/Images/11/de_casteljau.png)
 
