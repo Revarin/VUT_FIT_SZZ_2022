@@ -37,6 +37,8 @@ Bod je svými homogenními souřadnicemi určen jednoznačně. Homogenní souřa
 ### Posunutí
 Pro posun v opačném směru budou koeficienty \(d\) záporné.
 
+Bod je reprezentovám řádkově. Transformace probíhá výpočtem BOD x MATICE. 
+
 ![Transformační matice posunutí](/Images/12/matice_posunuti.png)
 
 ### Změna velikosti
@@ -56,6 +58,10 @@ Při __rotaci kolem obecné osy__ je osa rotace dána směrovým vektorem \(v\) 
 4. Provedení požadované rotace od ůhel \(\omega\) kolem příslušené osy.
 5. Vrácení osy do původní polohy.
 
+Maticový zápis:
+
+\[M = T * R_x * R_z * R_{X(\omega)} * R_z^{-1} * R_x^{-1} * T^{-1}\]
+
 Rotaci kolem obecné osy procházející počátkem lze rozložit na dílčí rotace kolem základních os - __Eulerovy úhly__. Při použití Eulerových úhlu u spojité rotace může dojít ke skokové změně některých úhlů (Gimbal lock). Nejefektivnější způsob práce s rotačními transformacemi jsou __kvaterniony__.
 
 ![Rotace kolem obecné osy](/Images/12/obecna_rotace.png)
@@ -66,7 +72,7 @@ Podobně jako u rotační transformace ve 3D je transformace zkosení ve 3D rozd
 ![Transformační matice zkosení](/Images/12/matice_zkoseni.png)
 
 ### Skládání transformací
-Jedna z nejdůležitějších vlastností transformací objektů pomocí transformačních matice je __skládání transformací__. Každá komplexní lineární transformace se dá rozložit na posloupnost základních transformací. Tato složená transformace se dá vyjádřit jednou maticí pomocí __nasobení transformačních matic__. Při skládání složené matice záleží na pořadí transformací. Při zápisu v pořadí jednotlivých transformací pak matice násobíme __zprava__ (neboli matice zapisujeme v opačném pořadí).
+Jedna z nejdůležitějších vlastností transformací objektů pomocí transformačních matice je __skládání transformací__. Každá komplexní lineární transformace se dá rozložit na posloupnost základních transformací. Tato složená transformace se dá vyjádřit jednou maticí pomocí __nasobení transformačních matic__. Při skládání složené matice záleží na pořadí transformací. Při zápisu v pořadí jednotlivých transformací pak matice násobíme __zprava__ (neboli matice zapisujeme v opačném pořadí provádění operací).
 
 ## Projekce
 3D grafické objekty zobrazujeme na 2D výstup (obrazovka). Je nutné transformovat ze 3D prostoru do 2D prostoru. Při transformaci projekční paprsek promítá body na průmětnu, přičemž dochází ke ztrátě informace. Existují dva základní druhy projekce:
