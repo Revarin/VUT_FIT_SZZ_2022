@@ -137,20 +137,25 @@ Jsou dva základní druhy _algoritmů viditelnost_:
 ### Robertsův algoritmus
 Robertsův algoritmus je vektorový algoritmus viditelnosti. Dělí potenciálně viditelné hrany na úseky, kde se mění velikost. Těmto hranám se vytvoří průsečíky s obrysovými hranami a následně testujeme viditelnost jejich úseků podle vzdálenosti průsečíků a zakrytí.
 
+![Robertsův algoritmus](/Images/12/robertsuv_algoritmus.png)
+
 ### Plovoucí algoritmus
 Plovoucí algoritmus se používá k vizualizaci grafů.
 
 ### Malířův algoritmus
 Malířův algoritmus je rastrový objektový algoritmus řešení viditelnosti. Objekty jsou seřazeny podle vzdálenosti od kamery a vykreslují se od zadu dopředu. Nastává problém s cyklicky se překrývajícími objekty. Tento problém lze řešit rozdělením objektu na více částí.
 
+![Malířův algoritmus](/Images/12/maliruv_algoritmus.png)
+
 ### Z-buffer
-Z-buffer je rastrový obrazový algoritmus řešení viditelnosti. Udržuje se __paměť hloubky__ (z-buffer), který obsahuje Z-souřadnice nejbližších bodů ploch. Z-buffer má stejné rozměry jako zobrazovací buffer, počítá se pro každý pixel obrazovky. Každá plocha je zpracována pouze jednou - fronta. Je to rychlý algoritmus se snadnou implementací v HW:
+Z-buffer je rastrový obrazový algoritmus řešení viditelnosti. Udržuje se __paměť hloubky__ (z-buffer), který obsahuje Z-souřadnice nejbližších bodů ploch. Z-buffer má stejné rozměry jako zobrazovací buffer, počítá se pro každý pixel obrazovky. Každá plocha je zpracována pouze jednou - fronta. Je to rychlý algoritmus se snadnou implementací v HW.
+
+Při rasterizaci objektu se do z-bufferu zapíše informace o hloubce (z-souřadnice) pixelu. Při rasterizaci objektu, který by se vyrasterizoval na tento pixel se zkontroluje z-souřadnice pixelu a hodnota v z-bufferu. Pokud má pixel z-souřadnici menší, tak se nevykresluje, pokud ji má větší tak se vykreslí a aktualizuje se hodnota v z-bufferu.
 
 ### Ray-casting
 Ray-casting je rastrový obrazový algoritmus řešení viditelnosti. Vrhá paprsky z místa pozorovatele skrze každý pixel obrazovky. Pro každý paprsek počítáme na jakých souřadnicích protíná objekty podél jeho dráhy. Zobrazí se pak část nejbližšího objektu. Algoritmus je pomalý, ale má kvalitní výsledky. Má náročnou HW realizaci. Používá se pro zobrazení CSG modelů, implicitních ploch atd.
 
-### Radiozita
-Algoritmus radiozita je nejkomplexnější algoritmus řešení viditelnosti. Vystřeluje "radiozity" z plošek, které mají nejvíce energie. Ozářené plošky se stávají sekundárními zdroji světla. Toto se rekurzivně opakuje, dokud se energie neutlumí. Je to nejpomalejší algoritmus, ale zohledňuje fyzikální vlastnosti světla.
+![Ray-casting](/Images/12/ray_tracing.png)
 
 ## Osvětlovací modely
 Pro kalkulaci světla, stínů a odrazů na objektech ve 3D prostoru se používají různé osvětlovací modely.
@@ -164,11 +169,16 @@ Phongův osvětlovací model je empirický model, který počítá jak s difuzí
 ### BRDF
 BRDF je fyzikálně založený model. Umožňuje realistické zobrazení pomocí technologie _Ray-tracing_. Specializován na jednotlivé efekty nebo materiály. Je výpočetně nejnáročnější.
 
+### Radiozita
+Algoritmus radiozita je nejkomplexnější algoritmus osvětlování. Vystřeluje "radiozity" z plošek, které mají nejvíce energie. Ozářené plošky se stávají sekundárními zdroji světla. Toto se rekurzivně opakuje, dokud se energie neutlumí. Je to nejpomalejší algoritmus, ale zohledňuje fyzikální vlastnosti světla.
+
 ### Stínování
 Existuje několik modelů stínování polygonálních 3D objektů:
 - __Flat shading__ - Pro každý polygon se osvětlovacím model vyhodnotí středový pixel. Celý polygon má pak konstantní barvu. Nezohledňuje se zakřivení povrchu objektu.
 - __Goraud shading__ - Pro každý polygon se osvětlovacím modelem vyhodnotí pixely ve vrcholech. Při rasterizaci polygonu probíhá interpolace barvy. Zohledňuje se zakřivení povrchu objektu.
 - __Phong shading__ - Při rasterizaci probíhá interpolace normál z vrcholů. Osvětlovací model se pak počítá pro každý pixel polygonu. Zohledňuje se zakřivení povrchu objektu. Má velmi kvalitní výsledky, realistické zobrazení.
+
+![Stínování](/Images/12/stinovani.png)
 
 ## Vykreslovací řetězec
 ![Vykreslovací řetězec](/Images/12/gpu_pipeline.png)
