@@ -35,7 +35,7 @@ Pasivní komunikace je taková komunikace, při níž uživatel v obecném smysl
 |Možnost chyby|- velká|+ malá|
 
 ### Mody komunikace
-Změnou z pasivní a aktivní komunikace (a naopak) plyne nutnost přecházení z aktivního a pasivního režimu - __změny chování__ počítače na akce uživatele. Změny chování počítače lze dosáhnout pomocí tzv. __modů__. Mod je stav, ve kerém počítač reaguje jedinečným způsobem na vstupy od uživatele. Čím méně modů se při komunikaci vyskytuje, tím lépe. Existují jisté typické modey:
+Změnou z pasivní a aktivní komunikace (a naopak) plyne nutnost přecházení z aktivního a pasivního režimu - __změny chování__ počítače na akce uživatele. Změny chování počítače lze dosáhnout pomocí tzv. __modů__. Mod je stav, ve kerém počítač reaguje jedinečným způsobem na vstupy od uživatele. Čím méně modů se při komunikaci vyskytuje, tím lépe. Existují jisté typické mody:
 - Zadávání příkazů v příkazovém jazyce.
 - Odpověď na dotaz počítače (uložit, smazat, zrušit).
 - Editace textu.
