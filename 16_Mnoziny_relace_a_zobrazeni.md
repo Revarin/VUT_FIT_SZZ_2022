@@ -80,7 +80,7 @@ Relace nebo __n-ární__ relace je libovolný vztah mezi skupinou prvků jedné 
 
 > N-ární relací mezi množinami \(A_1\), \(A_2\), ..., \(A_n\), kde \(x\) náleží do \(n\) rozumíme libovolnou podmnožinu __kartézského součinu__ \(n\) množin.
 
-> __Kartézským součinem__ množin \(A\) a \(B\) je množina všech uspořádaných dvojic jejich prvků. Kartézský součin je komutativní.
+> __Kartézským součinem__ množin \(A\) a \(B\) je množina všech uspořádaných dvojic jejich prvků. Kartézský součin není komutativní.
 >
 > \[X \times Y = \{(x,y) | x \in X \land y \in Y\}\]
 
@@ -93,7 +93,7 @@ Pod pojmem relace se většinou myslí __binární relace__. Binární relací z
 ### Vlastnosti relací
 Relace mohou mít různé vlastnosti:
 - __Symetrická relace__ - Relace je symetrická v případě, že při prohození prvků, které jsou v relaci, zůstanou stále v relaci. Pokud \(a\) je v relaci s \(b\), tak i \(b\) je v relaci s \(a\).
-- __Antisymetrická relace__ - Relace je antisymetrická v případě, že při prohození prvků, které jsou v relaci, tak v relaci nebudou. Je to opak symetrie. Relace může být _slabě_ nebo _silně_ antisymetrická (silně symetrická relace vylučuje relaci prvků sama se sebou).
+- __Antisymetrická relace__ - Relace je antisymetrická v případě, že při prohození prvků, které jsou v relaci, tak v relaci nebudou. Je to opak symetrie. Relace může být _slabě_ nebo _silně_ antisymetrická (silně antisymetrická relace vylučuje relaci prvků sama se sebou).
 - __Reflexivní relace__ - Relace je reflexivní v případě, že prvky jsou v relaci sami se sebou.
 - __Tranzitivní relace__ - Relace je tranzitivní v případě, když je \(a\) v relaci s \(b\) a \(b\) je v relaci s \(c\), tak i \(a\) je v relaci s \(c\).
 - __Inverzní relace__ - Inverzní relace je relace vzniklá prohozením pořadí prvků v uspořádaných dvojicích, neboli prohození definičního oboru a oboru hodnot.
@@ -104,10 +104,12 @@ Pokud je relace zároveň reflexivní, symetrická a tranzitivní, tak se nazýv
     M[x] = y \in M;\:[x, y] \in R
 \]
 
-## Zobrazení
-> Zobrazení \(f: X \rightarrow Y\) je taková relace, která jednomu prvku \(x\) z množiny \(A\) přiřazuje právě jeden prvek \(y\) množiny \(B\). Množina \(A\) se nazývá __definiční obor__ a její prvky se nazývají __vzory__. Množina \(B\) se nazývá __obor hodnot__ a její prvky se nazývají __obrazy__.
+![Relace ekvivalence](/Images/16/relace_ekvivalence.png)
 
-Zobrazení je tedy přiřazení prvků jedné množiny k prvkům množiny druhů. Jeden vzor nesmí být přiřazen k více obrazů. Naopak jeden obraz může mít více vzorů nebo žádný.
+## Zobrazení
+> Zobrazení \(f: A \rightarrow B\) je taková relace, která jednomu prvku \(x\) z množiny \(A\) přiřazuje právě jeden prvek \(y\) množiny \(B\). Množina \(A\) se nazývá __definiční obor__ a její prvky se nazývají __vzory__. Množina \(B\) se nazývá __obor hodnot__ a její prvky se nazývají __obrazy__.
+
+Zobrazení je tedy přiřazení prvků jedné množiny k prvkům množiny druhé. Jeden vzor nesmí být přiřazen k více obrazů. Naopak jeden obraz může mít více vzorů nebo žádný.
 
 ### Druhy zobrazení
 - __Injektivní zobrazení__ (prosté zobrazení) - Každý prvek oboru hodnot má namapován _nejvíce jeden_ prvek z definičního oboru.
@@ -129,7 +131,7 @@ Množina \(X\) s relací \(R\) je __svazem__, pokud pro každou dvouprvkovou pod
 > 1. \(x \lor x = x\), \(x \land x = x\) (idempotence)
 > 2. \(x \lor y = y \lor x\), \(x \land y = y \land x\) (komutativita)
 > 3. \((x \lor y) \lor z = x \lor (y \lor z)\), \((x \land y) \land z = x \land (y \land z)\) (asociativita)
-> 4. \(x \land (x \lor y) = y\), \(x \lor (x \land y) = x\) (absorbční zákony)
+> 4. \(x \land (x \lor y) = x\), \(x \lor (x \land y) = x\) (absorbční zákony)
 >
 > Pak trojici \((X, \lor, \land)\) nazýváme _svazem na \(X\)_. O svazu \((X, \lor, \land)\) někdy říkáme, že je algebraicky definovaný, abychom zdůraznili, že jej chápeme jako algebru, na rozdíl od svazově uspořádané množiny.
 
