@@ -13,7 +13,7 @@ Syntaxe výrokové logiky určuje jak správně zapsat _formule_ výrokové logi
 - __Gramatiky__ - Množina pravidel, pomocí nichž můžeme pomocí symbolů z abecedy stavět formule.
 
 __Abeceda výrokové logiky__ je množina \(X \cup \{0, 1, \neg, \land, \lor, \rightarrow, \leftrightarrow, (, )\}\), kde \(X\) je množina _výrokových proměnných_. Symbolům \(\{\neg, \land, \lor, \rightarrow, \leftrightarrow\}\) říkáme _logické spojky_ a symbolům \(\{0, 1\}\) _logické konstanty_. __Formule výrokové logiky__ jsou pak řetězce symbolů, které můžeme nad touto abecedou tvořit pomocí následujících pravidel:
-- Je-li \(x\) výroková proměnné, pak řetězce "\(x\)", "\(0\)" a "\(1\)" jsou formule.
+- Je-li \(x\) výroková proměnná, pak řetězce "\(x\)", "\(0\)" a "\(1\)" jsou formule.
 - Jsou-li \(\varphi\) a \(\psi\) formule, pak jsou formule i řetězce "\((\neg \varphi)\)", "\((\varphi \land \psi)\)" a další.
 - Formule výrokové logiky jsou právě všechny konečné řetězce získané pomocí předchozích dvou pravidel.
 
@@ -34,7 +34,7 @@ Formálně lze sémantiku výrokové logiky definovat následovně:
 > Logické spojky \(\land\), \(\lor\), \(\leftrightarrow\) jsou _asociativní_. Logická spojka \(\rightarrow\) _asociativní_ není.
 
 ### Terminologie
-Ohodnocení proměnných \(I:\; X \rightarrow {0,1}\) __splňuje__ formuli \(\varphi\) tehdy, když platí, že po dosazení hodnot proměnných v ohodnocení \(I\) do formule bude výsledná pravdivostní hodnota formule 1. V takovém případě říkáme, že \(I\) je __modelem__ formule \(\varphi\), což značíme jako \(I \models \varphi\) (\(I\) splňuje \(\varphi\)). Opačnou vlastnost značíme \(I \not\models \varphi\).
+Ohodnocení proměnných \(I:\; X \rightarrow \{0,1\}\) __splňuje__ formuli \(\varphi\) tehdy, když platí, že po dosazení hodnot proměnných v ohodnocení \(I\) do formule bude výsledná pravdivostní hodnota formule 1. V takovém případě říkáme, že \(I\) je __modelem__ formule \(\varphi\), což značíme jako \(I \models \varphi\) (\(I\) splňuje \(\varphi\)). Opačnou vlastnost značíme \(I \not\models \varphi\).
 
 Existuje-li nějaké ohodnocení proměnných \(I\) takové, že \(I \models \varphi\), pak říkáme, že formule \(\varphi\) je __splnitelná__. Formule je __nesplnitelná__ (__kontradikce__), pokud není splnitelná, tj. neexistuje žádné ohodnocení, ve kterém by formule byla splnitelná. Formule je __platná__ (__tautologie__) pokud je splněna ve všech možných ohodnocení proměnných, tj. její platnost nezávisí na hodnotách proměnných, což zapisujeme \(\models \varphi\). Formule je __neplatná__, pokud existuje ohodnocení proměnných, které ji nesplňuje, což značíme \(\not\models \varphi\).
 
@@ -105,9 +105,9 @@ Abeceda predikátové logiky se skládá z následujících prvků:
 - __Predikátové symboly__: \(p_1, p_2, ... \in P\)
 - __Predikátový symbol rovnosti__: \(=\)
 
-Novými prvky jsou __funkční symboly__ (z množiny \(F\)) a __predikátové symboly__ (z množiny \(P\)). Tyto množiny nejsou pevné, ale lze je chápat jako "parametr" jazyka, který si volíme podle toho, co chceme v logice vyjádřit. Každý funkčí i predikátový symbol má danou __aritu__, která udává kolik parametrů daný symbol bere. Aritu lze chápat jako funkci \((F \cup P) \rightarrow \N\) a je značena jako dolní index symbolu.
+Novými prvky jsou __funkční symboly__ (z množiny \(F\)) a __predikátové symboly__ (z množiny \(P\)). Tyto množiny nejsou pevné, ale lze je chápat jako "parametr" jazyka, který si volíme podle toho, co chceme v logice vyjádřit. Každý funkční i predikátový symbol má danou __aritu__, která udává kolik parametrů daný symbol bere. Aritu lze chápat jako funkci \((F \cup P) \rightarrow \N\) a je značena jako dolní index symbolu.
 
-__Signatura__ jazyka predkátové logiky je dána jako dvojice \(\langle F,P \rangle\). Signaturu můžeme chápat jako "parametr" jazyka predikátové logiky, až po dodání signatury můžeme začít tvořit samotné formule predikátové logiky.
+__Signatura__ jazyka predikátové logiky je dána jako dvojice \(\langle F,P \rangle\). Signaturu můžeme chápat jako "parametr" jazyka predikátové logiky, až po dodání signatury můžeme začít tvořit samotné formule predikátové logiky.
 
 ![Příklady signatur](/Images/19/priklad_signatury.png)
 
@@ -155,7 +155,7 @@ První věc, co je třeba provést je spočítat hodnotu všech termů ve formul
 
 Jak máme vyčíslené všechny termy, můžeme vyhodnotit pravdivostní hodnoty formule v realizaci. __Platnost__ formule \(\varphi\) v realizaci \(I\), značeno \(I \models \varphi\), je definováno induktivně následujícím způsobem:
 
-> 1. Je-li \(\varphi\) atomická formule \(p(t_1, ... ,t_m)\) pro m-ární predikátový symbol \(p \in P\), potom \(I \models P(t_1, ..., t_m)\) právě když \((I(t_1), ..., I(t_m)) \in p_I\), kde \(p_i = I(p)\) je relace interpretující symbol \(p_{/m}\) v \(I\).
+> 1. Je-li \(\varphi\) atomická formule \(p(t_1, ... ,t_m)\) pro m-ární predikátový symbol \(p \in P\), potom \(I \models p(t_1, ..., t_m)\) právě když \((I(t_1), ..., I(t_m)) \in p_I\), kde \(p_i = I(p)\) je relace interpretující symbol \(p_{/m}\) v \(I\).
 > 2. Je-li \(\varphi\) atomická formule \(t_1 = t_2\) potom \(I \models t_1 = t_2\) právě když \(I(t_1)\) a \(I(t_2)\) jsou identické prvky.
 > 3. Pravdivostní hodnota pro výrokové spojky je definována očekávaným způsobem takto:
 >
