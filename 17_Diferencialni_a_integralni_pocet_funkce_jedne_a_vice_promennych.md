@@ -27,7 +27,7 @@ Limita je __vlastní__, pokud platí \(b \neq \pm \infty\), jinak je to limita _
 
 ### Spojitost funkce
 Funkce \(f(x)\) je __spojitá__ v bodě \(a\), pokud platí \(\lim_{x \to a} f(x) = f(a)\), jinak je funkce __nespojitá__. Existuje několik druhů nespojitosti:
-- __Odstranitelná nespojitost__ - Nespojitost je odstranitelná pokud pro bod nespojitosti platí \(f(a^+) = f(a^-)\) (existují obě jednostranné limity a rovnají se).
+- __Odstranitelná nespojitost__ - Nespojitost je odstranitelná pokud pro bod nespojitosti platí \(\lim_{x \to a^+} f(x) = lim_{x \to a^-} f(x)\) (existují obě jednostranné limity a rovnají se).
 - __Nespojitost prvního druhu__ - Nespojitost prvního druhu vzniká, jestliže existují obě jednostranné limity, které jsou konečné, ale nejsou si rovny.
 - __Nespojitost druhého druhu__ - Nespojitost druhého druhu vzniká, jestliže alespoň jedna z jednostranných limit je nevlastní nebo neexistuje. Například se jedná o bod nespojitosti v nule.
 
@@ -124,7 +124,7 @@ Existuje několik metod výpočtu neurčitých integrálů:
 > pak společné hodnotě těchto integrálů říkáme integrál z funkce \(f(x)\) v intervalu \(\langle a,b \rangle\) a o funkci \(f(x)\) říkáme, že je v \(\langle a,b \rangle\) integrovatelná ve smyslu _Riemannovy definice_.
 
 Pro výpočet určitého integrálu je zásadní __Newtonova-Liebnizova formule__
-> Je-li funkce \(f(x)\) spojitá na intervalu \(\langle a,b \rangle\) a je-li \(F(x)\) primitivní funkce k \(f(x)\) ma intervalu \(\langle a,b \rangle\) a na tomto intervalu spojitá, potom platí:
+> Je-li funkce \(f(x)\) spojitá na intervalu \(\langle a,b \rangle\) a je-li \(F(x)\) primitivní funkce k \(f(x)\) na intervalu \(\langle a,b \rangle\) a na tomto intervalu spojitá, potom platí:
 >
 > \[\int_a^b f(x)dx = [F(x)]_a^b = F(b) - F(a)\]
 
@@ -183,6 +183,9 @@ Pro výpočet dvojného integrálu na daném intervalu se používá __Fubiniho 
 - __Vnitřní bod__ - Bod uvnitř množiny.
 - __Hraniční bod__ - Bod na hranici množiny.
 - __Hranice množiny__ - Množina všech hraničních bodů.
+- __Taylorova řada__ - Mocninná řada, vyjádřená jako suma derivací funkce v bodě. Pokud se jedná o rozvoj v okolí bodu 0, mluvíme o Maclaurinově řadě. Taylorovy a Maclaurinovy řady se využívají k aproximaci funkcí. 
+
+    ![Taylorova řada](./Images/17/taylorova_rada.png)
 
 ## Příklady
 Limity, derivace, integrály neurčité a určité, parciální derivace, dvojný integrál.
