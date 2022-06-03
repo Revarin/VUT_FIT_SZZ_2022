@@ -79,7 +79,7 @@ Teorémy jsou další pravidla, která jsou odvozena z axiomů algebry a definuj
     a * 0 = 0 \;\text{ (IX.b)}
 \]
 
-- __Absorpce negace__
+- __Absorpce__
 
 \[
     a + (a * b) = a \;\text{ (X.a)} \\
@@ -126,9 +126,9 @@ Existují dvě speciální logické operace: __Kontradikce__, kdy výsledek je 0
 ## Switching algebra
 Switching algebra je modifikace Booleovy algebry, v které proměnná \(x\) reprezentuje __spínač___
 - Hodnota \(0\) znamená __rozepnutý spínač__ (nekonečná impedance).
-- Hodnota \(1\) znamená __sepnutý spínař__ (nulová impedance).
-- Operace \(+\) (AND) reprezentuje sériové spojení dvou proměnných.
-- Operace \(*\) (OR) reprezentuje paralelní spojení dvou proměnných.
+- Hodnota \(1\) znamená __sepnutý spínač__ (nulová impedance).
+- Operace \(*\) (AND) reprezentuje sériové spojení dvou proměnných.
+- Operace \(+\) (OR) reprezentuje paralelní spojení dvou proměnných.
 
 ![Switching algebra AND](/Images/20/switchig_algebra_and.png)
 ![Switching algebra OR](/Images/20/switchig_algebra_or.png)
