@@ -39,12 +39,6 @@ Pro důkaz, že daný jazyk _není_ regulární lze použít __Pumping lemma__. 
 > - \(|uv| \leq k\)
 > - Pro každé \(m \geq 0\), \(uvmw \in L\)
 
-### Pojmy
-- __Prázdné slovo__ \(\varepsilon\) je prázdný řetězec, který ale vyhovuje jazyku - je možné tento řetězec vygenerovat nebo přijmout.
-- __Řetězec__ je jakákoliv posloupnost terminálních i neterminálních symbolů abecedy (znaků).
-- __Větná forma__ je řetězec, který lze odvodit z počátečního symbolu gramatiky.
-- __Věta__ je větná forma složená pouze z terminálních symbolů.
-
 ### Regulární gramatika
 Regulární jazyk je definován právě __regulární gramatikou__.
 > Regulární gramatika je uspořádaná čtveřice \(G = (T, N, P, s)\), kde:
@@ -54,6 +48,12 @@ Regulární jazyk je definován právě __regulární gramatikou__.
 > - \(s \in N\) je počáteční symbol.
 
 ![Příklad regulární gramatiky](/Images/21/regularni_gramatika.png)
+
+### Pojmy
+- __Prázdné slovo__ \(\varepsilon\) je prázdný řetězec, který ale vyhovuje jazyku - je možné tento řetězec vygenerovat nebo přijmout.
+- __Řetězec__ je jakákoliv posloupnost terminálních i neterminálních symbolů abecedy (znaků).
+- __Větná forma__ je řetězec, který lze odvodit z počátečního symbolu gramatiky.
+- __Věta__ je větná forma složená pouze z terminálních symbolů.
 
 ## Konečné automaty
 Konečný automat je nejjednodušší model založený na konenčné množině stavů a výpočetních pravidel.
