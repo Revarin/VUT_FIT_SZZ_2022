@@ -52,7 +52,7 @@ Pro metodu shora dolů je nutné definovat:
 
 __LL gramatika__ je speciální případ bezkontextové gramatiky. Může být bez epsilon pravidel nebo s epsilon pravidly. BKG jsou silnější než LL gramatiky. Některé BKG mohou být převedeny na ekvivalentní LL gramatiky pomocí následujících transformací:
 - __Faktorizace__ - Faktorizace je zaměnění pravidel tvaru \(A \to xy_1,\; A \to xy_2\) na pravidla \(A \to xA',\; A' \to y_1,\; A' \to y_2\), kde \(A'\) je nový neterminál.
-- __Odstanění levé rekurze__ - Odstranění levé rekurze je zaměnění pravidel tvaru \(A \to Ax,\; A \to y\) za pravidla \(A \to yA',\; A' \to xA',\; A' \to \varepsilon\), kde \(A'\) je nový neterminál.
+- __Odstranění levé rekurze__ - Odstranění levé rekurze je zaměnění pravidel tvaru \(A \to Ax,\; A \to y\) za pravidla \(A \to yA',\; A' \to xA',\; A' \to \varepsilon\), kde \(A'\) je nový neterminál.
 
 LL gramatika je vyjádřena __LL tabulkou__, která se skládá z množiny _First_ pokud je bez epsilon pravidel a dále množiny _Empty_, _Follow_ a _Predict_ pokud je s epsilon pravidly:. 
 
@@ -96,7 +96,7 @@ Optimalizátor je část překladače, která má za cíl optimalizovat vnitřn�
 - Každý příkaz, který je návěští je vedoucí.
 - Každý příkaz za `goto` je vedoucí.
 
-Na konec spočítáme počet vedoucích příkazů a tak získáme počet bloků. Z toho můžeme vytvořit graf bloků (podobný konečnému automatu). Z grafu lze zjistit, zde je nějaký blok nedostupný (mrtvý blok) a lze jej odstranit - __globální optimalizace__. V rámci jednoho bloku lze provádět __lokální optimalizace__.
+Na konec spočítáme počet vedoucích příkazů a tak získáme počet bloků. Z toho můžeme vytvořit graf bloků (podobný konečnému automatu). Z grafu lze zjistit, zda je nějaký blok nedostupný (mrtvý blok) a lze jej odstranit - __globální optimalizace__. V rámci jednoho bloku lze provádět __lokální optimalizace__.
 
 Existují základní optimalizační metody:
 - __Zabalení konstanty__
