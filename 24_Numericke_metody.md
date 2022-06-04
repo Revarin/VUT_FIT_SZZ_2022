@@ -35,7 +35,7 @@
 - Regulární matice - Matice, jejíž determinant je nenulový.
 
 ## Numerické řešení soustavy lineárních rovnic
-Numerické řešení soustavy \(n\) lineárních rovnice se zabývá řešením následujícího druhu soustavu rovnice s neznámými \(x_1, x_2, ..., x_n\):
+Numerické řešení soustavy \(n\) lineárních rovnic se zabývá řešením následujícího druhu soustav rovnic s neznámými \(x_1, x_2, ..., x_n\):
 
 \[
     a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\
@@ -64,7 +64,7 @@ Pro obecné matice se používá __Gaussova eliminační metoda__. Základem té
 - Násobení a dělení nenulovým číslem.
 - Přičítání/odečítání násobků jednotlivých řádků k jiným.
 
-Těmito úpravami se snažíme v matici soustavy \(A\) získat nuly po hlavní diagonálou matice a tím ji dostat do trojúhleníkového tvaru. Při dosažení tohoto tvaru potom můžeme z poslední rovnice přímo určit hodnotu poslední neznámé v soustavě a následně vypočítat ostatní neznámé.
+Těmito úpravami se snažíme v matici soustavy \(A\) získat nuly pod hlavní diagonálou matice a tím ji dostat do trojúhleníkového tvaru. Při dosažení tohoto tvaru potom můžeme z poslední rovnice přímo určit hodnotu poslední neznámé v soustavě a následně vypočítat ostatní neznámé.
 
 ![Gaussova eliminační metoda](/Images/24/gaussova_eliminacni_metoda.png)
 
@@ -117,7 +117,7 @@ Metoda konverguje, pokud se v počátečním intervalu nachází alespoň jeden 
 Metoda regula falsi je velmi podobná metodě půlení intervalů. Jediný rozdíl je v tom, že interval nedělíme v polovině, ale v místě průsečíku úsečky mezi body \([a_k, f(a_k)]\) a \([b_k, f(b_k)]\). Průsečík se tak vypočítá:
 
 \[
-    x_k = b_k - \frac{b_k - a_k}{f(b_k) - f(a_l)} * f(b_k)    
+    x_k = b_k - \frac{b_k - a_k}{f(b_k) - f(a_k)} * f(b_k)    
 \]
 
 Metoda vždy konverguje a je obvykle rychlejší než půlení intervalů. Podmínka ukončení je \(|x_k - x_{k-1}| < \varepsilon\).
@@ -140,7 +140,7 @@ V Newtonově metodě pracujeme s tečnami funkce. Předpokládáme, že funkce \
 
 \[x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}\]
 
-Newtonova metoda je nejefektivnější metoda pro řešení nelineárních rovnice, ale nemusí konvergovat. Podmínka konvergence pro Newtonovu metodu se nazývá __Fourierova podmínka__:
+Newtonova metoda je nejefektivnější metoda pro řešení nelineárních rovnic, ale nemusí konvergovat. Podmínka konvergence pro Newtonovu metodu se nazývá __Fourierova podmínka__:
 
 > Nechť na intervalu \(\langle a,b \rangle\) leží jediný kořen \(f(x) = 0\) a nechť \(f'(x)\) a \(f''(x)\) jsou spojité a nemění znaménka na intervalu \(\langle a,b \rangle\). Pokud zvolíme za počáteční podmínku aproximaci \(x_0 \in \langle a,b \rangle\) tak, aby byla splněna podmína:
 >
@@ -160,7 +160,7 @@ Metody řeší diferenciální rovnice prvního řádu se zadanou počáteční 
 \[y' = f(x, y),\;\; y(x_0) = y_0\]
 
 ### Eulerova metoda
-Eulerova metoda je metoda prvního stupně. Ve všech bodech s síti platí:
+Eulerova metoda je metoda prvního stupně. Ve všech bodech v síti platí:
 
 \[y'(x_i) = f(x_i, y(x_i))\]
 
@@ -191,7 +191,7 @@ Přesnost Eulerovy metody závisí na velikosti __integračního kroku__ \(h\). 
 \]
 
 ### Metody Runge-Kutta
-Metody Runge-Kutta vylepšují Eulerovu metodu a její modifikace (modifikace Eulerovy metody vlastně patří mezi Runge-Kutta metody). Obecný vzoren pro Runge-Kutta metody je:
+Metody Runge-Kutta vylepšují Eulerovu metodu a její modifikace (modifikace Eulerovy metody vlastně patří mezi Runge-Kutta metody). Obecný vzorec pro Runge-Kutta metody je:
 
 \[
     y_{n+1} = y_n + h(w_1 k_1 + \dots + w_s k_s) \\\;\\
@@ -212,6 +212,6 @@ U vícekrokových metod počítáme přibližné řešení v dalším uzlovém b
 ## Chyby numerických metod
 Při každé aproximaci v numerických metodách musíme počítat s faktorem chyby. Existují chyby dvojího typu:
 - __Lokální chyby__ - Chyby, které vznikají v každém kroku. Může jít buď o chybu _zaokrouhlovací_ (round-off error) nebo o chybu _numerické aproximace_ (truncation error).
-- __Akumulované chyby__ - Chyby, které se sbírají po celou počtu výpočtu.
+- __Akumulované chyby__ - Chyby, které se sbírají po celou dobu výpočtu.
 
 Přenost výpočtu je tak závislá na velikosti _integračního kroku_. Neplatí, že čím menší krok, tím vyšší přesnost. Při zmenšení kroku dojde k nárůstu chyby numerické aproximace a naopak se zmenší zaokrouhlovací chyba. Při zvětšení naopak. Při překročení určité velikosti kroku začne jeden druh chyby neúnosně narůstat. Proto je třeba nalézt ideální délku kroku.
