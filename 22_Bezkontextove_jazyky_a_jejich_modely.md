@@ -93,4 +93,4 @@ RZA a ZA se používají jako modely pro syntaktickou analýzu. Mohou simulovat 
 ![Syntaktická analýza](/Images/22/syntakticka_analyza.png)
 
 ## Příklady
-ZA pro správné uzávorkování, (a^n.b^n),
+ZA pro správné uzávorkování, \((a^n.b^n)\),
