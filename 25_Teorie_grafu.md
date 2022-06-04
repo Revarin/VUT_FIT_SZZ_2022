@@ -68,7 +68,7 @@ Speciální případ podgrafu je __indukovaný podgraf__. Indukovaný podgraf je
 ![Indukovaný podgraf](/Images/25/indukovany_podgraf.png)
 
 ### Izomorfismus grafů
-> Izomorfismus grafů \(G\) a \(H\) je __bijektivní__ zobrazení \(f: V(G) \to V(H)\), pro které každá dvojice \(u,v \in V(G)\) je spojená hranou v grafu \(G\) právě tehdy, když dvojice \(f(u), f(v) \in V(G)\) je spojená hranou v grafu \(H\).
+> Izomorfismus grafů \(G\) a \(H\) je __bijektivní__ zobrazení \(f: V(G) \to V(H)\), pro které každá dvojice \(u,v \in V(G)\) je spojená hranou v grafu \(G\) právě tehdy, když dvojice \(f(u), f(v) \in V(H)\) je spojená hranou v grafu \(H\).
 >
 > \[\exist F: V(G) \to V(G'): \{x,y\} \in E(G) \Leftrightarrow \{f(x), f(y)\} \in E(G')\]
 
@@ -108,7 +108,9 @@ U orientovaných grafů rozlišujeme dva druhy souvislosti:
 Relace \(\sim\) je tedy relací __ekvivalence__.
 
 #### Komponenty souvislosti
-Komponenty souvislosti jsou jednoltivé __třídy ekvivalence__ grafu. Graf je souvislý, pokud má pouze jednu komponentu souvislosti. [TODO]
+Komponenty souvislosti jsou jednotlivé __třídy ekvivalence__ grafu. Graf je souvislý, pokud má pouze jednu komponentu souvislosti. Jinak se také komponentami souvislosti myslí podgrafy indukované na těchto třídách ekvivalence.
+
+![Komponenty souvislosti](/Images/25/komponenty_souvislosti.png)
 
 ### Stromy
 Strom je jednoduchý souvislý graf \(T\) bez kružnic (acyklický). Graf tvořený více stromy je pak zvaný __les__. Stromové grafy jsou zároveň kostrou grafu a platí pro ně:
@@ -137,6 +139,8 @@ Dijkstrův algoritmus je algoritmus pro hledání _nejkratší_ cesty mezi dvěm
 3. Aktuálně zpracovávaný uzel označíme za zpracovaný a pokud jsou ještě nezpracované vrcholy, pokračujeme 2. bodem.
 4. Zpětně rekonstruujeme _cestu_ z cílového vrcholu \(v\) k startovacímu vrcholu \(u\) na základě zapamatovaných údajů v bodě 2.
 
+[Příklad Dijsktrova algoritmu](https://www.youtube.com/watch?v=pVfj6mxhdMw)
+
 ### Jarníkův (Primův) algoritmus
 Jarníkův (Primův) algoritmus je grafový algoritmus, který hledá __minimální kostru__ ve _váženém grafu_ (stromový podgraf, který propojuje všechny vrcholy) - __minimum spanning tree__. Jako uložiště může použít např. _prioritní frontu_ pro nenavštívené vrcholy. Princip algoritmus je následující:
 1. Do uložiště se uloží všechny vrcholy s ohodnocení _nekonečno_ (ještě nejsou v kostře).
@@ -146,8 +150,12 @@ Jarníkův (Primův) algoritmus je grafový algoritmus, který hledá __minimál
 5. Pokud uložiště není prázdné pokračuje se bodem 3.
 6. Zpětně rekonstruujeme použité hrany.
 
+[Příklad Primova algoritmu](https://www.youtube.com/watch?v=cplfcGZmX7I)
+
 ### Kruskalův algoritmus
 Kruskalův algoritmus je algoritmus pro hledání minimální kostry ve váženém grafu. Pracuje na principu, že z grafu vybíráme vždy hranu s nejmenším ohodnocením tak, aby se nevytvořila kružnice, dokud nejsou spojeny všechny vrcholy. Časová složitost algoritmu je \(O(|E|* \log{|V|})\).
+
+[Příklad Kruskalova algoritmu](https://www.youtube.com/watch?v=Yo7sddEVONg)
 
 ## Příklady
 Příklady průchodů grafy

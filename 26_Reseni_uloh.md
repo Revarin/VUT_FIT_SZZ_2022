@@ -163,13 +163,13 @@ Metoda A* je nejznámnější a nejpoužívanější metodou pro řešení úloh
 Časovou a prostorovou náročnost výrazně ovlivňuje použitá heuristika. Pokud je použitá heuristika dobrým spodním odhadem skutečné ceny, pak jsou expandovány pouze uzly kolem optimální cesty.
 
 ## Metody založené na rozkladu úloh na podproblémy
-Metoda založené na rozkladu úloh na podproblémy jsou přirozené metody řešení úloh, které při řešení obtížných problémů používá i člověk. Uzlem v _AO_ grafech značí __podproblém__ (podúlohu). Jsou dva základní typy problémů:
+Metody založené na rozkladu úloh na podproblémy jsou přirozené metody řešení úloh, které při řešení obtížných problémů používá i člověk. Graficky se znázorňují pomocí __AO grafů__. Uzlem v _AO_ grafech se značí __podproblém__ (podúlohu). Jsou dva základní typy problémů:
 - Problém \(A\) je řešitelný, je-li řešitelný alespoň jeden z podproblémů - __OR problém__.
 - Problém \(E\) je řešitelný, jsou-li řešitelné všechny podproblémy - __AND problém__.
 
 ![AND a OR problém](/Images/26/and_or_problem.png)
 
-Smíšené problémy můžeme přčvést na čisté AND a OR problémy zavedením pomocných uzlů nebo vynecháním nedůležitých uzlů.
+Smíšené problémy můžeme převést na čisté AND a OR problémy zavedením pomocných uzlů nebo vynecháním nedůležitých uzlů.
 
 ![Převod na čistý problém](/Images/26/prevod_na_cisty_problem.png)
 
@@ -185,11 +185,11 @@ AO algoritmus je neinformovaná metoda řešení úlohy rozkladem na podúlohy. 
 5. Je-li seznam `OPEN` prázdný, ukončí se řešení jako _neúspěšné_. Jinak se vrací na bod 2.
 
 ### Informovaný AO* algoritmus
-AO* algoritmus je informovaná metoda řešení úlohy rozkladem na podproblémy. Algoritmus vybírá k prohledání vždy nejnadějnější podstrom každého OR uzlu počínaje kořenovým uzlem. Pokud lze jednotlivé podproblémy ohodnocovat pomocí nějaké heuristické funkce, můžeme v každém uzlu OR přepínat mezi řešitelnými podproblémy a řešit tak nejnadějnější podstrom. Ohodnocení bývý číselné kde:
+AO* algoritmus je informovaná metoda řešení úlohy rozkladem na podproblémy. Algoritmus vybírá k prohledání vždy nejnadějnější podstrom každého OR uzlu počínaje kořenovým uzlem. Pokud lze jednotlivé podproblémy ohodnocovat pomocí nějaké heuristické funkce, můžeme v každém uzlu OR přepínat mezi řešitelnými podproblémy a řešit tak nejnadějnější podstrom. Ohodnocení bývá číselné kde:
 - 0 znamená triviální (řešitelný) uzel.
 - `FUTILITY` označuje neřešitelný uzel.
 
-## Metoda hraní her
+## Metody hraní her
 > Princip hraní her je následující: Jsou dva pravidelně se střídající hráči, kteří hrají nějakou hru. Každý z těchto hráčů se snaží __vyhrát__. Problém spočívá v nalezení tahu hráče, který je právě na tahu (hráč A). Pro tohoto hráče bude problém řešitelný, povede-li k jeho výhře alespoň jeden z jeho možných tahů (_problém OR_). V dalším tahu táhne soupeř (hráč B), proto musí být všechny tahy hráče B řešitelné pro hráče A (_problém AND_). Řešení vede tedy na prohledávání __AND/OR grafů__.
 
 Existují různé druhy her:
@@ -200,7 +200,7 @@ Existují různé druhy her:
 Ve vytvořených AND/OR grafech je počet stavů grafu určen počtem možných tahů a ohodnocení uzlů a listů je dáno na základě výhodnosti daného tahu.
 
 ### Jednoduché hry
-Příklad hry se zápalkami. Je sedm zápalek a hráči postupně odebírají až tři zápalky doku žádná nezbyde. Hráč, který odebere poslední zápalku vyhrává.
+Příklad hry se zápalkami. Je sedm zápalek a hráči postupně odebírají až tři zápalky dokud žádná nezbyde. Hráč, který odebere poslední zápalku vyhrává.
 
 ![Hra se zápalkami](/Images/26/hra_se_zapalkami.png)
 
@@ -210,7 +210,7 @@ U složitých her je úplné prohledávání jejich AND/OR grafu nemožné (př�
 - Hráč __B__ si vybírá tahy vedoucí ke stavů s __minimálním ohodnocením__.
 
 ### Algoritmus MiniMax
-Algoritmus MiniMax je metoda řešení složitých her. Základem jeho algoritmu je rekurzivní procedura `MiniMax`, která se zavolá pro aktuální stav hry a hráče A. Tat procedura vrací ohodnocení uzlu pro hráče A a tah k uzlu s maximálním ohodnocením (v daném stavu hry nejvýhodnější tah). Procedura předpokládá, že je zadána maximální hloubka prohledávání. V této proceduře dochází ka zbytečnému vyšetřování některých uzlů.
+Algoritmus MiniMax je metoda řešení složitých her. Základem jeho algoritmu je rekurzivní procedura `MiniMax`, která se zavolá pro aktuální stav hry a hráče A. Tato procedura vrací ohodnocení uzlu pro hráče A a tah k uzlu s maximálním ohodnocením (v daném stavu hry nejvýhodnější tah). Procedura předpokládá, že je zadána maximální hloubka prohledávání. V této proceduře dochází ke zbytečnému vyšetřování některých uzlů.
 
 Algoritmus MiniMax je následující:
 1. Předaný vstupní uzel se nazve uzlem `X`.
@@ -231,7 +231,7 @@ Vyšetřování možných tahů se v daném uzlu zastaví vždy, když platí \(
 3. Je-li uzel `X` listem (konečný stav hry, nebo uzel v maximální hloubce) tak se procedura ukončí a vrátí se ohodnocení tohoto listu.
 4. Je-li uzel typu OR (na tahu je hráč A):
     1. Dokud je \(\alpha < \beta\), tak se postupně pro první/další tah (bezprostředního následníka uzlu `X` a hráče B) volá procedura `AlfaBeta` s aktuálními hodnotami \(\alpha\) a \(\beta\). Po každém vyšetřeném tahu se nastaví hodnota proměnné \(\alpha\) na __maximum__ z aktuální a navrácené hodnoty.
-    2. Procedura se ukončí a vrací se aktuální odnota proměnné \(\alpha\). Pro kořenový uzel se vrací i tah, který vede k nejlépe ohodnocenému bezprostřednímu následníku.
+    2. Procedura se ukončí a vrací se aktuální hodnota proměnné \(\alpha\). Pro kořenový uzel se vrací i tah, který vede k nejlépe ohodnocenému bezprostřednímu následníku.
 5. Je-li uzel typu AND (na tahu je hráč B):
     1. Doku je \(\alpha < \beta\), tak se postupně pro první/další tah (bezprostředního následníka uzlu `X` a hráče A) volá procedura `AlfaBeta` s aktuálními hodnota \(\alpha\) a \(\beta\). Po každém vyšetřením tahu se nastaví hodnota proměnné \(\beta\) na __minimum__ z aktuální a navrácené hodnoty.
     2. Procedura se ukončí a vrátí se aktuální hodnota proměnné \(\beta\).
@@ -239,10 +239,10 @@ Vyšetřování možných tahů se v daném uzlu zastaví vždy, když platí \(
 ![Algoritmus Alfa Beta](/Images/26/alfa_beta.png)
 
 ### Hry s neurčitostí
-Pro hry s neurčitostí se používá modifikace algoritmu MiniMax zvaná __ExpertMiniMax__. Tato procedura je následující:
+Pro hry s neurčitostí se používá modifikace algoritmu MiniMax zvaná __ExpectMiniMax__. Tato procedura je následující:
 1. Předaný vstupní uzel se nazve uzlem `X`.
 2. Je-li uzel `X` listem (konečný stav hry nebo uzel v maximální hloubce) vrátí se ohodnocení tohoto uzlu. Jinak se pokračuje.
-3. Je-li na tahu hráč A, tak se postupně pro všechny jeho možné tahy (bezprostřední následníky uzlu `X` a hráče B) volá procedura `ExpertMiniMax`. Následně se vrátí maximální hodnotu z hodnot `expectimax`. Je-li `X` kořenovým uzlem vrací se i tah, který vede k nejlépe ohodnocenému bezprostřednímu následníku.
+3. Je-li na tahu hráč A, tak se postupně pro všechny jeho možné tahy (bezprostřední následníky uzlu `X` a hráče B) volá procedura `ExpectMiniMax`. Následně se vrátí maximální hodnotu z hodnot `expectimax`. Je-li `X` kořenovým uzlem vrací se i tah, který vede k nejlépe ohodnocenému bezprostřednímu následníku.
 4. Je-li na tahu hráč B, tak se postupně pro všechny jeho možné tahy (bezprostřední násleníky uzlu `X` a hráče A) volá procedura `ExpectMiniMax` a vrací se minimální hodnota z hodnot `expectimin`.
 
 ![Expectimax](/Images/26/expectimax.png)
