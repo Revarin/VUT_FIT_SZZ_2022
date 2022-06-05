@@ -120,7 +120,7 @@ U příznakového rozpoznávání pracujeme s:
 - __Množinou tříd__, do kterých rozpoznávané objekty chceme zařadit.
 - __Trénovací množinou__, která je tvořena dvojicemi n-rozměrného číselného vektoru a k němu přiřazení třídy, do které spadá.
 
-Cílem příznakového rozpoznávání je zařadit libovolný vektor příznaků do jedné z tříd - __klasifikovat jej__. Metody příznakového rozpoznávání vycházejí z předpokladu, že obrazy objektů nebo jevů stejných tříd tvoří v n-rozměrném obrazovém prostoru __shluky__. Tyto shluky mohou od seby být od sebe zřetelně oddělitelné (__separable__), nebo se mohou prolínat a pak jsou neoddělitelné (__inseparable__). Systémy, které se na trénovací množině naučí obrazy rozpoznávat a poté klasifikují nové obrazy, se nazývají __klasifikátory__.
+Cílem příznakového rozpoznávání je zařadit libovolný vektor příznaků do jedné z tříd - __klasifikovat jej__. Metody příznakového rozpoznávání vycházejí z předpokladu, že obrazy objektů nebo jevů stejných tříd tvoří v n-rozměrném obrazovém prostoru __shluky__. Tyto shluky mohou od seby být zřetelně oddělitelné (__separable__), nebo se mohou prolínat a pak jsou neoddělitelné (__inseparable__). Systémy, které se na trénovací množině naučí obrazy rozpoznávat a poté klasifikují nové obrazy, se nazývají __klasifikátory__.
 
 #### Dichotomie
 Dichotomie je klasifikace shluků obrazů do dvou tříd. K tomu se používají __diskriminační funkce__ (funkce, která zastupuje jednu třídu). Obraz je umístěn do třídy, jejíž diskriminační funkce má pro něj největší hodnotu.
@@ -142,9 +142,9 @@ Používá se ke strukturálnímu popisu obrysu objektu. Za primitiva popisujíc
 ![Freemanův diferenční řetězcový kód](/Images/27/diferencni_kod.png)
 
 ## Učení bez učitele
-Učení bez učitele spočívá v __hledání podobnosti__ mezi příklady trénovací množiny a v zařazování příkladů s podobnými charakteristikami do skupin. Umělý systém přitom nemá žádnou informaci o správnosti klasifikace jedinou informaci, kterou má je __počet skupin__, do kterých má příklady zařadit.
+Učení bez učitele spočívá v __hledání podobnosti__ mezi příklady trénovací množiny a v zařazování příkladů s podobnými charakteristikami do skupin. Umělý systém přitom nemá žádnou informaci o správnosti klasifikace. Jedinou informaci, kterou má je __počet skupin__, do kterých má příklady zařadit.
 
-Příklady trénovací množiny jsou většinou představované __číselnými vektory__ příznaků klasifikovaných objektů či dějů. Metody učení bez učitele jsou pak založeny na předpokladu, že tyto vektory (body), které specifikují v příslušném `n`-rozměrném obrazovém prostoru __shluky__. Tyto shluky mohou představovat rozmanité `n`-rozměrné útvary.
+Příklady trénovací množiny jsou většinou představované __číselnými vektory__ příznaků klasifikovaných objektů či dějů. Metody učení bez učitele jsou pak založeny na předpokladu, že tyto vektory (body), které specifikují v příslušném `n`-rozměrném obrazovém prostoru příklady, tvoří __shluky__. Tyto shluky mohou představovat rozmanité `n`-rozměrné útvary.
 
 ### k-means clustering
 Algoritmus k-means clustering klasifikuje příklady (číselné vektory) z trénovací množiny do předem daného počtu \(k\) shluků. Algoritmus zařazuje vstupní vektor do toho shluku, k jehož __středu__ (těžišti) má nejkratší vzdálenost. Vstupem algoritmu je počet shluků \(k\) (musí být menší než počet vektorů). Průběh algoritmu je následující:
@@ -167,7 +167,7 @@ Princip algoritmu Policy-only learning je založený na tom, že v každém uzlu
 \]
 
 Na začátku učení obsahuje schránka každého rozcestí __stejný__ a dostatečný počet černých a bílých kamenů. Učení pak probíhá tak, že se provádí náhodné procházky. Pokud výsledná cesta procházky:
-- Skončí v __cílovém stavu__, je do schránek na této cestě přidán kémen odpovídající barvy podle výběru směru - __odměna__. Pravděpodobnost výběru této cesty se zvyšuje.
+- Skončí v __cílovém stavu__, je do schránek na této cestě přidán kámen odpovídající barvy podle výběru směru - __odměna__. Pravděpodobnost výběru této cesty se zvyšuje.
 - Skončí mimo cílový stav, je ze schránek odebrán kámen odpovídající barvy podle výběru směru - __penalizace__. Pravděpodobnost výběru této cesty se snižuje.
 
 ![Policy-only learning](/Images/27/policy_only_learning.png)
@@ -188,7 +188,7 @@ kde:
 - \(r(s')\) je odměna za dosažení stavu \(s'\)
 
 Pro přecházení mezi stavy lze použít různé strategie:
-- __Random policy__ - Pravděpodobnosti přechodů mezi sousedními stavy jsou stejné a do souosednímch stavů přechází zcela _náhodně_.
+- __Random policy__ - Pravděpodobnosti přechodů mezi sousedními stavy jsou stejné a do sousedních stavů přechází zcela _náhodně_.
 - __? policy__ - Pravděpodobnosti jsou různé (mohou být dány např. aktuálními hodnotami sousedních stavů).
 - __Greedy policy__ - Pravděpodobnost jednoho přechodu je jedničková a pravděpodobnost ostatních nulové. Extrémní případ předchozího stavu.
 - __\(\epsilon\)-greedy policy__ - Kombinace předchozích případů, kdy s pravděpodobností danou parametrem \(\epsilon\) se použije random policy a nebo greedy policy.
@@ -197,7 +197,7 @@ Princip učení tohoto algoritmu je následující:
 1. Zvolí se hodnoty koeficientů \(\alpha\), \(\gamma\) a vynuluje se ohodnocení všech stavů. Vynuluje se počítadlo procházek \(p\) a nastaví se jeho maximální počet na \(p_{max}\). Nastaví se \(start \to s\).
 2. Generuje se nový stav \(s'\) s použítím nějaké strategie.
 3. Přepočítá se nová hodnota stavu \(s\) pomocí vztahu výše.
-4. Je-li stav \(s'\) cílovým stavem, pak se inkrementuje počet procházek a \(start \to s\). Jinak se pokračuje \(s' \to s\).
+4. Je-li stav \(s'\) cílovým stavem, pak se inkrementuje počet procházek a \(start \to s\). Jinak se pokračuje \(s \to s'\).
 5. Je-li \(p < p_{max}\) tak se pokračuje bodem 2.
 
 ![Metoda TD learning](/Images/27/td_learning.png)
@@ -220,7 +220,7 @@ Metoda je aktivní metodou bez předem dané strategie výběru stavu \(s'\). Pr
 1. Zvolí se hodnoty koeficientů \(\alpha\), \(\gamma\) a vynuluje se ohodnocení \(Q(s,a)\) všech akcí \(a\) ve všech stavech \(s\). Vynuluje se počítadlo procházek \(p\) a nastaví se jeho maximální počet na \(p_{max}\). Nastaví se \(start \to s\).
 2. Vybere se akce \(a\), která povede k přechodu ze stavu \(s\) do stavu \(s'\).
 3. Vypočítá se nová hodnota vybrané akce \(a\) ve stavu \(s\) pomocí vztahu výše.
-4. Je-li stav \(s'\) cílovým stavem, pak se inkrementuje počítadlo procházek a nastaví se \(start \to max\). Jinak se pokračuje \(s' \to s\).
+4. Je-li stav \(s'\) cílovým stavem, pak se inkrementuje počítadlo procházek a nastaví se \(start \to s\). Jinak se pokračuje \(s \to s'\).
 5. Je-li \(p < p_{max}\) tak se pokračuje bodem 2.
 
 ![Metoda Q learning](/Images/27/q_learning.png)
@@ -229,6 +229,6 @@ Metoda je aktivní metodou bez předem dané strategie výběru stavu \(s'\). Pr
 Metoda SARSA (On-Policy) je přístup, který také ohodnocuje akce, ale k jejich výběru používá nějako __strategii__ \(\Pi\) (místo hledání maxima z možných následujících akcí se používá přímo akce \(Q(s',a')\) vybraná touto strategií). Hlavní funkce pro aktualizaci Q-hodnoty závisí tedy na:
 - Aktuálním stavu \(s\)
 - Akci \(a\), kterou agent zvolí
-- Odměně \(r\), kterou agent dostane za volnu této akce \(a\)
+- Odměně \(r\), kterou agent dostane za volbu této akce \(a\)
 - Stavu \(s'\), do kterého agent vstoupí po provedení akce \(a\)
-- Akci \(a'\), kterou agen zvolí ve svém novém stavu \(s'\)
+- Akci \(a'\), kterou agent zvolí ve svém novém stavu \(s'\)
