@@ -15,12 +15,12 @@ Stavový prostor si můžeme představit jako graf/strom, kde uzly představují
 
 > Úloha je uspořádaná dvojice \((S_0, G)\), kde:
 > - \(S_0\) je počáteční stav.
-> - \(G\) je množina všech koncových stavů kdy \(G \subseteq S_0\).
+> - \(G\) je množina všech koncových stavů kdy \(G \subseteq S\).
 
 Úloha ve stavovým prostoru vlastně zadává počáteční stav, z něhož se máme dostat do jednoho z koncových stavů. Pro _řešení úlohy_ - nalezení cesty z počátečního stavu do koncového - se používají __prohledávací metody__. Tyto metody jsou hodnoceny určitými kritériemi:
 - __Úplnost__ - Metoda je úplná, pokud najde řešení vždy, když daná úloha řešení má.
 - __Optimálnost__ - Metoda je optimální, pokud jí nalezené řešení bude vždy nejefektivnější (optimální).
-- __Paměťová__ a __časová složitost
+- __Paměťová__ a __časová__ složitost
 
 Existují různé druhy metod prohledávání stavových prostorů:
 - __Neinformované__ (slepé) metody - Metody, které nevidí do budoucnosti, nemají žádné informace o cílovém stavu. Pamatují si stavy, které už prošli. Jsou vhodné pro úlohy, o kterých nemáme žádné informace.
@@ -56,13 +56,13 @@ Metoda slepého prohledávání do šířky (BFS) je metoda prohledávání stav
     - \(d\) je hloubka nejlepšího řešení (řešení nacházející se v nejmenší hloubce).
 
 Algoritmus BFS s uvažováním __seznamu__ `CLOSED` je následující:
-1. Sestrojí se dva prázdné seznamu, __frontu__ `OPEN` (bude obsahovat všechny uzly určené k expanzi) a `CLOSED` (bude obsahovat seznam expandovaných uzlů). Do fronty `OPEN` se umístí počáteční uzel.
+1. Sestrojí se dva prázdné seznamy, __frontu__ `OPEN` (bude obsahovat všechny uzly určené k expanzi) a `CLOSED` (bude obsahovat seznam expandovaných uzlů). Do fronty `OPEN` se umístí počáteční uzel.
 2. Je-li fronta `OPEN` prázdná, pak úloha nemá řešení a prohledávání se tak ukončí jako _neúspěšné_. Jinak se pokračuje.
 3. Vybere se z čela fronty `OPEN` první uzel a umístí se do seznamu `CLOSED`.
-4. Je-li vybraný uzel uzlem cílovým, prohledávání se ukončí jako _úspěšné_ a vrátí se cesta od kořenového uzlu k cílovému uzlu (posloupnost stavů). Jinak se pokrečuje.
+4. Je-li vybraný uzel uzlem cílovým, prohledávání se ukončí jako _úspěšné_ a vrátí se cesta od kořenového uzlu k cílovému uzlu (posloupnost stavů). Jinak se pokračuje.
 5. Vybraný uzel se _expanduje_ a jeho bezprostřední následníci, kteří nejsou ani ve frontě `OPEN` ani v seznamu `CLOSED` se umístí do fronty `OPEN`. Následně se vrací do bodu 2.
 
-### Metoda stejný cen
+### Metoda stejných cen
 Metoda stejných cen (UCS) je podobná metodě BFS, uvažuje však skutečné _ceny přechodů_ a skutečné ceny cest (jsou dány součtem cen příslušných přechodů). Pro expanzi se pak vybírá ze seznamu `OPEN` uzel s nejmenším ohodnocením (nejnižší cenou cesty). Je-li počet bezprostředních následníků každého uzlu konečný, pak je metoda UCE __úplná__ a __optimální__.
 - __Časová náročnost:__ Exponenciální
 - __Paměťová náročnost:__ Eponenciální \(O(b^k)\)
@@ -85,7 +85,7 @@ Metoda slepého prohledávání do hloubky (DFS) je další metoda prohledáván
     - \(b\) je faktor dělení.
     - \(m\) je maximální prohledávaná hloubka stromu.
 
-Základní verze algoritmu DFS je téměř nepoužitelná - může nastat smyčka v generování uzlů, která vede k nekonečnému zásovníku. Proto se používá modifikovaný algoritmus této metody, který využívá __zásobník LIFO__. Algoritmus této modifikace je následující:
+Základní verze algoritmu DFS je téměř nepoužitelná - může nastat smyčka v generování uzlů, která vede k nekonečnému zásobníku. Proto se používá modifikovaný algoritmus této metody, který využívá __zásobník LIFO__. Algoritmus této modifikace je následující:
 1. Sestrojí se zásobník `OPEN` (bude obsahovat všechny uzly určené k expanzi) a umístí se do něj počáteční uzel.
 2. Je-li zásobník `OPEN` prázdný, pak úloha nemá řešení. Prohledávání se ukončí jako _neúspěšné_. Jinak se pokračuje.
 3. Vybere se z vrcholu zásobníku `OPEN` první uzel.
@@ -160,7 +160,7 @@ Metoda A* je nejznámnější a nejpoužívanější metodou pro řešení úloh
 
 > Heuristická funkce \(h(n)\) musů být tzv. _spodním odhadem_ skutečné ceny cesty od ohodnocovaného uzlu k cíli. Taková heuristika se pak nazývá __přípustnou heuristikou__.
 
-Časovou a prostorovou náročnost výrazně oblivňuje použitá heuristika. Pokud je použitá heuristika dobrým spodním odhadem skutečné ceny, pak jsou expandovány pouze uzly kolem optimální cesty.
+Časovou a prostorovou náročnost výrazně ovlivňuje použitá heuristika. Pokud je použitá heuristika dobrým spodním odhadem skutečné ceny, pak jsou expandovány pouze uzly kolem optimální cesty.
 
 ## Metody založené na rozkladu úloh na podproblémy
 Metody založené na rozkladu úloh na podproblémy jsou přirozené metody řešení úloh, které při řešení obtížných problémů používá i člověk. Graficky se znázorňují pomocí __AO grafů__. Uzlem v _AO_ grafech se značí __podproblém__ (podúlohu). Jsou dva základní typy problémů:
