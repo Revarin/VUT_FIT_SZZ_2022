@@ -10,16 +10,18 @@
     - Množinou hodnot, kterých může nabývat
     - Množinou operací nad hodnotami
 
-## Typ výrazu - Určen použitými operátory a operandy.
-## Ordinální datový typ 
-- Prvky daného typu mají jasně stanovené pořadí.
-- Každý prvek má předchůdce a následovníka (např. integer).
 ## Operace
 - Ekvivalence
 - Přiřazení
 - Transformační operátory - Přetypování.
 - Konstruktory - Vytváření strukturovaných datových typů z komponent.
 - Selektory - Získání hodnoty komponenty struktury.
+
+## Typ výrazu - Určen použitými operátory a operandy.
+## Ordinální datový typ 
+- Prvky daného typu mají jasně stanovené pořadí.
+- Každý prvek má předchůdce a následovníka (např. integer).
+- Jejich hodnoty je možné uspořádat (mají dané pořadí)
 
 ## Strukturovaný datový typ 
 - Sestává z komponent jiného (dřív definovaného) typu = kompoziční typ. 
@@ -47,8 +49,9 @@
 - Jména a počet komponent je dán při definici typu a nemohou se měnit za běhu programu. 
 
 # Abstraktní datové typy
-### Lineární 
-  - Každý prvek až na první a poslední má právě jednoho předchůdce a právě jednoho následovníka.
+Abstraktní datové typy jsou uživatelsky definované datové typy, které využívají vestavěných datových typů daného jazyka. Většinou se používají pro implementaci nějakého složitějšího objektu/struktury. Uživateli zpřístupňují pouze funkce implementující práci s tímto datovým typem, vnitřní struktura abstraktního datového typu je skryta a uživatel by s ní neměl pracovat.
+
+- Datový typ je __lineární__, když každý prvek až na první a poslední má právě jednoho předchůdce a právě jednoho následovníka.
 
 ## Seznam 
 - Homogenní lineární dynamická struktura. 
@@ -104,7 +107,7 @@ Pozn.: tohle je z dokumentu, vím, že tohle je z přednášek, ale bral bych to
 
 ## Binární strom 
 - Homogenní dynamická struktura. 
-- Binární strom je buď prázdný nebo se sestává z jednoho uzlu zvaného kořen a dvou podstromů (levého a pravého) a oba podstromy mají vlastnost stromu (rekurzivní definice).
+- Binární strom je buď prázdný nebo se sestává z jednoho uzlu zvaného kořen a dvou podstromů (levého a pravého) a oba podstromy mají vlastnost binárního stromu (rekurzivní definice).
 
 ![Ukázka binárního stromu](./Images/29/binarni_strom.png)
 
@@ -112,7 +115,7 @@ Pozn.: tohle je z dokumentu, vím, že tohle je z přednášek, ale bral bych to
 - Pokud pro všechny jeho uzly platí, že počty uzlů jejich levého podstromu a pravého podstromu se rovnají nebo se liší právě o jedna
 
 ### Absolutně váhově vyvážený strom 
-- Strom jehož počet uzlů je 2n - 1, pro n > 0 a jehož výška je právě n.
+- Strom jehož počet uzlů je \(2^n - 1\), pro n > 0 a jehož výška je právě n.
 
 ### Výškově vyvážený 
 - Když pro všechny jeho uzly platí, že výška levého podstromu se rovná výšce pravého podstromu nebo se liší právě o 1.
