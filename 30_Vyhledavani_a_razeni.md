@@ -1,6 +1,6 @@
 # Vyhledávání a řazení
 - Otázky:
-- Předmět:
+- Předmět: IAL
 
 # Vyhledávání
 
@@ -17,7 +17,7 @@
 
 ### Zaslepení 
 - Zrušení hodnoty tak, že se klíč přepíše takovou hodnotou co nebude nikdy hledána.
-## Sekvenční
+## Sekvenční Vyhledávání
 - Nejrychleji jsou nalezeny položky na počátku. 
 - Jednoduchá implementace
 
@@ -41,7 +41,7 @@
 - Nejčastěji hledané položky jsou na začátku struktury (používá se k tomu počítadlo vyhledávání). 
 - Druhou variantou je, že nalezená položka se prohodí se svým levým sousedem (není potřeba počítadlo).
 
-## Nesekvenční v poli
+## Nesekvenční Vyhledávání v poli
 ### Binární vyhledávání 
 - Provádí se nad seřazenou množinou klíčů s náhodným přístupem (pole). 
 - Metoda připomíná metodu půlení intervalů. 
@@ -53,7 +53,7 @@
 
 V poli [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2] najde Dijkstrova varianta klíč K = 1 na 10. pozici
 
-## V binárním vyhledávacím stromu - BVS
+## Vyhledávání v binárním vyhledávacím stromu - BVS
 - Podobné binárnímu vyhledávání v seřazeném poli. 
 - Je-li vyhledaný klíč roven kořeni, vyhledávání končí úspěšně. 
 - Je-li klíč menší než klíč kořene, pokračuje vyhledávání v levém podstromu, je-li větší, pokračuje v pravém. 
@@ -64,7 +64,7 @@ V poli [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2] najde Dijkstrova varianta klíč K = 1 
 
 ![BVS se zarážkou](./Images/30/BVS_zarazka.png)
 
-## V tabulkách s rozptýlenými položkami (hash table) 
+## Vyhledávání v tabulkách s rozptýlenými položkami (hash table) 
 - Základem je princip tabulky s přímým přístupem. 
 - Využívá se zde mapovací funkce, která jednoznačně mapuje klíče na sousední místa v paměti (políčka tabulky) a naopak - takováto tabulka je tabulka s přímým přístupem. 
 - Časová složitost je tady pak v přímé tabulce 1. 
@@ -134,6 +134,9 @@ V poli [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2] najde Dijkstrova varianta klíč K = 1 
     - Seriové
     - Paralelní
 
+### Přirozenost 
+-  Přirozený algoritmus rychleji zpracuje již částečně seřazenou posloupnost, zatímco u algoritmu, který přirozený není, tento fakt nehraje žádnou roli.
+
 ## Select Sort 
 - **Nestabilní**
 - **Kvadratická složitost**
@@ -192,7 +195,7 @@ V poli [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2] najde Dijkstrova varianta klíč K = 1 
 
 ![Insert sort](./Images/30/insert_sort.png)
 
-## Quick sort - (Řazení rozdělování) 
+## Quick sort - (Řazení rozdělováním) 
 - **Nestabilní a nepracuje přirozeně.**
 - **Asymptotická složitost je linearitmická.**
 - Patří mezi nejrychlejší metody řazení polí. 
