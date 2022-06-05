@@ -17,11 +17,11 @@ Učení s učitelem spočívá v tom, že pro každá krok učení je známá _p
 \[T= \{(i_1, d_1), (i_2, d_2), ..., (i_n, d_n\}\]
 
 Často se množina dostupných dat nepoužívá k trénování celá, ale rozdělí se na dvě nebo tři podmnožiny:
-- První množina je množina __trénovací__ (cca 80% dat). Použije se k trénování systém.
+- První množina je množina __trénovací__ (cca 80% dat). Použije se k trénování systému.
 - Druhá množina je množina __testovací__ (cca 10% až 20% dat). Použije se pro testování naučených znalostí.
 - Třetí množina (cca 10% dat) se někdy používá k doladění parametrů systému.
 
-Metody učení s učitelem pracují s vektory, které nabývají symbolických hodnot. Jsou založené na předpokladu, že každá hypotéza, která vyhovuje dostatečně velké množině trénovacích příkladů, bude vyhovovat i dalším, dosud neznámým příkladů.
+Metody učení s učitelem pracují s vektory, které nabývají symbolických hodnot. Jsou založené na předpokladu, že každá hypotéza, která vyhovuje dostatečně velké množině trénovacích příkladů, bude vyhovovat i dalším, dosud neznámým příkladům.
 
 ### Tvorba rozhodovacích stromů
 Tvorba rozhodovacích stromů (Decision Tree Building) vytváří _rozhodovací strom_. Rozhodovací stromy slouží ke klasifikaci objektů na základě hodnot jejich atributů. Jsou vytvářeny ze známé množiny příkladů. Používají se při dolování dat z databází.
