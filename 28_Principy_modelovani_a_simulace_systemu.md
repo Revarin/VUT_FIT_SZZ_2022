@@ -1,7 +1,8 @@
 # Principy modelování a simulace systémů
 - Otázky: systémy, modely, simulace, algoritmy řízení simulace
 - Předmět: IMS
-
+- Prezentace:
+  - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIMS-IT%2Flectures%2FIMS-2021-09-20.pdf&cid=14664
 ## Systém 
 - Soubor elementárních částí (prvků systémů), které mají mezi sebou určité vazby.
 - **Reálné systémy**
@@ -83,17 +84,17 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 - Pokud stejné podněty u obou vyvolají stejné reakce, tak mají ekvivalentní chování.
 
 ## Izomorfní systémy 
-- Systémy \(S1 = (U1, R1)\) a \(S2 = (U2, R2)\) jsou izomorfní pokud:
-1. Prvky \(U1\) lze vzájemně jednoznačně přiřadit \(U2\) (bijektivní zobrazení 1:1).
-2. Prvky \(R1\) lze bijektivně zobrazit na \(R2\) se stejně orientovanými vztahy na prvky univerz.
+- Systémy \(S_1 = (U_1, R_1)\) a \(S_2 = (U_2, R_2)\) jsou izomorfní pokud:
+1. Prvky \(U_1\) lze vzájemně jednoznačně přiřadit \(U_2\) (bijektivní zobrazení 1:1).
+2. Prvky \(R_1\) lze bijektivně zobrazit na \(R_2\) se stejně orientovanými vztahy na prvky univerz.
 
 ![Izomorfní systémy](./Images/28/izomorfni_systemy.png)
 
 ## Homomorfní systémy
 - Je základním principem modelování.
 - Platí:
-1. Prvkům \(U1\) je možno přiřadit jednoznačně prvky \(U2\) (N:1).
-2. Prvkům \(R1\) je možno jednoznačně přiřadit prvky \(R2\) se stejně orientovanými vztahy s univerzy.
+1. Prvkům \(U_1\) je možno přiřadit jednoznačně prvky \(U_2\) (N:1).
+2. Prvkům \(R_1\) je možno jednoznačně přiřadit prvky \(R_2\) se stejně orientovanými vztahy s univerzy.
 
 ![Homomorfní systémy](./Images/28/homomorfni_systemy.png)
 
@@ -132,7 +133,7 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 
 ## Deklarativní 
 - Popis přechodů mezi stavy systému. 
-- Model je definován stavy a událostmi, které způsobí přechod z jednoho do druhého za jistých podmínek. 
+- Model je definován stavy a událostmi, které způsobí přechod z jednoho do druhého stavu za jistých podmínek. 
 - Vhodné především pro diskrétní modely. 
 - Obvykle zapouzdřeny do objektů (konečné automaty, petriho sítě…).
 
@@ -160,7 +161,7 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 
 ---------------------------
 
-## Náhodné proměnné 
+## Pozn.: Náhodné proměnné 
 - Veličina, která jako výsledek pokusů může nabýt nějakou proměnnou, přičemž předem nevíme jakou. 
 - Lze je zadat distribuční funkcí nebo rozdělením pravděpodobností.
 - **Diskrétní** - Konečně nebo spočetně mnoho různých hodnot.
@@ -184,9 +185,9 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 
     \(\LARGE err = \frac{1}{\sqrt{N}}\) 
 
-![Příklad použití monte carlo](./Images/28/monte_carlo.png)
+![Příklad použití monte carlo - výpočet obsahu pod sinusovkou](./Images/28/monte_carlo.png)
 
-## Proces 
+## Pozn.: Proces 
 - V diskrétním modelu je proces posloupnost událostí.
 - **Paralelní procesy** - Současně prováděné procesy.
 - **Kvaziparalelismus** - Provádění paralelních procesů na jednoprocesorovém počítači.
@@ -213,7 +214,7 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 
 ## Systémy hromadné obsluhy (SHO) - (Queueing systems) 
 - Systémy obsahující zařízení (s frontami), která poskytují obsluhu transakcím. 
-- Typicky obsahují transakce (procesy) a popis jejich přechodů, obslužné linky a opis obsluhy a fronty různých typů, ve kterých transakce čekají. 
+- Typicky obsahují transakce (procesy) a popis jejich přechodů, obslužné linky a popis obsluhy a fronty různých typů, ve kterých transakce čekají. 
 - Při simulaci sledujeme informace o čase stráveném transakcí v systému, doby čekání ve frontách, vytížení obslužných linek. 
 - Cílem je odhalit různá zdržení, optimalizovat výkon…
 
@@ -232,8 +233,8 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 - Fronty mohou být také prioritní.
 
 ### Prioritní obsluha
-- Započatá obsluha se normálně ukončí (slabá priorita).
-- Obsluha se přeruší, začne obsluha prioritního požadavku a přerušený požadavek buď odchází ze systému neobsloužen nebo se vrací do fronty a je poté obsluhován buď od místa přerušení nebo od začátku.
+- **Slabá priorita** - Započatá obsluha se normálně ukončí.
+- **Silná priorita** - Obsluha se přeruší, začne obsluha prioritního požadavku a přerušený požadavek buď odchází ze systému neobsloužen nebo se vrací do fronty a je poté obsluhován buď od místa přerušení nebo od začátku.
 - Jsou-li všechny linky obsazené a u každé je fronta, požadavek se sám rozhodne, do které se zařadí.
 - Vytvářejí-li požadavky jednu společnou frontu, požadavek vstupuje do té linky, která se uvolní nejdříve.
 
@@ -259,26 +260,13 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
   - např.: může být v jednom z konečného počtu stavů ({0,1}).
 ## Pole buněk (lattice)
 - N-rozměrné (obvykle 1D nebo 2D). 
-- Rovnoměrné rozdělení prostoru, může být konečné nebo nekonečné.
+- Rovnoměrné rozdělení prostoru, může být konečné nebo nekonečné, nebo Cyklické. 
 ## Okolí (neighbourhood)
 - Typy se liší počtem a pozicí okolních buněk.
 
   ![Typy okoli a ukazka tvaru pole bunek](./Images/28/celularni_automaty_okoli.png)
 
-# Metoda snižování řádu derivace
-1. Osamostatnit nejvyšší řád derivace.
-2. Zapojit všechny integrátory za sebe a na vstupu prvního zapojit (modifikovaný - násobení, přičítání) výsledek
-- Tato metoda funguje, pokud nejsou derivované vstupy derivace vstupů (x’, x’’, …).
 
-![Metada snižování řádu derivace](./Images/28/metoda_snizovani_radu.png)
-
-# Metoda postupné integrace
-1. Osamostatnit nejvyšší řád derivace.
-2. Postupná integrace rovnice a zavádění nových stavových podmínek.
-3. Výpočet nových počátečních podmínek.
-- Podmínka: konstantní koeficienty.
-
-![Metoda postupné integrace](./Images/28/metoda_postupne_integrace.png)
 
 ## Pravidla (Rules)
 - Funkce stavu buňky a jejího okolí definující nový stav buňky v čase: 
@@ -345,13 +333,13 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 
 
 ## Řízení simulace číslicových obvodů
-- Tato simulace je řízená událostmi a ukládání velkého množství událostí do kalendáře je nepraktické/problematické. P
-- oužívá se proto princip selektivního sledování, kdy dochází k vyhodnocování pouze těch prvků, na které má vliv změna na vstupu. 
+- Tato simulace je řízená událostmi a ukládání velkého množství událostí do kalendáře je nepraktické/problematické. 
+- Používá se proto princip selektivního sledování, kdy dochází k vyhodnocování pouze těch prvků, na které má vliv změna na vstupu. 
 - Používá se např. pevný krok pro změnu času. Problematické mohou být zpětné vazby v obvodech a nastavení počátečních hodnot signálů.
 ### Princip algoritmu:
 1. **Inicializace** modelu, plánování, …
 2. Dokud je naplánovaná událost, tak pokračuj s dalším bodem, jinak konec simulace.
-3. **Nastav hodnotu modelového času** na \(T\) (pevným krokem, na základě právní naplánované události, …)
+3. **Nastav hodnotu modelového času** na \(T\) (pevným krokem, na základě první naplánované události, …)
 4. **Pro všechny události**, které jsou naplánované na tento čas \(T\) **proveď**:
    1. odeber událost z plánovaných události (kalendáře),
    2. aktualizuj hodnoty signálů,
@@ -362,3 +350,19 @@ Vazba mezi prvky může být sériová, paralelní a nebo zpětná.
 **Pseudokód:**
 
 ![Pseudokód](./Images/28/pseudokod_simulace_cislicovych_obvodu.png)
+
+# Poznámka Metody pro vytváření spojitých modelů
+## Metoda snižování řádu derivace
+1. Osamostatnit nejvyšší řád derivace.
+2. Zapojit všechny integrátory za sebe a na vstupu prvního zapojit (modifikovaný - násobení, přičítání) výsledek
+- Tato metoda funguje, pokud nejsou derivované vstupy derivace vstupů (x’, x’’, …).
+
+![Metada snižování řádu derivace](./Images/28/metoda_snizovani_radu.png)
+
+## Metoda postupné integrace
+1. Osamostatnit nejvyšší řád derivace.
+2. Postupná integrace rovnice a zavádění nových stavových podmínek.
+3. Výpočet nových počátečních podmínek.
+- Podmínka: konstantní koeficienty.
+
+![Metoda postupné integrace](./Images/28/metoda_postupne_integrace.png)
