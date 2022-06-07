@@ -117,16 +117,16 @@ kde:
             - OUTER JOIN - Vnější. Vše z obou tabulek i to co se nepřekrývá.
             - LEFT JOIN - Vnitřní + celá levá tabulka.
             - RIGHT JOIN - Vnitřní + celá pravá tabulka.
-            - CROSS JOIN - Spojí řádek jedné tabulky se všemi z druhé tabulky - kartézský součin.
+            - CROSS JOIN - Spojí každý řádek jedné tabulky se všemi z druhé tabulky - kartézský součin.
 - Autorizace (přístupová práva)
 - Integrita dat (integritní omezení)
 - Řízení transakcí
 
 Př.:
-```
+```sql
 SELECT Orders.OrderID, Customers.CustomerName
 FROM Orders
-INNER JOIN  Customers ON Orders.CustomerID = Customers.CustomerID;
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
 ```
 
 Vizualizace CROSS JOIN:
@@ -187,7 +187,7 @@ textová (serializace), 2D grafická (vizualizace)
 - používá se při předávání obsahu formulářů v HTML protokolem HTTP
 
 **application/x-www-urlencoded**
-- serialiyace struktury s položkami textového a booleovského typu
+- serializace struktury s položkami textového a booleovského typu
 - mezery => +
 - nealfanumerické znaky => %hh
 - hodnoty položek jsou oddělené znakem '&'
@@ -204,10 +204,10 @@ textová (serializace), 2D grafická (vizualizace)
 
 ## Vizualizace
 - Pomocí HTML, CSS, JS,.. z kolekcí/struktur do formulářů, tabulek, seznamů, ...
-- je definovaná zvlásť, protože generovaný HTML kód má popisovat jen štruktúru a obsah výsledného dokumentu
-- tvorená pomocí CSS
-- 	sada CSS pravidiel, kde každé z nich definuje vlastnosti nějaké množiny HTML elementov
-- CSS pravidlo sa skladá z dvoch častí: 
+- je definovaná zvlásť, protože generovaný HTML kód má popisovat jen struktúru a obsah výsledného dokumentu
+- tvořená pomocí CSS
+- 	sada CSS pravidel, kde každé z nich definuje vlastnosti nějaké množiny HTML elementů
+- CSS pravidlo sa skladá z dvou častí: 
     - selektor pravidlo (zvolí HTML element)
     - deklarace vlastností (popis výsledného vzhledu elementu)
 
@@ -216,13 +216,6 @@ textová (serializace), 2D grafická (vizualizace)
 - Jedná se o množinu jednotlivých datových typů. 
 - Pokud jsou stejného datového typu neomezeného počtu, jedná se o kolekci.( jako Pole v C) 
 - Pokud jsou různorodého datového typu pevně určeného počtu, tvoří strukturu.( jako struktura v C, nebo Objekt )
-
-### Operácie nad kolekcí: 
-- vkládání prvku do kolekce (add)
-- získání prvku z kolekce (item)
-- určení počtu prvků (count)
-- rušení prvku z kolekce (remove) 
-- vykonávání operácí nad všemi prvkami kolekce (forall)
 
 ### Kurzor
 - ukazovátko do kolekce
