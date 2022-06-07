@@ -116,9 +116,10 @@ Prakticky:
 
 ![3NF](./Images/35/3NF.png)
 
-### BCNF 
+### BCNF (Boyceho–Coddova normální forma)
 - Pokud pro každou netriviální závislost X -> Y platí, že X je nadmnožinou nějakého klíče schématu R. 
 - Pokládá se za variaci 3. NF.
+- je ve 3. normální formě a v relaci existuje pouze jeden kandidátní klíč, nebo jich existuje více, ale jsou disjunktní (nemají společný atribut). Jinak řečeno, pokud v relaci existují dva (nebo více) složené kandidátní klíče, které sdílí nějaký atribut, není relace v BCNF
 
 ### 4. NF 
 - Pokud je v BCNF a popisuje pouze příčinnou souvislost.
