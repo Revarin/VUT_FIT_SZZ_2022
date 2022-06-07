@@ -19,6 +19,7 @@
 ## Geometrická pravděpodobnost 
 - Podíl míry množin příznivých výsledků a míry množiny všech možných výsledků. 
 - Používá se pokud je množina \(\Omega\) nespočetná a všechny výsledky pokusů nastávají se stejnou pravděpodobností.
+- Používá se u metody Monte Carlo
 
 \(\LARGE P(A)=\frac{m(A)}{m(\Omega)}\)
 
