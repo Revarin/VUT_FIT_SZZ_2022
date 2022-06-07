@@ -2,7 +2,9 @@
 - Otázky: charakteristika etap a základních modelů
 - Předmět: IUS
 - zdroje:
-  - https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIUS-IT%2Flectures%2FZS-2019-20%2FIUS9.pdf&cid=13367
+  - [Softwarové inženýrství, základní problémy při vývoji softwaru, vodopádový model životního cyklu softwaru](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIUS-IT%2Flectures%2FIUS01.pdf%26cid%3D13367)
+  - [Lineární a iterativní modely životního cyklu softwaru, agilní metodiky vývoje softwaru](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIUS-IT%2Flectures%2FIUS08.pdf%26cid%3D13367)
+  - [Agilní metodiky vývoje softwaru, management SW projektů, řízení kvality softwaru, SW metriky](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIUS-IT%2Flectures%2FIUS09.pdf%26cid%3D13367)
 
 ## Životní cyklus softwaru 
 - Mechanismus uplatňovaný při návrhu softwaru. 

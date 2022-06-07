@@ -3,6 +3,9 @@
 - Předmět: IDS, IIS
 - zdroje:
     - https://docs.google.com/document/d/1WR3wW3GcC
+    - [	Jazyky relačních databázových systémů](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIDS-IT%2Flectures%2Fcz%2F6_jazyky.pdf%26cid%3D13974)
+    - [Datové modelování](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp05_Datove_modelovani.pdf%26cid%3D14647)
+    - [Vizualizace a serializace dat](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp06_Vizualizace_serializace.pdf%26cid%3D14647)
 
 Tady znát teorii, co je to relace, ale hlavně se podle tabulky ptají na SQL dotazy - prakticky umět a znát JOINy i prakticky!!!
 

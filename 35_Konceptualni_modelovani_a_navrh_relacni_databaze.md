@@ -1,7 +1,10 @@
 # Konceptuální modelování a návrh relační databáze
 - Otázky:
 - Předmět: IDS
-
+- prezentace:
+  - [Úvod do relačního modelu dat](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIDS-IT%2Flectures%2Fcz%2F3_relmod.pdf%26cid%3D13974)
+  - [Transformace ER diagramu na schéma relační DB](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIDS-IT%2Flectures%2Fcz%2F4_transformace.pdf%26cid%3D13974)
+  - [Úvod do teorie závislostí a normalizace schématu databáze](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIDS-IT%2Flectures%2Fcz%2F5_normalizace.pdf%26cid%3D13974)
 ## Konceptuální modelování 
 - Jedním ze tří kroků návrhu databáze (DB).
 - **Cíl** - Analyzovat požadavky na data, která budou v databázi. 

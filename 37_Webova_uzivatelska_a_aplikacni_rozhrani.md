@@ -3,6 +3,10 @@
 - Předmět: IIS
 - zdroje:
   - https://www.youtube.com/watch?v=9Jub5t1allI&list=PLAlfkFSsPLoVjtryLRPnt0nZJlYkmeudA&index=34
+  - [HTML z pohledu vstupu a výstupu IS](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp03b_HTML.pdf%26cid%3D14647)
+  - [Klientská část IS](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp09_Klientska_cast.pdf%26cid%3D14647)
+  - [Webová API](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp07_Webova_API.pdf%26cid%3D14647)
+  - [JavaScript - úvod](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIIS-IT%2Flectures%2Fp09b_JavaScript.pdf%26cid%3D14647)
 ## HTML (HyperText Markup Language)
 - značkovací jazyk
 - Určený pro tworbu webových stránek - obsahu

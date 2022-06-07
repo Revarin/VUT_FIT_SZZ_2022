@@ -1,6 +1,9 @@
 # Vyhledávání a řazení
 - Otázky:
 - Předmět: IAL
+- preyentace:
+  - [Řazení I](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIAL-IT%2Flectures%2FPred-07_2021_final.pdf%26cid%3D13948)
+  - [Řazení II](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIAL-IT%2Flectures%2FPred-08_2021_final.pdf%26cid%3D13948)
 
 # Vyhledávání
 

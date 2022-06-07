@@ -1,7 +1,11 @@
 # Datové a řídicí struktury imperativních programovacích jazyků
 - Otázky:
 - Předmět: IAL
-
+- prezentace:
+  - [Lineární abstraktní datové typy, seznamy](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIAL-IT%2Flectures%2FPred-02_2021_final.pdf&cid=13948)
+  - [Zásobník, fronta, vyhledávací tabulka, vícerozměrná pole](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIAL-IT%2Flectures%2FPred-03_2021_final.pdf&cid=13948)
+  - [Stromové datové struktury, vyhledávací tabulky I](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIAL-IT%2Flectures%2FPred-04_2021_final.pdf&cid=13948)
+  
 ## Datový typ 
 - Určuje množinu hodnot a množinu operací nad těmito hodnotami. 
 - Typ proměnné se zavádí v její deklaraci. 
