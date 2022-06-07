@@ -70,7 +70,7 @@ Příklady typů API:
     - READ
       - GET požadavel
     - UPDATE
-      - PUT / PATCH požadacek
+      - PUT / PATCH požadavek
     - DELETE
       - DELETE požadavek
   - Není standardizovaný
@@ -111,7 +111,7 @@ Příklady typů API:
 **Správa sezení:**
 - uživtateli se přiřadí unikátní identifikátor = Session ID
   - uloží se do COOCKIES
-  - Coockies = malý objem dat, který server uloží nba straně klienta
+  - Coockies = malý objem dat, který server uloží na straně klienta
     - klient zasílá tyto coockies serveru s každým požadavkem
 - při odcizení Session ID, se může útočník vydávat za oběť
   - např. pokud jsme přihlášeni na nějaké službě, je dané přihlášení spojeno s našim Session ID
@@ -119,11 +119,11 @@ Příklady typů API:
 
 ## Autentizace uživatele
 - pomocí formuláře 
-- Jak probíhá ověření:
-    - klient vyplní formulář
-    - server ověří korektnost údajů ve formuláři
-    - Server vygeneruje Session ID a zašle ho klientovi
-    - klient pak v každém dalším dotazu zasílá Session ID
+  - Jak probíhá ověření:
+      - klient vyplní formulář
+      - server ověří korektnost údajů ve formuláři
+      - Server vygeneruje Session ID a zašle ho klientovi
+      - klient pak v každém dalším dotazu zasílá Session ID
 - JWT = Json Web Token
     - části:
         - header
@@ -139,6 +139,7 @@ Příklady typů API:
         - Server vygeneruje JWT a zašle ho klientovi
         - klient pak v každém dalším dotazu zasílá JWT
 - OAuth
+    - využívá se obecně když chce jedna aplikace využívat druhou
     -  příklad využití:
         - přihlášení na nšjaký web pomocí google účtu
         - DrawIO
