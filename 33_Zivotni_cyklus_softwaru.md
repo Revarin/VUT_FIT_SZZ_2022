@@ -92,7 +92,7 @@
 
 **Výstup** - Specifikační dokument a plán testování celého systému.
 
-### 3. Podrobný návrh 
+### Podrobný návrh 
 - Podrobná specifikace SW součástí. 
 - Stanovení fyzické struktury dat a způsoby ošetřování neočekávaných a chybových stavů. 
 - Návrh testů jednotlivých součástí včetně testovacích dat.
@@ -177,6 +177,8 @@ návrhové aktivity ⇒ druhé souběžné V
 
 ## Agilní metodologie 
 - Klade důraz na člověka jako určující faktor pro kvalitu produktu.
+
+# Analýza
 ## Strukturovaná analýza 
 - Chápe systém jako kolekci procesů operujících nad daty - navrhujeme strukturu dat a funkce nad nimi pracující.
 ## Objektová analýza 
