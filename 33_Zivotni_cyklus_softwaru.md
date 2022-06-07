@@ -123,6 +123,9 @@
 # Modely životního cyklu SW
 - U každého projektu se etapy mohou lišit, společné rysy je však možné popsat modely životního cyklu SW. 
 - Definují etapy a jak po sobě jdou (ale ne však délku ani rozsah).
+- Modely životního cyklu dělíme na **Heavyweight** a **Agilní**.
+
+![Rozdělení modelů](./Images/33/modely_rozdeleni.png)
 
 ## Vodopádový model 
 - Etapy jsou řazeny za sebou, po skončení jedné začíná další. 
@@ -142,10 +145,16 @@
 - Podobný iterativnímu, projekt je odevzdáván uživateli po částech, pozdější upřesnění požadavků může mít negativní vliv jako u vodopádového modelu.
 
 ## Spirálový model 
-- Zavádí do vývoje prototypování a klade důraz na analýzu rizik. 
-- Jednotlivé etapy se opakují vždy na vyšším stupni zvládnuté problematiky, výsledkem je prototyp. 
+- Zavádí do vývoje prototypování a klade důraz na **analýzu rizik**. 
+- Jednotlivé etapy se opakují vždy na **vyšším stupni zvládnuté problematiky**, výsledkem je **prototyp**. 
 - Spustitelné verze existují od začátku. 
 - Náročný na řízení. 
+- Spirála je rozdělena do 4 kvadrantů:
+  1. **Stanovení cílů**: určení funkcionálních a výkonnostních požadavků, určení omezujících podmínek (čas a cena), návrh možných alternativ.
+  2. **Vyhodnocení** stanovených cílů: ověření jejich splnitelnosti, analýza rizik, prototypování a simulace,
+  3. **Realizace** stanovených cílů a jejich **testování**,
+  4. **Plánování** následujícího cyklu.
+  - po každém cyklu je dokončený **Milestone**
 
 ![Spirálový model](./Images/33/Spirala.png)
 
@@ -176,7 +185,92 @@ návrhové aktivity ⇒ druhé souběžné V
 ![RUP](./Images/33/RUP.png)
 
 ## Agilní metodologie 
-- Klade důraz na člověka jako určující faktor pro kvalitu produktu.
+- Využívají se většinou u **malých projektů s malým počtem programátorů**, s **decentralizovaným řízením** (vedení založené na spolupráci) a **adaptivním přístupem** (menší množství plánování, úpravy dle reakcí zákazníka) - velká flexibilita. 
+- Čas a peníze jsou obvykle dané a funkcionalita se implementuje na základě toho (co se stihne, co bude zaplaceno; na co budou peníze, to bude naprogramováno). 
+- Vyžadují **intenzivní zapojení zákazníka** do procesu vývoje. 
+- Agilní metodiky **kladou důraz na lidi a jejich individualitu** (people-oriented), člověk je v dané oblasti profesionál (analytik, programátor, tester) a je schopen rozhodovat technické otázky práce, velmi důležitá je **komunikace v rámci týmu**. 
+- Omezuje se byrokracie a formální požadavky. 
+- Ověření správnosti je prováděno **zpětnou vazbou od zákazníka**. 
+- Odchod schopných zaměstnanců může být kritický. 
+- Agilní metodiky **dobře reagují na změny v průběhu vývoje**, což je běžné.
+
+### Rapid Application Development
+- Metodika založená na rychlém iterativním vývoji prototypů. 
+- Brzká dispozice funkčních verzí
+- Vyžaduje intenzivní zapojení zákazníka do vývojového procesu - zpětná vazba na poskytnuté verze. 
+- Zaměřuje se zejména na splnění potřeb a požadavků zákazníka (business potřeb SW). 
+- Metodika je určena pro menší a středně velké týmy. 
+- Zhodnocení:
+  - Výhody: 
+    - flexibilita a schopnost rychlé reakce na změny požadavků od zákazníka. 
+    - Vyšší kvalita zpracování business potřeb (zákazník dostává doopravdy to, co chce). 
+    - Více projektů splňuje termíny a ceny. 
+  - Nevýhody: 
+    - nižší kvalita návrhu a výsledného kódu způsobená změnami, což vede na problémy s udržovatelností.
+
+### Extrémní programování (XP)
+- Populární agilní metoda, která je založena na komunikaci (v týmu a se zákazníkem, zákazník se prakticky stává členem týmu) a iterativním vývoji. 
+- SW není dodán zákazníkovi celý v určitý termín v budoucnosti, ale je dodáván způsobem, který odráží aktuální potřebu uživatelů - do systému vložíme to, co potřebujeme, když to potřebujeme. 
+- Dva významní členové týmu:
+  - **kouč**: zajišťuje komunikaci v týmu, pomáhá programátorům s technickými dovednostmi, komunikuje s velkým šéfem a vyšším managementem.
+- **velký šéf**: provádí zásadní rozhodnutí, komunikuje s vyšším managementem.
+- Extrémní programování klade velký důraz na spolupráci v týmu, manažeři, vývojáři a zákazník jsou si rovni. 
+- Je založeno na 5 základních principů:
+  1. **komunikace**: programátoři, zákazníci a manažeři spolu musí komunikovat - využití technik, které komunikaci vyžadují (pair programming, code review, …).
+  2. **jednoduchost**: jednoduché věci se realizují a upravují s menším počtem chyb (v případě potřeby je lze rozšířit). Přírůstkové malé změny, uvolňování malých verzí systému (nejpodstatnější požadavky, které jsou postupně vylepšované a doplňované).
+  3. **zpětná vazba a testování**: vše musí být otetováno, ke každé funkci píšeme testy, klidně i před tím, než začneme programovat (Test Driven Development). Jednotkové i integrační testy, zpětná vazba zákazníka.
+  4. **odvaha**: nebát se zahodit naprogramovaný kód, nebát se zkusit neznámé. Pokud je potřeba, nebát se provést zásadní změny.
+  5. **respekt**: Každý malý úspěch prohlubuje respekt k jedinečným příspěvkům každého člena týmu.
+- Zhodnocení:
+  - Výhody: 
+    - iterativní inkrementální proces,
+    - ladění na základě zpětné vazby - zapojení uživatelů,
+    - založený na testování,
+    - průběžná integrace
+  - Nevýhody:
+    - vyžaduje dodržování základních principů (neustálé psaní testů, párové programování, atd)
+    - nedefinuje přesný postup.
+
+### Scrum
+- Agilní metoda odvozená ze hry rugby. 
+- Lze kombinovat s XP. 
+- Dělí se na tři základní fáze:
+  1. **pre-game**: plánování a architektonický návrh, využívá se Product Backlog.
+  2. **game**: vývoj, který probíhá v iteracích, iterace se nazývá Sprint a tvá okolo 30 dní, výsledkem každého sprintu je funkční inkrement. Na začátku každého sprintu je setkání mezi vývojáři, zákazníkem, uživateli atd. a definují se cíle sprintu - Sprint Backlog (seznam úloh nutných pro dosažení cíle). Každý den v průběhu sprintu se provádí Scrum Meeting - 15 min setkání členů vývojového týmu. Scrum Master je vedoucí týmu. Na konci sprintu se provádí Sprint Review - vyhodnocení proběhlého sprintu.
+  3. **post-game**: integrace výsledků jednotlivých sprintů, testování (integrační, celého systému, akceptační), dokumentace, školení uživatelů.
+- Zhodnocení:
+  - Výhody: 
+    - iterativní inkrementální proces,
+    - časté uvolňování verzí,
+    - architektura je navržena před procesem vývoje,
+    - jednoduchý proces,
+    - zapojení uživatelů.
+  - Nevýhody:
+    - nedefinuje přesný postup,
+    - integrace až po vytvoření všech inkrementů.
+
+### Crystal
+- Jedná se o rodinu metologií, základní přístupy a techniky sdílí s XP. 
+- Více lidí je ale schopno tento proces akceptovat. 
+- Rozděluje projekty do kategorií dle kritičnosti a důležitosti: 
+  - Comfort C,
+  - Discretionary Money (volné uvážení) D,
+  - Essential Money E,
+  - Life L.
+- Kategorie metodik, které se používají, se označují barvou, liší se dle velikosti týmu a délce projektu:
+
+  ![Crystal](./Images/33/crystal.png)
+
+- Zhodnocení:
+  - Výhody: 
+    - iterativní inkrementální proces - časté uvolňování verzí,
+    - průběžná integrace,
+    - zapojení uživatelů - požadavky se ladí během celého vývoje na základě zpětné vazby
+  - Nevýhody:
+    - nedefinuje jasný společný proces,
+    - není vhodný pro vysoce kritické projekty,
+    - velká závislost na přímé komunikaci.
+
 
 # Analýza
 ## Strukturovaná analýza 
