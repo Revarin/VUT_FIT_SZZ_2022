@@ -86,8 +86,7 @@
     - Základní/primitivní datové typy (čísla, znaky) 
     - Datové struktury 
     - Třída je speciální případ datové struktury 
-    - Často jiná syntaxe a sémantika oproti základním 
-    - Riadenie toku: Procedurální - příkazy volání funkce, větvení, iterace_OO: instanciace, přiřazení, (polymorfní) invokace metody
+    - Často jiná syntaxe a sémantika oproti základním typům
 
 ![Klasifikace](./Images/40/Klasifikace_OOJ.png)
 
