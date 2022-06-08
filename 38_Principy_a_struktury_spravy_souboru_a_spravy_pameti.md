@@ -5,6 +5,16 @@
   - [sprava souboru](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-04.pdf%26cid%3D13332)
   - [správa paměti](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-07.pdf%26cid%3D13332)
 
+# DISK
+
+## Sektor disku 
+- Jeho nejmenší adresovatelná jednotka (má pevnou délku).
+
+## Alokační blok 
+- \(2^n\) sektorů 
+- Nejmenší jednotka diskového prostoru, se kterou dovoluje OS pracovat.
+
+
 ## Adresace sektorů na disku 
 - Cylindr-Hlava-Sektor (CHS) 
   - Adresace pomocí čísla válce (C), hlavy (H) a sektoru (S). 
@@ -54,14 +64,6 @@
 
     ![Parita](./Images/38/parita.png)
 
-# DISK
-
-## Sektor disku 
-- Jeho nejmenší adresovatelná jednotka (má pevnou délku).
-
-## Alokační blok 
-- 2n sektorů 
-- Nejmenší jednotka diskového prostoru, se kterou dovoluje OS pracovat.
 
 ## Fragmentace 
 - Data jsou uložena nesouvisle po částech.
@@ -222,6 +224,7 @@
     3. Zmenší počítadlo v i-uzlu.
     4. Pokud počet jmen klesne na nulu a Inode nikdo nepoužívá, je Inode a bloky souboru uvolněn. Jinak je toto odloženo do okamžiku zavření souboru.
 
+# Hlavní pamět
 ## Logický adresový prostor (LAP)
 - Virtuální adresový prostor, se kterým pracuje procesor při provádění kódu (každé jádro a proces má svůj vlastní).
 
@@ -279,8 +282,8 @@
 5. Opakování instrukce, která výpadek způsobila.
 
 ## Odkládání stránek
-Lokální - V rámci procesu, kde k výpadku došlo.
-Globální - Bez ohledu na to kterému procesu stránka patří.
+- **Lokální** - V rámci procesu, kde k výpadku došlo.
+- **Globální** - Bez ohledu na to kterému procesu stránka patří.
 
 ## Algoritmy výběru stránky pro odložení
 - FIFO 
