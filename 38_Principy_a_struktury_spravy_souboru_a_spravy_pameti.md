@@ -1,6 +1,9 @@
 # Principy a struktury správy souborů a správy paměti
 - Otázky:
 - Předmět: IOS
+- prezentace:
+  - [sprava souboru](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-04.pdf%26cid%3D13332)
+  - [správa paměti](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-07.pdf%26cid%3D13332)
 
 ## Adresace sektorů na disku 
 - Cylindr-Hlava-Sektor (CHS) 

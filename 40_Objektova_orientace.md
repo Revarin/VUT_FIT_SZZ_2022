@@ -1,7 +1,9 @@
 # Objektová orientace
 - Otázky: základní koncepty, třídně a prototypově orientované jazyky, OO přístup k tvorbě SW
 - Předmět: IPP
-
+- prezentace:
+  - [Principy objektově orientovaného programování](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIPP-IT%2Flectures%2F2020-21%2F02-04_IPP_OOJ-Krivka.pdf%26cid%3D14009)
+  - [Návrhové vzory](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIPP-IT%2Flectures%2F2020-21%2F11-IPP_Navrhove_vzory-Krivka.pdf%26cid%3D14009)
 ## Objektově orientované programování 
 - Speciální programovací paradigma, kde je kód přidružen k datům. 
 - Snaží se o napodobování objektů reálného světa. 

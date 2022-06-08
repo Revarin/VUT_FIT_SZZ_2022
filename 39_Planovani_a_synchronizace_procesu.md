@@ -1,6 +1,9 @@
 # Plánování a synchronizace procesů
 - Otázky: transakce
 - Předmět: IOS
+- prezentace:
+  - [správa procesů](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-05.pdf%26cid%3D13332)
+  - [synchronizace procesů](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file%3D%2Fcourse%2FIOS-IT%2Flectures%2Fios-prednaska-06.pdf%26cid%3D13332)
 
 ## Plánovač 
 - Přiděluje procesor procesům.
