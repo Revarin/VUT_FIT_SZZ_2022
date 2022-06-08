@@ -67,9 +67,6 @@
 - Popis paměťových regionů procesu 
   - Spojitá oblast virtuální paměti použitá pro data, kód, zásobník, sdílenou paměť, tabulku stránek…
 
-### Zásobník jádra 
-- Využívan za běhu služeb jádra pro daný proces.
-
 ### Kontext procesu (v UNIXu)
 - Uživatelský kontext - kód, data…
 - Registrový kontext
@@ -79,7 +76,7 @@
 ![Systémová volání](./Images/39/sys_call.png)
 
 ### Hierarchie procesů 
-- Předkem všech skoro procesu je proces init (PID=1).
+- Předkem skoro všech procesu je proces init (PID=1).
 - Pokud procesu skončí předek, jeho předkem se stane init.
 ### Přepnutí kontextu procesu 
 - Dochází k němu, když OS sebere procesu procesor aby ho mohl využít jiný proces. 
@@ -264,7 +261,7 @@
     ![Detekce uváznutí](./Images/39/detekce_uvaznuti.png)
 
 **Fromální verifikace**
-- V jednoduchých případech je možné provést formální verifikaci, že nemůže v systému dojít k nežádoucímu chování (toto je možné také provést inspekcí, simulací, testováním,dynamickou analýzou, formální verifikacea nebo kombinací přístupů). 
+- V jednoduchých případech je možné provést formální verifikaci, že nemůže v systému dojít k nežádoucímu chování (toto je možné také provést inspekcí, simulací, testováním,dynamickou analýzou, formální verifikace nebo kombinací přístupů). 
 - Proces formální verifikace
     1. Vytvoření modelu
     2. Specifikace vlastnosti, kterou chceme ověřit (že nedojde k deadlocku např.)
