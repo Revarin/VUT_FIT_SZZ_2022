@@ -146,9 +146,9 @@ idiv src - se znaménkem
 ```
 
 Pro různé velikosti operandu src se tedy provede:
-- Pro 8 bitový operand: AL = AX / src AL = AX % src
-- Pro 16 bitový operand: AX = AX:DX / src DX = AX:DX / src
-- Pro 32 bitový operand: EAX = EAX:EDX / src EDX = EAX:EDX / src
+- Pro 8 bitový operand: AH = AX / src AL = AX % src
+- Pro 16 bitový operand: AX = AX:DX / src DX = AX:DX % src
+- Pro 32 bitový operand: EAX = EAX:EDX / src EDX = EAX:EDX % src
 
 ### Posuvy a rotace
 
