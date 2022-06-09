@@ -3,6 +3,10 @@
 - Předmět: IPK
 - zdroje:
   - https://docs.google.com/document/d/1WR3wW3GcCOX9s6LquO9XYOiVyecESQTzWOPF95uKnA0/edit#heading=h.fwrc9warf824
+- prezentace:
+  - [IPv4](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIPK-IT%2Flectures%2FIPK2021-04-IPv4.pdf&cid=14005)
+  - [IPv6](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIPK-IT%2Flectures%2FIPK2021-06-IPv6.pdf&cid=14005)
+  - [Transportni vrstva](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIPK-IT%2Flectures%2FIPK2021-03-TRANSPORT.pdf&cid=14005)
 
 ## TCP/IP model
 ![TCP IP model](./Images/43/TCP_IP_model.png)

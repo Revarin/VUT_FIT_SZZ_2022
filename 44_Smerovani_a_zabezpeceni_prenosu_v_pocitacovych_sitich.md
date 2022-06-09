@@ -3,6 +3,9 @@
 - Předmět: IPK, ISA
 - zdroje:
   - https://docs.google.com/document/d/1WR3wW3GcCOX9s6LquO9XYOiVyecESQTzWOPF95uKnA0/edit#heading=h.fwrc9warf824
+- prezentace:
+  - [Smerovani - IPK](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FIPK-IT%2Flectures%2FIPK2021-07-SMEROVANI.pptx.pdf&cid=14005)
+  - [Zabezpeceni - ISA](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-zabezpeceni.pdf&cid=14699)
 
 ## Směrování
 

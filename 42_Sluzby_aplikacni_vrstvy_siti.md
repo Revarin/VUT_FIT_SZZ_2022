@@ -3,6 +3,12 @@
 - Předmět: ISA
   - https://docs.google.com/document/d/1WR3wW3GcCOX9s6LquO9XYOiVyecESQTzWOPF95uKnA0/edit#heading=h.fwrc9warf824
 
+- prezentace:
+  - [DNS](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-dns.pdf&cid=14699)
+  - [Email](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-mail.pdf&cid=14699)
+  - [IP telefonie](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-voip.pdf&cid=14699)
+  - [SNMP](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-sprava.pdf&cid=14699)
+  - [Netflow](https://wis.fit.vutbr.cz/FIT/st/cfs.php.cs?file=%2Fcourse%2FISA-IT%2Flectures%2Fisa-netflow.pdf&cid=14699)
 ## Aplikační vrstva
 - Nejvyšší (nejvíce abstraktní) vrstva IP a OSI modelu. 
 - Specifikuje komunikační protokol mezi sítí a aplikací (uživatelem). Např. SNMP, POP, CoaP, Whois, SSH…
