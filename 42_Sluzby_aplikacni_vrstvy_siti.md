@@ -104,7 +104,7 @@
 - Hlavním úkolem je převod doménových jmen a IP adres uzlů sítě - Distribuovaná databáze síťových informací. 
 - Protokol pracuje na TCP i UDP (port 53). 
 - Registraci a správu domén provádí organizace ICANN, která na top level správu pověřuje další organizace. 
-- Top level domény jsou rozděleny na generické (.com, .org…) a nárovní (.cz, .us, .fr…).
+- Top level domény jsou rozděleny na generické (.com, .org…) a národní (.cz, .us, .fr…).
 
 ## Prostor doménových adres 
 - Tvoří hierarchicky uspořádaný strom. 
@@ -157,14 +157,15 @@
 - Typ záznamu 
   - SOA (Start Of Authority) - Obsahuje název primárního serveru a emailovou adresu správce, sériové číslo, refresh, retry, expire,
   - NS (Name Server) - Určuje autoritativní server pro danou zónu.
-  - A (Address) - Přímé mapování doménových adres na IP adresy.
+  - A (Address) - Přímé mapování doménových adres na IPv4 adresy.
+  - AAAA, ip.arpa - A záznam pro IPv6.
   - MX (Mail Exchanger) - Poštovní server (lze jich mít i více). 
   - CNAME (Canonical Name) - Mapování aliasu na kanonické jméno počítače.
   - PTR (Domain Name Pointer) - Mapuje IP adresu na doménovou adresu (reverzní mapování).
   - NAPTR (Naming Authority Pointer) - Mapování retezce pro data. Použití regulárních výrazů pro dynamické záznamy v DNS.
   - TXT (Text) - Obsahuje textová data (info o doméně, serveru, správci…).
   - SRV (Server Selection) - Lokalizace služeb a serveru, distribuce zátěže či zálohování služeb.
-  - AAAA, ip.arpa - A záznam pro IPv6.
+
 - Class
 - TTL (Time To Live)
 - RDLENGTH
@@ -177,7 +178,7 @@
 ## Zabezpečení DNS 
 - jedná se o veřejnou službu, která je nezbytná pro komunikaci na internetu. 
 - V případě porušení integrity dat nebo autentizace zdroje by mohlo docházet k problému a to i nebezpečným (internetové bankovnictví by někdo přesměroval na svůj falešný server…).
-- 
+ 
 ### DNSSEC 
 - Zabezpečení DNS pomocí asymetrické kryptografie. 
 - Využívá řetězu důvěryhodnosti, zvětšuje velikost packetu a náročnost zpracování).
@@ -229,8 +230,7 @@ Připojení do klasického telefonního systému JTS (PSTN) - Pomocí bran.
 - #### H.225 
   - Signalizace volání během hovoru a jeho započatí a ukončení.
 - #### H.245 
-  - Pro vyjednání parametrů mezi volajícímu. Spojení existuje celou dobu.
-- #### RTP
+  - Pro vyjednání parametrů mezi volajícími. Spojení existuje celou dobu.
 
 ### Pro přenos dat 
 - Nejde již přes ústřednu. 
@@ -239,12 +239,9 @@ Připojení do klasického telefonního systému JTS (PSTN) - Pomocí bran.
 - #### RTP (Real Time Transport Protocol) 
   - Pracuje nad UDP. A přenáší data.
 - #### RTCP (RTP Control Protocol) 
-  - Monitoruje a kontroluje informací pro RTP - sám o sobě nepřenáší data (to dělá RTP a tomu pomáhá). 
+  - Monitoruje a kontroluje informace pro RTP - sám o sobě nepřenáší data (to dělá RTP a tomu pomáhá). 
   - Sleduje počet přenesených a ztracených packetů, zpoždění, kolísání rychlostí...
 
-### ENUM 
-- Mapuje čísla na IP. 
-- Využívá speciální DNS záznamy pro překlad telefonního čísla na IP.
 
 ## Základní komponenty pro IP telefonii
 - **IP telefon** - Koncové zařízení. SW nebo HW.
@@ -305,7 +302,7 @@ Připojení do klasického telefonního systému JTS (PSTN) - Pomocí bran.
 
 ![Model pro sparavu site](./Images/42/SNMP_model_pro_spravu_site.png)
 
-**Organizační model **
+**Organizační model**
 - Manager (NMS - Network Management System) 
   - Aplikace, která běží na centrálním serveru sítě. 
   - Sbírá data od agentů pomocí SNMP(aktivně). 
