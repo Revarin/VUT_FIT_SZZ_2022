@@ -1,5 +1,5 @@
 # Témata SZZ VUT FIT 2022
-Sepsaná témata pro státní závěrečnou zkoušku VUT FIT 2022.
+Sepsaná témata pro státní závěrečnou zkoušku VUT FIT 2022. Neručí se za správnost a úplnost obsažených informací.
 
 ## Zdroje
 - [Stará wiki obsahující jednotlivá témata](http://szz.g6.cz/doku.php?id=main)
